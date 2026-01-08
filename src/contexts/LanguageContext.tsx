@@ -1,0 +1,1324 @@
+import { createContext, useContext, useState, ReactNode } from 'react';
+
+type Language = 'ko' | 'en';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const translations = {
+  ko: {
+    // Navigation
+    'nav.home': 'HOME',
+    'nav.about': '회사소개',
+    'nav.business': '사업영역',
+    'nav.values': '핵심가치',
+    'nav.news': '알림마당',
+    'nav.careers': '인재영입',
+    'nav.contact': '고객센터',
+    
+    // Sub-menu items
+    'nav.about.intro': '기업소개',
+    'nav.about.ceo': 'CEO인사말',
+    'nav.about.philosophy': '기업이념',
+    'nav.about.history': '발자취',
+    'nav.about.organization': '조직도',
+    'nav.business.food': '식자재가공·유통',
+    'nav.business.franchise': '프랜차이즈',
+    'nav.business.fm': 'FM/아웃소싱',
+    'nav.news.notice': '공지사항',
+    'nav.news.company': '회사소식',
+    'nav.careers.jobs': '채용공고',
+    'nav.careers.culture': '기업문화',
+    'nav.careers.process': '채용절차',
+    'nav.contact.inquiry': '온라인문의',
+    'nav.contact.location': '오시는길',
+    'nav.contact.departments': '부서안내',
+    
+    // Hero Section
+'hero.title1': '식탁에서 시설까지',
+'hero.title2': '일상의 가치를 더하다',
+    
+    // Company Intro Main Title
+'companyintro.main.title': '식자재 유통에서 시설 관리까지 토탈솔루션 제공',
+    
+    // CEO Message Page Translation
+'ceo.title': 'CEO 인사말',
+'ceo.subtitle': '나눔과 동반성장을 추구하는 종합 서비스 기업',
+    'ceo.headline': '나눔과 동반성장을 추구하는 종합 서비스 기업',
+    'ceo.message.para1': '모멘텀파운데이션은 2024년 7월 회사 설립 이래, 끔임없는 도전과 혁신을 통해 오늘날 식자재 유통, 프랜차이즈, 시설 관리까지 사업 영역을 확장하며 종합 서비스 기업으로 성장해왔습니다.',
+    'ceo.message.para2': '저희의 성장 과정에는 "나눔을 통한 성장"이라는 확고한 기업 철학이 자리하고 있습니다. 단순히 이익을 추구하는 경영 활동을 넘어, 지역 복지 증진과 이웃사랑을 실천하는 사회공헌 활동을 지속해왔습니다. 기업의 성공은 지역사회와 함께할 때 비로소 완성된다는 믿음으로, 우리가 속한 공동체와 상생하며 지속 가능한 발전을 추구해왔습니다.',
+'ceo.message.para3': '이제 모멘텀파운데이션은 새로운 도약을 준비하고 있습니다. 그동안 쌓아온 식자재 유통의 전문성을 기반으로 외식 문화의 혁신을 이끌고, 나아가 기업 고객들의 운영 효율성까지 책임지는 토털 솔루션 파트너로 자리매김하고자 합니다. 각 사업 분야에서 축적한 노하우와 시너지를 통해 고객 여러분께 더 큰 가치를 전달하겠습니다.',
+    'ceo.message.para4': '모멘텀파운데이션의 모든 구성원은 고객에 대한 진심 어린 마음으로 최선을 다하고 있습니다. 우리의 열정과 전문성이 고객 여러분의 일상에 긍정적인 변화를 만들어낼 수 있도록 항상 노력하겠습니다.',
+    'ceo.closing': '감사합니다.',
+    'ceo.company': '모멘텀파운데이션(주)',
+    'ceo.ceo1': '대표이사 소민지',
+'ceo.ceo2': '대표이사 이병준',
+    
+    // Philosophy Page Translation
+    'philosophy.subtitle': '기업 이념 체계',
+    'philosophy.title1': '기업 이념 체계',
+    'philosophy.desc1': '모멘텀파운데이션의 경영 철학과 가치 체계를 통해 지속가능한 성장을 추구합니다',
+    'philosophy.title2': '핵심가치 상세',
+'philosophy.desc2': '모멘텀파운데이션이 추구하는 네 가지 핵심가치입니다',
+    
+    // Philosophy Values Content
+    'philosophy.mission.title': '미션',
+    'philosophy.mission.subtitle': 'Mission',
+    'philosophy.mission.desc': '고객의 건강한 식탁을 책임지며,\n신뢰할 수 있는 프리미엄 식자재를\n공급하여 삶의 질 향상에 기여합니다.',
+    'philosophy.values.title': '핵심가치',
+    'philosophy.values.subtitle': 'Core Values',
+    'philosophy.values.desc': '신뢰성, 전문성, 혁신성, 책임감을\n바탕으로 고객과 사회에 가치를 제공하며\n지속가능한 성장을 추구합니다.',
+    'philosophy.vision.title': '비전',
+    'philosophy.vision.subtitle': 'Vision',
+    'philosophy.vision.desc': '대한민국을 대표하는 프리미엄 식자재\n유통 전문기업으로 성장하여 글로벌 시장에서\n인정받는 기업이 되겠습니다.',
+    
+    // Core Values Details
+    'philosophy.core.happiness.title': '고객 행복',
+    'philosophy.core.happiness.desc': '제품/서비스를 넘어 고객에게 행복한 경험과 정서적 만족 제공',
+    'philosophy.core.sharing.title': '나눔 상생',
+    'philosophy.core.sharing.desc': '대가 없는 나눔 실천과 협력사/지역사회와 함께 동반 성장',
+    'philosophy.core.contribution.title': '사회 기여',
+    'philosophy.core.contribution.desc': '기업 자원과 활동으로 사회 문제 해결에 동참 (공동체 발전에 기여)',
+    'philosophy.core.future.title': '미래 가치',
+'philosophy.core.future.desc': 'ESG 경영 등 미래의 잠재적 가치 도모와 지속 가능한 성장 지향',
+    
+    // History Page Translation
+    'history.subtitle': '모멘텀파운데이션의 성장 과정',
+    'history.title': '모멘텀파운데이션의 성장 과정',
+'history.desc': '지속적인 혁신과 성장을 통해 발전해온 우리의 여정입니다',
+    
+    // History Timeline Items
+    'history.2025.title': '프랜차이즈 진출 및 사업 다각화',
+    'history.2025.12.title': 'FM/아웃소싱 사업 개시',
+    'history.2025.12.desc': '빌딩 종합 관리 서비스 사업 시작',
+    'history.2025.11.title': '청년축산 가맹 1호점 오픈',
+    'history.2025.11.desc': '프랜차이즈 브랜드 본격 전개 시작',
+    'history.2025.10a.title': '종합소매업(마트) 진출',
+    'history.2025.10a.desc': '리테일 사업 영역 확장',
+    'history.2025.10b.title': '청년축산 직영 1~4호점 동시 오픈',
+    'history.2025.10b.desc': '직영점 네트워크 구축 완료',
+    'history.2025.10c.title': '프랜차이즈 브랜드 청년축산 론칭',
+    'history.2025.10c.desc': '자체 브랜드 개발 및 론칭',
+    'history.2025.09.title': '축산물 가공업 진출',
+    'history.2025.09.desc': '축산물 가공 사업 영역 확장',
+    'history.2025.05.title': '수산물 유통 사업 개시',
+    'history.2025.05.desc': '수산물 유통 사업 시작',
+    'history.2024.title': '도전의 시작',
+    'history.2024.11.title': '청과 유통 사업 진출',
+    'history.2024.11.desc': '신선 청과 유통 사업 시작',
+    'history.2024.08.title': '육류 유통 사업 개시',
+    'history.2024.08.desc': '프리미엄 육류 유통 사업 시작',
+    'history.2024.07.title': '회사 설립',
+'history.2024.07.desc': '모멘텀파운데이션(주) 공식 설립',
+    
+    // Business Page Translation
+    'business.viewMore': '자세히 보기',
+    'business.area1.title': '프리미엄 신선 식자재 가공·유통',
+    'business.area1.desc': '신선하고 안전한 농축수산물의 전문 가공 및 유통',
+    'business.area1.feature1': '한우·한돈 가공/유통_더담우',
+    'business.area1.feature2': '과일유통_청년나래',
+'business.area1.feature3': '브랜드쌌 및 곱물류 전문 유통',
+    'business.area1.feature4': 'HACCP 인증 시설 완비',
+    'business.area2.title': '프랜차이즈의 정석 \'청년축산\'',
+    'business.area2.desc': '고기에 진심인 청년들의 정직한 혁신!',
+    'business.area2.feature1': '정육 식당 모델 혁신',
+    'business.area2.feature2': '압도적 가성비 실현',
+    'business.area2.feature3': '체계적인 창업 지원',
+    'business.area2.feature4': '전국 네트워크 확장',
+    'business.area3.title': 'FM/아웃소싱 전문 서비스',
+    'business.area3.desc': '빌딩 종합 관리와 전문 아웃소싱 서비스',
+'business.area3.feature1': '경비용역 위탁 관리',
+    'business.area3.feature2': '빌딩 종합 관리(FM)',
+    'business.area3.feature3': '전문 파트너사 연계',
+'business.area3.feature4': '통합 관리 시스템',
+    
+    // Business Strengths Section
+    'business.strengths.title': '모멘텀파운데이션의 강점',
+    'business.strengths.subtitle': '각 사업 분야의 시너지를 통한 토털 솔루션 제공',
+    'business.strengths.expertise.title': '전문성',
+    'business.strengths.expertise.desc': '각 분야별 축적된 전문 지식과 노하우',
+    'business.strengths.efficiency.title': '효율성',
+    'business.strengths.efficiency.desc': '통합 관리 시스템을 통한\n운영 효율 극대화',
+    'business.strengths.reliability.title': '신뢰성',
+    'business.strengths.reliability.desc': '검증된 파트너사와의\n안정적인 협력 관계',
+    'business.strengths.innovation.title': '혁신성',
+'business.strengths.innovation.desc': '지속적인 혁신을 통한 고객 가치 창출',
+    
+    // Food Business Page Translation
+    'food.subtitle': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
+    'food.headline': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
+    'food.meat.title': '한우·한돈 가공 및 유통',
+    'food.meat.desc': '국내 최고급 한우와 한돈을 엄선하여 신선하고 안전한 육류를 공급합니다. HACCP 인증 시설을 갖춘 계열사 \'더담우\'를 통해 안전하고 청결하게 가공되며, 완벽한 콜드체인 시스템으로 최상의 품질을 보장합니다.',
+    'food.fruit.title': '과일 유통의 신흥강자_청년나래',
+    'food.fruit.desc': '전국 각지의 우수한 농가와 직접 계약하여 가장 신선하고 맛있는 제철 과일을 공급합니다. 까다로운 선별 기준을 통과한 고품질 과일만을 취급하며, 수확 후 최단 시간 내 고객에게 전달하는 시스템을 운영합니다.',
+'food.rice.title': '고품질 브랜드쌀 및 곡물 전문유통',
+'food.rice.desc': '전국 최고의 쌀 생산지에서 엄선된 브랜드 쌀과 다양한 곡물류를 전문적으로 유통합니다. 최신 RPC 도정 시스템을 통해 신선하게 가공된 안전하고 신뢰할 수 있는 곡물을 제공합니다.',
+    
+    // Food Business Features Translation
+    'food.meat.feature1.title': '프리미엄 국내산 육류 취급',
+    'food.meat.feature1.desc': '엄선된 국내 최고급 한우와 한돈 공급',
+    'food.meat.feature2.title': '철저한 품질 관리',
+    'food.meat.feature2.desc': 'HACCP 인증 시설에서 안전하게 관리되는 육류',
+    'food.meat.feature3.title': '콜드체인 시스템',
+    'food.meat.feature3.desc': '신선도 유지를 위한 완벽한 냉장 유통 시스템',
+    
+    'food.fruit.feature1.title': '신선한 계절 과일',
+    'food.fruit.feature1.desc': '제철 과일을 엄선하여 최상의 신선도로 공급',
+    'food.fruit.feature2.title': '프리미엄 품질',
+    'food.fruit.feature2.desc': '까다로운 선별 기준을 통과한 고품질 과일만 취급',
+    'food.fruit.feature3.title': '신속한 배송',
+    'food.fruit.feature3.desc': '수확 후 최단 시간 내 고객에게 전달하는 시스템',
+    
+'food.rice.feature1.title': '브랜드 쌀 및 곡물류의 전문 유통',
+    'food.rice.feature1.desc': '엄선된 브랜드 쌀과 다양한 곡물류 전문 유통',
+'food.rice.feature2.title': 'RPC 도정 시스템 활용한 신선한 쌀',
+    'food.rice.feature2.desc': '최신 도정 기술로 가공된 신선하고 맛있는 쌀 제공',
+    'food.rice.feature3.title': '품질 보증',
+'food.rice.feature3.desc': '철저한 품질 관리를 통한 안전하고 신뢰할 수 있는 곡물 유통',
+    
+    'food.products.fruit': '과일 제품',
+    'food.products.rice': '쌌 제품',
+    'hero.subtitle': '모멘텀파운데이션은 프리미엄 식자재 유통부터 혁신적인 프랜차이즈, 전문적인 FM/아웃소싱 서비스까지 다양한 분야에서 새로운 가치를 창출합니다.',
+    'hero.btn1': '회사 소개',
+    'hero.btn2': '사업 영역 보기',
+    
+    // About Section
+    'about.title': '모멘텀파운데이션을 소개합니다',
+    'about.subtitle': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'about.vision.title': '우리의 비전',
+    'about.vision.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
+    'about.vision.item1': '지속 가능한 성장',
+    'about.vision.item2': '고객 중심의 혁신',
+    'about.vision.item3': '사회적 책임 경영',
+    'about.stats.title': '2024년 설립 이후',
+    'about.stats.business': '사업 영역',
+    'about.stats.satisfaction': '고객 만족',
+    'about.stats.service': '서비스 지원',
+    'about.stats.growth': '성장 가능성',
+    
+    // Franchise Business Translation
+    'franchise.subtitle': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공',
+    'franchise.headline': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공',
+    'franchise.brand.title': '청년축산',
+    'franchise.brand.subtitle': '– 고기에 진심인 청년들의 정직한 혁신',
+'franchise.brand.desc': '청년축산은 기존 유통 구조의 비효율성을 개선하여 1인분 가격에 3인분을 드실 수 있는 파격적인 가성비를 실현합니다. 본사의 육류 유통 사업 역량을 활용해 중간 마진을 최소화하고, 그 이득을 고객에게 돌려드립니다.',
+    'franchise.brand.slogan': '고기로 마음껏 배 채우고, 행복까지 만끽하는 곳!',
+    'franchise.model.title': '정육 식당 모델 혁신',
+    'franchise.model.desc': '청년축산은 정육점과 식당이 결합된 ‘정육 식당’ 모델을 채택합니다. 고객이 매장 내 정육점에서 원하는 고기를 직접 확인하고 구매하여 바로 구워 먹을 수 있어 시각적 신뢰와 만족도를 동시에 제공합니다.',
+    'franchise.startup.title': '창업 안내 - 성공을 꿈꾸는 당신의 든든한 파트너',
+    'franchise.competitive.title': '청년축산만의 경쟁력',
+    'franchise.competitive.desc': '본사의 강력한 유통망을 바탕으로 안정적이고 저렴한 원육 공급이 가능하며, 이는 가맹점의 안정적인 마진 확보로 이어집니다. 다수의 직영점 및 가맹점에서 이미 검증된 사업 모델을 제공하며, 정육 경험이 없는 예비 창업자도 본사의 체계적인 교육을 통해 쉽게 창업하고 운영할 수 있습니다.',
+    'franchise.process.title': '창업 절차',
+    'franchise.step1': '1단계',
+    'franchise.step1.desc': '정보 수집 및\
+가맹 상담',
+    'franchise.step2': '2단계',
+    'franchise.step2.desc': '점포 개발 및\
+상권 분석',
+    'franchise.step3': '3단계',
+    'franchise.step3.desc': '가맹 계약\
+체결',
+    'franchise.step4': '4단계',
+    'franchise.step4.desc': '인테리어 시공\
+및 오픈 준비',
+    'franchise.step5': '5단계',
+    'franchise.step5.desc': '본사 교육\
+이수',
+    'franchise.step6': '6단계',
+    'franchise.step6.desc': '매장 오픈 및\
+사후 관리',
+    'franchise.closing.desc': '청년축산은 단순한 가맹 사업이 아닌, 파트너와 함께 성장하는 동반자 관계를 추구합니다. 본사의 지속적인 지원과 가맹점주의\
+열정이 만나 상호 발전하는 건강한 프랜차이즈 생태계를 구축하고 있습니다.',
+    'franchise.closing.title': '가맹점과 동반 성장',
+    
+    // Franchise Advantages Translation
+    'franchise.advantage1.title': '정육 식당 모델 혁신',
+    'franchise.advantage1.desc': '정육점과 식당이 결합된 혁신적 모델',
+    'franchise.advantage2.title': '압도적 가성비 실현',
+    'franchise.advantage2.desc': '1인분 가격에 3인분을 드실 수 있는\n파격적 가성비',
+    'franchise.advantage3.title': '체계적인 창업 지원',
+    'franchise.advantage3.desc': '오픈 초기 집중 마케팅, 정기 운영 컸설팅, 안정적 물류 시스템',
+    'franchise.advantage4.title': '가맹점과 동반 성장',
+'franchise.advantage4.desc': '파트너와 함께 성장하는 건강한\n프랜차이즈 생태계 구축',
+    
+    // FM/Outsourcing Business Translation
+    'fm.headline': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감',
+    'fm.partner.title': '전문 파트너사 연계 서비스',
+    'fm.partner.desc': '각 분야별 검증된 전문 업체를 선별하고 관리하여, 고객사의 요구에 맞는 최적의 아웃소싱 솔루션을 제공합니다. 모멘텀파운데이션은 파트너사 선정부터 품질 관리까지 전 과정을 책임지며 안정적인 서비스를 보장합니다.',
+    'fm.security.title': '경비용역 위탁 관리',
+    'fm.security.desc': '전문 경비 업체와의 협력을 통해 고객 자산 보호와 시설 안전을 확보합니다. 검증된 경비 업체를 선정하고 관리하여 빈틈없는 보안 서비스를 제공합니다.',
+    'fm.building.title': '빌딩 종합 관리(FM) 위탁',
+'fm.building.desc': '시설 관리 전문 업체와의 파트너십을 통해 빌딩 및 시설물의 가치를 유지하고, 입주자와 이용객에게\n쾌적한 환경을 제공합니다.',
+    
+    // FM Partner Features
+    'fm.partner.feature1.title': '맞춤형 솔루션 제공',
+    'fm.partner.feature1.desc': '고객사의 특성과 요구에 맞는\n최적의 전문 업체 매칭',
+    'fm.partner.feature2.title': '통합 관리 시스템',
+    'fm.partner.feature2.desc': '다수의 파트너사를 체계적으로 관리하는\n원스톱 서비스',
+    'fm.partner.feature3.title': '품질 보증',
+'fm.partner.feature3.desc': '지속적인 모니터링과 평가를 통한\n서비스 품질 유지',
+    
+    // FM Security Features
+    'fm.security.feature1.title': '전문 경비 업체 선정',
+    'fm.security.feature1.desc': '신뢰할 수 있는 경비 전문 업체 연계',
+    'fm.security.feature2.title': '통합 보안 관리',
+    'fm.security.feature2.desc': '출입 통제, 순찰, CCTV 모니터링 등\n종합 보안 서비스 위탁',
+    'fm.security.feature3.title': '비상 대응 체계',
+    'fm.security.feature3.desc': '화재, 침입 등 긴급 상황\n대응 시스템 구축',
+    'fm.security.feature4.title': '품질 모니터링',
+    'fm.security.feature4.desc': '정기적인 점검을 통한\n경비 서비스 품질 관리',
+    
+    // FM Building Features
+    'fm.building.feature1.title': 'FM 전문 업체 연계',
+    'fm.building.feature1.desc': '건축, 기계, 전기, 소방 등 각 분야별\n전문 업체 선정 및 관리',
+    'fm.building.feature2.title': '통합 시설 관리',
+    'fm.building.feature2.desc': '예방 점검, 유지 보수, 에너지 관리 등\n종합 FM 서비스 위탁',
+    'fm.building.feature3.title': '미화/환경 관리',
+    'fm.building.feature3.desc': '청소 전문 업체를 통한 건물 내외부\n청결 유지 및 위생 관리',
+    'fm.building.feature4.title': '부대 서비스',
+    'fm.building.feature4.desc': '주차 관리, 안내 데스크 등 시설 운영\n전반의 아웃소싱 솔루션 제공',
+    
+    // FM Service Areas
+    'fm.areas.title': 'FM/아웃소싱 서비스 영역',
+    'fm.areas.security.title': '보안 서비스',
+    'fm.areas.security.desc': '경비, 출입통제, CCTV 관제',
+    'fm.areas.facility.title': '시설 관리',
+    'fm.areas.facility.desc': '건축, 기계, 전기, 소방 관리',
+    'fm.areas.environment.title': '환경 관리',
+    'fm.areas.environment.desc': '청소, 미화, 위생 관리',
+    
+    // Franchise Features Translation
+    'franchise.feature1.title': '품질 최우선',
+    'franchise.feature1.desc': '엄선된 한우와 한돈만을 취급하며 신선함 보장',
+    'franchise.feature2.title': '압도적 가격 경쟁력',
+    'franchise.feature2.desc': '유통 혁신을 통한 합리적인 가격 실현',
+    'franchise.feature3.title': '특별한 고객 경험',
+'franchise.feature3.desc': '누구나 편안하고 즐겁게 식사할 수 있는 배부른 공간',
+    
+    // Franchise Restaurant Features
+    'franchise.restaurant.feature1.title': '젊고 세련된 공간',
+    'franchise.restaurant.feature1.desc': '청록색 브랜드 컴러를 활용한\n모던하고 쾌적한 인테리어',
+    'franchise.restaurant.feature2.title': '셀프바 운영',
+    'franchise.restaurant.feature2.desc': '자유롭게 반찬을 추가할 수 있는\n시스템으로 고객 만족도 향상',
+    'franchise.restaurant.feature3.title': '시그니처 메뉴',
+'franchise.restaurant.feature3.desc': '‘큰돼지한판’, ‘큰소한판’ 등\n가성비와 구성이 뛰어난 세트 메뉴',
+    
+    // Careers Page Translation
+    'careers.headline': '우리의 비전을 함께 이뤄갈 당신을 기다립니다',
+'careers.description': '모멘텀파운데이션은 ‘나눔을 통한 동반 성장’이라는 기업 이념과 ‘고객 행복’ ‘나눔 상생’ ‘사회 기여’ ‘미래 가치’라는 핵심 가치 아래 끝임없이 도전하고 혁신하는 기업입니다. 우리는 뛰어난 동료들과 함께 성장하는 즐거움을 가장 중요한 가치로 여깁니다. 모멘텀파운데이션에서 당신의 잠재력을 마음껏 펼치고, 의미 있는 변화를 만들어갈 인재를 모십니다.',
+    'careers.culture.title': '우리의 기업문화',
+    'careers.culture.desc': '모멘텀파운데이션이 추구하는 기업문화입니다',
+    'careers.jobs.title': '채용 정보',
+    'careers.jobs.desc': '모멘텀파운데이션의 채용 관련 정보를 확인하세요',
+    
+    // Company Values
+    'careers.values.communication.title': '소통과 협력',
+    'careers.values.communication.desc': '열린 소통을 바탕으로 한 수평적 조직문화에서\n모든 구성원이 자유롭게 의견을 나누고 협력합니다.',
+    'careers.values.growth.title': '성장과 도전',
+    'careers.values.growth.desc': '개인의 성장을 지원하고 새로운 도전을\n장려하는 환경에서 함께 발전해 나갑니다.',
+    'careers.values.balance.title': '워크라이프 밸런스',
+'careers.values.balance.desc': '일과 삶의 균형을 중시하며, 직원들의\n행복한 삶을 위해 다양한 제도를 운영합니다.',
+    
+    // Recruitment Cards
+    'careers.recruitment.title': '채용공고',
+    'careers.recruitment.desc': '현재 모집 중인 포지션을 확인하고 지원하세요',
+    'careers.culture.card.title': '기업문화',
+    'careers.culture.card.desc': '우리가 일하며 실천하는 원칙을 알아보세요',
+    'careers.process.title': '채용절차',
+'careers.process.desc': '채용 프로세스와 절차를 확인하세요',
+    
+    // Culture Page Translation
+    'culture.principles.title': '일하는 원칙',
+    'culture.principles.desc': '모멘텀파운데이션이 일을 대하는 기본적인 기준과 태도입니다.',
+    'culture.environment.title': '업무 환경',
+'culture.environment.desc': '모멘텀파운데이션은 소통이 원활한 수평적 조직문화를 지향합니다. 조직 규모의 특성을 살린 빠른 의사결정과\n유연한 업무 방식을 통해 구성원 각자가 회사의 일에 주체적으로 참여할 수 있는 환경을 만들어가고 있습니다.',
+    'culture.growth.title': '성장과 배움',
+'culture.growth.desc': '우리는 개인의 성장이 곳 조직의 성장으로 이어진다고 믿습니다. 업무 수행과 프로젝트 경험을 통해\n실질적인 역량을 쌓고 서로의 성장을 존중하며 함께 발전하는 문화를 지향합니다.',
+    'culture.trust.title': '참여와 신뢰',
+'culture.trust.desc': '모멘텀파운데이션의 조직문화는 일방적으로 정해지기보다 구성원 간의 신뢰와 참여를 통해 만들어집니다.\n의견을 나누고 함께 고민하는 과정 속에서 더 나은 일하는 방식을 만들어갑니다.',
+    
+    // Working Principles
+    'culture.principle1.title': '상호 존중과 배려',
+    'culture.principle1.desc': '서로의 역할과 의견을 존중하며, 신뢰를 바탕으로 한 건강한 조직문화를 만들어갑니다.',
+    'culture.principle2.title': '소통과 협업',
+    'culture.principle2.desc': '열린 소통을 통해 의견을 나누고, 협업을 통해 더 나은 결과를 도출합니다.',
+    'culture.principle3.title': '도전과 혁신',
+'culture.principle3.desc': '기존 방식에 안주하지 않고, 변화와 개선을 위한 시도를 이어갑니다.',
+    
+    // Process Page Translation
+    'process.title': '채용 프로세스',
+    'process.subtitle': '투명하고 공정한 채용 절차를 통해 최적의 인재를 선발합니다',
+    'process.requirements.title': '지원 자격',
+'process.requirements.subtitle': '모멘텀파운데이션이 찾는 인재상입니다',
+    
+    // Process Steps
+    'process.step1.title': '서류 전형',
+    'process.step1.desc': '지원서 접수 및 서류 심사',
+    'process.step2.title': '면접 전형',
+    'process.step2.desc': '1차 실무 면접 및 2차 임원 면접',
+    'process.step3.title': '최종 합격',
+    'process.step3.desc': '최종 합격자 발표 및 입사 안내',
+    'process.step4.title': '입사 및 교육',
+    'process.step4.desc': '신입사원 교육 프로그램',
+    
+    // Requirements
+    'process.req1': '관련 분야 학사 학위 이상',
+    'process.req2': '성실하고 책임감 있는 업무 태도',
+    'process.req3': '원활한 의사소통 능력',
+    'process.req4': '팀워크 및 협업 능력',
+'process.req5': '새로운 도전에 대한 적극적인 자세',
+    
+    // Contact Page Translation
+    'contact.headline': '전문 상담 서비스',
+    'contact.service.title': '전문 상담 서비스',
+    'contact.service.desc': '모멘텀파운데이션의 전문 상담원이 고객님의 문의사항을 친절하고 정확하게 안내해 드립니다',
+    'contact.info.title': '연락처 정보',
+'contact.info.desc': '전화나 이메일로도 언제든지 문의하실 수 있습니다',
+    
+    // Contact Cards
+    'contact.phone.title': '전화 문의',
+    'contact.phone.number': '02-2138-1214',
+    'contact.phone.hours': '평일 09:00 - 18:00',
+    'contact.email.title': '이메일 문의',
+    'contact.email.address': 'info@onemomentum.co.kr',
+    'contact.email.hours': '24시간 접수 가능',
+    'contact.visit.title': '방문 문의',
+    'contact.visit.address': '서울시 송파구 정의로8길 4',
+'contact.visit.note': '사전 예약 필수',
+    
+    // Inquiry Page Translation
+    'inquiry.submit': '문의하기',
+    'inquiry.title': '온라인 문의',
+    'inquiry.subtitle': '문의사항을 작성해 주시면 빠른 시일 내에 답변드립니다',
+    'inquiry.form.name': '성명',
+    'inquiry.form.email': '이메일',
+    'inquiry.form.phone': '연락처',
+    'inquiry.form.company': '회사명',
+    'inquiry.form.type': '문의 유형',
+    'inquiry.form.subject': '제목',
+'inquiry.form.message': '문의 내용',
+    
+    // Form Placeholders and Labels
+    'inquiry.form.name.placeholder': '성명을 입력해주세요',
+    'inquiry.form.email.placeholder': '이메일을 입력해주세요',
+    'inquiry.form.phone.placeholder': '연락처를 입력해주세요',
+    'inquiry.form.company.placeholder': '회사명을 입력해주세요',
+    'inquiry.form.type.placeholder': '문의 유형을 선택해주세요',
+    'inquiry.form.subject.placeholder': '문의 제목을 입력해주세요',
+'inquiry.form.message.placeholder': '문의 내용을 상세히 입력해주세요',
+    
+    // Location Page Translation
+    'location.title': '오시는길',
+    'location.subtitle': '모멘텀파운데이션 본사 위치 및 교통편 안내',
+    'location.office.title': '본사 위치',
+    'location.address.title': '주소',
+    'location.address.detail': '서울시 송파구 정의로8길 4',
+    'location.phone.title': '전화번호',
+    'location.phone.number': '02-2138-1214',
+    'location.email.title': '이메일',
+    'location.email.address': 'info@onemomentum.co.kr',
+    'location.hours.title': '업무시간',
+'location.hours.detail': '평일 09:00 - 18:00 (주말 및 공휴일 휴무)',
+    
+    // Transportation Guide
+    'location.transport.title': '교통편 안내',
+    'location.subway.title': '지하철',
+    'location.subway.line8': '8호선 문정역 1번 출구 도보 5분',
+    'location.subway.line9': '9호선 가락시장역 3번 출구 도보 10분',
+    'location.bus.title': '버스',
+    'location.bus.main': '간선버스',
+    'location.bus.main.numbers': '301, 401, 462',
+    'location.bus.branch': '지선버스',
+    'location.bus.branch.numbers': '3217, 3313, 3314',
+    'location.car.title': '자가용',
+    'location.car.route1': '올림픽대로 → 가락 IC → 송파대로 → 정의로8길',
+    'location.car.route2': '강남순환로 → 문정로 → 정의로8길',
+    'location.car.parking': '건물 지하 주차장 이용 가능',
+    
+    // Departments Page Translation
+    'departments.title': '사업본부 연락처',
+'departments.subtitle': '업무 관련 문의사항은 해당 사업본부로 직접 연락해 주세요',
+    
+    // Department Details
+    'departments.management.name': '경영관리본부',
+    'departments.management.desc': '조직 운영 지원, 재무 관리, 사업 기획',
+    'departments.management.email': 'admin@onemomentum.co.kr',
+    'departments.food.name': '식자재사업본부',
+    'departments.food.desc': '식자재 가공·유통, 품질 관리, 공급망 관리',
+    'departments.food.email': 'food@onemomentum.co.kr',
+    'departments.franchise.name': '프랜차이즈사업본부',
+    'departments.franchise.desc': '청년축산 브랜드 운영, 가맹점 관리, 창업 지원',
+    'departments.franchise.email': 'franchise@onemomentum.co.kr',
+    'departments.fm.name': 'FM/아웃소싱사업본부',
+    'departments.fm.desc': '시설 관리, 경비용역, 아웃소싱 솔루션 제공',
+    'departments.fm.email': 'fm@onemomentum.co.kr',
+'departments.main.contact': '대표 연락처',
+    
+    // News Page Translation
+    'news.title': '알림마당',
+    'news.subtitle': '모멘텀파운데이션의 최신 소식과 공지사항을 확인하세요',
+    'news.notice.tab': '공지사항',
+    'news.company.tab': '회사소식',
+    'news.jobs.tab': '채용공고',
+    'news.view.more': '더보기',
+    'news.views': '조회수',
+
+    'franchise.restaurant.feature4.title': '안전한 식사 환경',
+    'franchise.restaurant.feature4.desc': '철저한 위생 관리와\nHACCP 인증 시설에서의 안전한 식사',
+    
+    // Values Section
+    'values.title': '핵심 가치',
+    'values.subtitle': '모멘텀파운데이션이 추구하는 가치와 원칙입니다',
+    'values.reliability': '신뢰성',
+    'values.reliability.desc': '엄격한 품질 관리와 안전성 보장',
+    'values.expertise': '전문성',
+    'values.expertise.desc': '각 분야별 전문 지식과 노하우 보유',
+    'values.innovation': '혁신성',
+    'values.innovation.desc': '지속적인 기술 개발과 서비스 향상',
+    'values.responsibility': '책임감',
+    'values.responsibility.desc': '고객과 사회에 대한 책임있는 경영',
+    
+    // News Section
+    'news.notice.title': '공지사항',
+    'news.notice.desc': '회사의 중요한 공지사항과 정책 변경 사항을 확인하세요.',
+    'news.company.title': '회사소식',
+    'news.company.desc': '모멘텀파운데이션의 최신 동향과 성과를 확인하세요.',
+    'news.btn': '더 보기',
+    
+    // Contact Section
+    'contact.title': '연락처',
+    'contact.subtitle': '궁금한 점이 있으시면 언제든지 연락주세요',
+    'contact.phone': '전화번호',
+    'contact.phone.time': '평일 09:00-18:00',
+    'contact.email': '이메일',
+    'contact.email.time': '24시간 접수',
+    'contact.address': '주소',
+    'contact.address.detail': '상세 주소는 문의',
+    'contact.btn': '온라인 문의하기',
+    
+    // About Page Content
+    'about.intro.title': '모멘텀파운데이션을 소개합니다',
+    'about.intro.desc': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'about.mission.title': '우리의 미션',
+    'about.mission.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
+    'about.ceo.title': 'CEO 인사말',
+    'about.ceo.message': '모멘텀파운데이션은 단순한 사업을 넘어 고객과 파트너의 성공을 함께 만들어가는 동반자가 되고자 합니다. 건강한 먹거리와 편리한 서비스를 통해 더 나은 미래를 창조하겠습니다.',
+    'about.ceo.name': '대표이사 김영진',
+    
+    // HOME Page Sections
+    'home.about.title': '모멘텀파운데이션을 소개합니다',
+    'home.about.desc': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'home.mission.title': '우리의 비전',
+    'home.mission.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
+    'home.business.title': '주요 사업 영역',
+    'home.business.desc': '다양한 분야에서 혁신적인 서비스를 제공하며 고객의 성공을 함께 만들어갑니다',
+    'home.values.title': '핵심 가치',
+    'home.values.desc': '모멘텀파운데이션이 추구하는 가치와 원칙입니다',
+    
+    // Company Introduction Page
+    'company.intro.title': '기업소개',
+    'company.intro.subtitle': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
+    'company.intro.desc1': '모멘텀파운데이션은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다.',
+    'company.intro.desc2': '설립 이래 모멘텀파운데이션은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다.',
+    'company.values.title': '모멘텀파운데이션의 핵심 가치',
+    'company.values.subtitle': '고객과 사회에 대한 책임을 다하는 기업 철학',
+    
+    // HOME Page Additional Content
+    'home.vision.item1': '지속 가능한 성장',
+    'home.vision.item2': '고객 중심의 혁신',
+    'home.vision.item3': '사회적 책임 경영',
+    'home.business.food.title': '프리미엄 신선 식자재 가공·유통',
+    'home.business.food.desc': '농축수산물 가공·유통',
+    'home.business.franchise.title': '프랜차이즈의 정석 \'청년축산\'',
+    'home.business.franchise.desc': '정육 식당 모델 혁신',
+    'home.business.fm.title': 'FM/아웃소싱의 새로운 지평',
+    'home.business.fm.desc': 'FM/아웃소싱',
+    'home.business.btn': '자세히 보기',
+    'home.values.trust.title': '신뢰성',
+    'home.values.trust.desc': '엄격한 품질 관리와 안전성 보장',
+    'home.values.expertise.title': '전문성',
+    'home.values.expertise.desc': '각 분야별 전문 지식과 노하우 보유',
+    'home.values.innovation.title': '혁신성',
+    'home.values.innovation.desc': '지속적인 기술 개발과 서비스 향상',
+    'home.values.responsibility.title': '책임감',
+    'home.values.responsibility.desc': '고객과 사회에 대한 책임있는 경영',
+    
+    // News Section
+    'home.news.notice.title': '공지사항',
+    'home.news.notice.desc': '중요한 공지사항을 확인하세요',
+    'home.news.notice.btn': '더보기',
+    'home.news.company.title': '회사소식',
+    'home.news.company.desc': '모멘텀파운데이션의 새로운 소식을 전해드립니다',
+    'home.news.company.btn': '더보기',
+    
+    // Careers Section
+    'home.careers.title': '함께 성장할 인재를 찾습니다',
+    'home.careers.desc': '모멘텀파운데이션과 함께 성장하고 발전할 수 있는 기회를 제공합니다',
+    'home.careers.jobs.title': '채용정보',
+    'home.careers.jobs.desc': '다양한 분야의 채용 기회를 확인하세요',
+    'home.careers.jobs.btn': '채용공고 보기',
+    'home.careers.culture.title': '기업문화',
+    'home.careers.culture.desc': '우리의 기업문화와 가치를 알아보세요',
+    'home.careers.culture.btn': '기업문화 보기',
+    
+    // Contact Section
+    'home.contact.phone': '전화번호',
+    'home.contact.phone.number': '02-2138-1214',
+    'home.contact.email': '이메일',
+'home.contact.email.address': 'info@onemomentum.co.kr',
+    'home.contact.address': '주소',
+    'home.contact.address.detail': '서울특별시 송파구 정의로8길 4',
+    'home.contact.btn': '온라인 문의하기',
+    
+    // Additional HOME Content
+    'home.stats.since': '2024년 설립 이후',
+    'home.stats.business': '사업 영역',
+    'home.stats.satisfaction': '고객 만족',
+    'home.stats.service': '서비스 지원',
+    'home.stats.growth': '성장 가능성',
+    'home.culture.desc': '소통과 협력을 바탕으로 한 수평적 조직문화에서 개인의 성장과 회사의 발전을 함께 추구합니다.',
+    'home.contact.phone.hours': '평일',
+    'home.contact.email.hours': '24시간 접수',
+    
+    // Page Content Translations
+    'page.about.title': '회사소개',
+    'page.about.subtitle': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
+    'page.business.title': '사업영역',
+    'page.business.subtitle': '다양한 분야에서 혁신적인 서비스를 제공합니다',
+    'page.news.title': '알림마당',
+    'page.news.subtitle': '모멘텀파운데이션의 소식과 정보를 확인하세요',
+    'page.careers.title': '인재영입',
+    'page.careers.subtitle': '함께 성장할 인재를 찾습니다',
+    'page.contact.title': '고객센터',
+    'page.contact.subtitle': '언제든지 문의해 주세요',
+    
+    // Company Page Complete Translation
+    'company.headline': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
+    'company.desc1': '모멘텀파운데이션은 설립 이래 식자재 유통, 프랜차이즈, 시설 관리 분야에서 전문성을 인정받으며 성장해온 종합 서비스 기업입니다.',
+    'company.desc2': '계열사 및 전문 협력업체와의 파트너십을 통한 안전한 육류 가공, 전국 우수 농가와의 직거래를 통한 신선한 과일 공급, RPC 도정 시스템 기반의 고품질 미곡 유통으로 차별화된 가치를 제공합니다.',
+    'company.desc3': '\'청년축산\' 정육식당 브랜드 운영과 전문 파트너사 연계 FM 서비스를 통해 고객의 다양한 니즈를 충족시키며, 지역사회와 상생하는 책임 경영을 실천하고 있습니다.',
+    'company.office.alt': '모멘텀파운데이션 본사',
+    'company.values.trust.title': '신뢰성',
+    'company.values.trust.desc': '투명하고 정직한 거래를 통해 고객과의 신뢰를 구축합니다',
+    'company.values.expertise.title': '전문성',
+    'company.values.expertise.desc': '축적된 경험과 전문 지식을 바탕으로 고객 맞춤형 최적의 솔루션을 제공합니다',
+    'company.values.innovation.title': '혁신성',
+    'company.values.innovation.desc': '지속적인 혁신을 통해 고객의 변화하는 요구에 부응합니다',
+    'company.values.responsibility.title': '책임감',
+    'company.values.responsibility.desc': '고객과 사회에 대한 책임있는 경영을 실천합니다',
+    'company.promise.title': '우리의 약속',
+    'company.promise.desc': '모멘텀파운데이션은 식자재 유통의 전문성을 바탕으로 프랜차이즈와 시설 관리 분야까지 사업을 확장하며, 한국을 대표하는 종합 서비스 기업으로 거듭나기 위해 끔임없이 역량을 강화해 나가고 있습니다.',
+    'company.promise.customer.title': '고객 중심',
+    'company.promise.customer.desc': '투명하고 정직한 거래를 통한 고객 신뢰 구축',
+    'company.promise.quality.title': '품질·안전 관리',
+    'company.promise.quality.desc': '식품 안전과 엄격한 품질 관리 시스템',
+    'company.promise.value.title': '가치 창출',
+    'company.promise.value.desc': '지속적인 혁신을 통한 고객 가치 창출',
+    
+    // About Page Complete Translation
+    'about.headline': '건강한 먹거리와 편리한 서비스로 고객 가치 창조',
+    
+    // Company Intro Page Translation
+    'companyintro.subtitle': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
+    'companyintro.core.title': '3대 핵심 사업',
+    'companyintro.desc1': '모멘텀파운데이션은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다. 우리 땅에서 난 건강한 식자재를 통해 고객 삶의 질 향상에 기여하는 것을 궁극적인 목표로 삼고 있습니다.',
+    'companyintro.desc2': '설립 이래 모멘텀파운데이션은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다. 각 사업 분야에서 축적된 전문성과 노하우를 바탕으로 고객 만족을 실현하며, 지역사회와 함께 성장하는 기업으로 자리매김하고 있습니다.',
+    
+    // Business Areas Translation
+    'business.food.title': '식자재 가공·유통',
+    'business.food.desc': '육류, 과일, 미곡에 이르기까지 전반적인 식자재를 아우르는 가공·유통 전문 기업입니다.',
+    'business.meat.title': '한우·한돼 가공/유통_더담우',
+    'business.meat.desc': 'HACCP 인증 시설을 갖춘 계열사 \'더담우\'를 통해 프리미엄 국내산 육류를 완벽한 콜드체인 시스템으로 공급합니다.',
+    'business.fruit.title': '과일유통_청년나래',
+    'business.fruit.desc': '전국 우수 농가와 직접 계약하여 가장 신선한 제철 과일을 수확 후 최단 시간 내 전달합니다.',
+'business.rice.title': '브랜드쌀 및 곡물류',
+'business.rice.desc': '최신 RPC 도정 시스템을 활용하여 전국 최고 생산지의 엄선된 쌀과 곡물을 신선하게 공급합니다.',
+    'business.franchise.title': '프랜차이즈_청년축산',
+    'business.franchise.subtitle': '"고기로 마음껏 배 채우고, 행복까지 만끽하는 곳"',
+    'business.franchise.desc': '정직한 가격과 최고의 품질로 고객 만족을 실현하는 정육식당 프랜차이즈입니다. 본사의 탄탄한 유통망을 바탕으로 유통 혁신을 통해 1인분 가격에 3인분을 드실 수 있는 압도적인 가성비를 실현합니다. 정육점과 식당이 결합된 \'정육 식당\' 모델로 고객이 직접 고기를 확인하고 구매하여 즉석에서 구워 먹을 수 있는 특별한 경험을 제공합니다.',
+    'business.fm.title': 'FM/아웃소싱',
+    'business.fm.desc': '검증된 전문 파트너사와의 협력을 통해 경비, 청소, 시설 관리 등 고객사의 비핵심 업무를 전문적으로 위탁 관리합니다. 맞춤형 솔루션 제공과 통합 관리 시스템으로 고객사의 운영 효율을 극대화하고 비용을 절감합니다.',
+    
+    // Footer Translation
+    'footer.company.name': '모멘텀파운데이션',
+    'footer.company.desc': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
+    'footer.contact.title': '연락처',
+    'footer.contact.phone': '전화: 02-2138-1214',
+    'footer.contact.fax': '팩스: 02-2138-1215',
+'footer.contact.email': '이메일: info@onemomentum.co.kr',
+    'footer.contact.address': '주소: 서울특별시 송파구 정의로8길 4',
+    'footer.links.title': '빠른 링크',
+    'footer.links.about': '회사소개',
+    'footer.links.business': '사업영역',
+    'footer.links.careers': '인재영입',
+    'footer.links.contact': '고객센터',
+    'footer.copyright': '© 2024 모멘텀파운데이션. All rights reserved.',
+    'footer.ceo.label': '대표이사',
+    'footer.ceo.names': '소민지/이병준',
+    'footer.philosophy.label': '기업이념',
+    'footer.philosophy.text': '나눔을 통한 동반 성장',
+    
+    // Page Subtitles for Responsive Design
+    'page.about.responsive': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
+    'page.ceo.responsive': '나눔과 동반성장을 추구하는 종합 서비스 기업',
+    'page.philosophy.responsive': '기업 이념 체계 / 핵심가치 상세',
+    'page.history.responsive': '모멘텀파운데이션의 성장 과정',
+'page.food.responsive': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축 / 한우·한돼 가공 및 유통 / 과일 유통의 신흥강자_청년나래 / 고품질 브랜드쌌 및 곡물 전문유통',
+    'page.franchise.responsive': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공 / 정육 식당 모델 혁신 / 창업 안내 - 성공을 꿈꾸는 당신의 든든한 파트너',
+    'page.fm.responsive': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감 / 경비용역 위탁 관리 / 빌딩 종합 관리(FM) 위탁',
+    'page.careers.responsive': '우리의 비전을 함께 이뤄갈 당신을 기다립니다 / 우리의 기업문화',
+    'page.process.responsive': '채용 프로세스',
+    'page.contact.responsive': '전문 상담 서비스',
+    'page.departments.responsive': '사업본부 연락처'
+  },
+  en: {
+    // Navigation
+    'nav.home': 'HOME',
+    'nav.about': 'About Us',
+    'nav.business': 'Business',
+    'nav.values': 'Values',
+    'nav.news': 'News',
+    'nav.careers': 'Careers',
+    'nav.contact': 'Customer Service',
+    
+    // Sub-menu items
+    'nav.about.intro': 'Company Introduction',
+    'nav.about.ceo': 'CEO Message',
+    'nav.about.philosophy': 'Philosophy',
+    'nav.about.history': 'History',
+    'nav.about.organization': 'Organization',
+    'nav.business.food': 'Food Processing & Distribution',
+    'nav.business.franchise': 'Franchise',
+    'nav.business.fm': 'FM/Outsourcing',
+    'nav.news.notice': 'Notices',
+    'nav.news.company': 'Company News',
+    'nav.careers.jobs': 'Job Postings',
+    'nav.careers.culture': 'Corporate Culture',
+    'nav.careers.process': 'Recruitment Process',
+    'nav.contact.inquiry': 'Online Inquiry',
+    'nav.contact.location': 'Location',
+    'nav.contact.departments': 'Departments',
+    
+    // Hero Section
+'hero.title1': 'From Table to Facility',
+'hero.title2': 'Adding Value to Daily Life',
+    
+    // Company Intro Main Title
+'companyintro.main.title': 'Providing Total Solutions from Food Ingredients Distribution to Facility Management',
+    
+    // CEO Message Page Translation
+'ceo.title': 'CEO Message',
+'ceo.subtitle': 'A comprehensive service company pursuing sharing and mutual growth',
+    'ceo.headline': 'A comprehensive service company pursuing sharing and mutual growth',
+    'ceo.message.para1': 'Since the establishment of Momentum Foundation in July 2024, we have grown into a comprehensive service company by expanding our business areas to food ingredient distribution, franchises, and facility management through continuous challenges and innovation.',
+    'ceo.message.para2': 'Our growth process is based on the firm corporate philosophy of "growth through sharing." Beyond simply pursuing profit-oriented business activities, we have continued social contribution activities that promote regional welfare and practice neighborly love. With the belief that corporate success is only complete when it is with the local community, we have pursued sustainable development in mutual prosperity with the community we belong to.',
+'ceo.message.para3': 'Now Momentum Foundation is preparing for a new leap forward. Based on the expertise in food ingredient distribution that we have built up, we aim to lead innovation in dining culture and further establish ourselves as a total solution partner responsible for the operational efficiency of corporate customers. We will deliver greater value to our customers through the know-how and synergy accumulated in each business field.',
+    'ceo.message.para4': 'All members of Momentum Foundation are doing their best with sincere hearts for our customers. We will always strive to ensure that our passion and expertise can create positive changes in your daily lives.',
+    'ceo.closing': 'Thank you.',
+    'ceo.company': 'Momentum Foundation Co., Ltd.',
+    'ceo.ceo1': 'CEO So Min-ji',
+'ceo.ceo2': 'CEO Lee Byung-jun',
+    
+    // Philosophy Page Translation
+    'philosophy.subtitle': 'Corporate Philosophy System',
+    'philosophy.title1': 'Corporate Philosophy System',
+    'philosophy.desc1': 'We pursue sustainable growth through Momentum Foundation\'s management philosophy and value system',
+    'philosophy.title2': 'Core Values Details',
+'philosophy.desc2': 'Four core values pursued by Momentum Foundation',
+    
+    // Philosophy Values Content
+    'philosophy.mission.title': 'Mission',
+    'philosophy.mission.subtitle': 'Mission',
+    'philosophy.mission.desc': 'We take responsibility for customers\' healthy dining tables,\nsupply reliable premium food ingredients\nand contribute to improving quality of life.',
+    'philosophy.values.title': 'Core Values',
+    'philosophy.values.subtitle': 'Core Values',
+    'philosophy.values.desc': 'Based on reliability, expertise, innovation, and responsibility,\nwe provide value to customers and society\nand pursue sustainable growth.',
+    'philosophy.vision.title': 'Vision',
+    'philosophy.vision.subtitle': 'Vision',
+    'philosophy.vision.desc': 'We will grow into a premium food ingredient\ndistribution company representing Korea\nand become a globally recognized company.',
+    
+    // Core Values Details
+    'philosophy.core.happiness.title': 'Customer Happiness',
+    'philosophy.core.happiness.desc': 'Providing happy experiences and emotional satisfaction to customers beyond products/services',
+    'philosophy.core.sharing.title': 'Sharing & Mutual Growth',
+    'philosophy.core.sharing.desc': 'Practicing sharing without compensation and mutual growth with partners/local communities',
+    'philosophy.core.contribution.title': 'Social Contribution',
+    'philosophy.core.contribution.desc': 'Participating in solving social problems with corporate resources and activities (contributing to community development)',
+    'philosophy.core.future.title': 'Future Value',
+'philosophy.core.future.desc': 'Pursuing potential future values such as ESG management and sustainable growth orientation',
+    
+    // History Page Translation
+    'history.subtitle': 'Momentum Foundation\'s Growth Process',
+    'history.title': 'Momentum Foundation\'s Growth Process',
+'history.desc': 'Our journey of development through continuous innovation and growth',
+    
+    // History Timeline Items
+    'history.2025.title': 'Franchise Expansion and Business Diversification',
+    'history.2025.12.title': 'FM/Outsourcing Business Launch',
+    'history.2025.12.desc': 'Building comprehensive management service business start',
+    'history.2025.11.title': 'Cheongnyeon Livestock 1st Franchise Store Opening',
+    'history.2025.11.desc': 'Full-scale franchise brand development start',
+    'history.2025.10a.title': 'General Retail (Mart) Entry',
+    'history.2025.10a.desc': 'Retail business area expansion',
+    'history.2025.10b.title': 'Cheongnyeon Livestock Direct Stores 1-4 Simultaneous Opening',
+    'history.2025.10b.desc': 'Direct store network construction completed',
+    'history.2025.10c.title': 'Franchise Brand Cheongnyeon Livestock Launch',
+    'history.2025.10c.desc': 'Own brand development and launch',
+    'history.2025.09.title': 'Livestock Processing Industry Entry',
+    'history.2025.09.desc': 'Livestock processing business area expansion',
+    'history.2025.05.title': 'Seafood Distribution Business Launch',
+    'history.2025.05.desc': 'Seafood distribution business start',
+    'history.2024.title': 'The Beginning of Challenge',
+    'history.2024.11.title': 'Fresh Produce Distribution Business Entry',
+    'history.2024.11.desc': 'Fresh produce distribution business start',
+    'history.2024.08.title': 'Meat Distribution Business Launch',
+    'history.2024.08.desc': 'Premium meat distribution business start',
+    'history.2024.07.title': 'Company Establishment',
+'history.2024.07.desc': 'Official establishment of Momentum Foundation Co., Ltd.',
+    
+    // Business Page Translation
+    'business.viewMore': 'View More',
+    'business.area1.title': 'Premium Fresh Food Processing & Distribution',
+    'business.area1.desc': 'Professional processing and distribution of fresh and safe agricultural, livestock and marine products',
+    'business.area1.feature1': 'Korean Beef & Pork Processing/Distribution_Deodam-u',
+    'business.area1.feature2': 'Fruit Distribution_Cheongnyeon Narae',
+    'business.area1.feature3': 'Brand Rice and Grain Specialized Distribution',
+    'business.area1.feature4': 'HACCP Certified Facilities Complete',
+    'business.area2.title': 'The Standard of Franchise Cheongnyeon Livestock',
+    'business.area2.desc': 'Honest innovation of young people who are serious about meat!',
+    'business.area2.feature1': 'Butcher Restaurant Model Innovation',
+    'business.area2.feature2': 'Overwhelming Cost-effectiveness Realization',
+    'business.area2.feature3': 'Systematic Startup Support',
+    'business.area2.feature4': 'National Network Expansion',
+    'business.area3.title': 'FM/Outsourcing Professional Services',
+    'business.area3.desc': 'Building comprehensive management and professional outsourcing services',
+'business.area3.feature1': 'Security Service Consignment Management',
+    'business.area3.feature2': 'Building Comprehensive Management (FM)',
+    'business.area3.feature3': 'Professional Partner Company Connection',
+'business.area3.feature4': 'Integrated Management System',
+    
+    // Business Strengths Section
+    'business.strengths.title': 'Momentum Foundation\'s Strengths',
+    'business.strengths.subtitle': 'Providing total solutions through synergy of each business field',
+    'business.strengths.expertise.title': 'Expertise',
+    'business.strengths.expertise.desc': 'Accumulated professional knowledge and know-how in each field',
+    'business.strengths.efficiency.title': 'Efficiency',
+    'business.strengths.efficiency.desc': 'Maximizing operational efficiency\nthrough integrated management system',
+    'business.strengths.reliability.title': 'Reliability',
+    'business.strengths.reliability.desc': 'Stable cooperative relationships\nwith verified partner companies',
+    'business.strengths.innovation.title': 'Innovation',
+'business.strengths.innovation.desc': 'Creating customer value through continuous innovation',
+    
+    // Food Business Page Translation
+    'food.subtitle': 'High-quality food ingredient selection and thorough quality management with cutting-edge system construction',
+    'food.headline': 'High-quality food ingredient selection and thorough quality management with cutting-edge system construction',
+    'food.meat.title': 'Korean Beef & Pork Processing and Distribution',
+    'food.meat.desc': 'We supply fresh and safe meat by carefully selecting the highest quality Korean beef and pork. Through our affiliate Deodam-u with HACCP certified facilities, meat is processed safely and cleanly, and we guarantee the highest quality through a perfect cold chain system.',
+    'food.fruit.title': 'Rising Star in Fruit Distribution_Cheongnyeon Narae',
+    'food.fruit.desc': 'We supply the freshest and most delicious seasonal fruits by directly contracting with excellent farms across the country. We handle only high-quality fruits that pass strict selection criteria and operate a system that delivers to customers in the shortest time after harvest.',
+    'food.rice.title': 'High-quality Brand Rice and Grain Specialized Distribution',
+'food.rice.desc': 'We professionally distribute brand rice and various grains selected from the best rice production areas nationwide. We provide safe and reliable grains freshly processed through the latest RPC milling system.',
+    
+    // Food Business Features Translation
+    'food.meat.feature1.title': 'Premium Domestic Meat Handling',
+    'food.meat.feature1.desc': 'Supply of carefully selected top-quality Korean beef and pork',
+    'food.meat.feature2.title': 'Thorough Quality Management',
+    'food.meat.feature2.desc': 'Meat safely managed in HACCP certified facilities',
+    'food.meat.feature3.title': 'Cold Chain System',
+    'food.meat.feature3.desc': 'Perfect refrigerated distribution system for maintaining freshness',
+    
+    'food.fruit.feature1.title': 'Fresh Seasonal Fruits',
+    'food.fruit.feature1.desc': 'Supply seasonal fruits with the highest freshness by careful selection',
+    'food.fruit.feature2.title': 'Premium Quality',
+    'food.fruit.feature2.desc': 'Handle only high-quality fruits that pass strict selection criteria',
+    'food.fruit.feature3.title': 'Fast Delivery',
+    'food.fruit.feature3.desc': 'System that delivers to customers in the shortest time after harvest',
+    
+    'food.rice.feature1.title': 'Professional Distribution of Brand Rice and Grains',
+    'food.rice.feature1.desc': 'Professional distribution of selected brand rice and various grains',
+    'food.rice.feature2.title': 'Fresh Rice Using RPC Milling System',
+    'food.rice.feature2.desc': 'Providing fresh and delicious rice processed with the latest milling technology',
+    'food.rice.feature3.title': 'Quality Assurance',
+    'food.rice.feature3.desc': 'Safe and reliable grain distribution through thorough quality management',
+    
+    'food.products.fruit': 'Fruit Products',
+    'food.products.rice': 'Rice Products',
+    'hero.subtitle': 'Momentum Foundation creates new value in various fields from premium food distribution to innovative franchises and professional FM/outsourcing services.',
+    'hero.btn1': 'About Us',
+    'hero.btn2': 'View Business Areas',
+    
+    // About Section
+    'about.title': 'Introducing Momentum Foundation',
+    'about.subtitle': 'Established in 2024, Momentum Foundation is an innovative company that adds new value to customers\' lives through healthy food and convenient services.',
+    'about.vision.title': 'Our Vision',
+    'about.vision.desc': 'We create success together with customers and partners through premium food distribution, innovative franchise models, and professional FM/outsourcing services.',
+    'about.vision.item1': 'Sustainable Growth',
+    'about.vision.item2': 'Customer-Centered Innovation',
+    'about.vision.item3': 'Social Responsibility Management',
+    'about.stats.title': 'Since Establishment in 2024',
+    'about.stats.business': 'Business Areas',
+    'about.stats.satisfaction': 'Customer Satisfaction',
+    'about.stats.service': 'Service Support',
+    'about.stats.growth': 'Growth Potential',
+    
+    // Values Section
+    'values.title': 'Core Values',
+    'values.subtitle': 'The values and principles that Momentum Foundation pursues',
+    'values.reliability': 'Reliability',
+    'values.reliability.desc': 'Strict quality control and safety assurance',
+    'values.expertise': 'Expertise',
+    'values.expertise.desc': 'Professional knowledge and know-how in each field',
+    'values.innovation': 'Innovation',
+    'values.innovation.desc': 'Continuous technology development and service improvement',
+    'values.responsibility': 'Responsibility',
+    'values.responsibility.desc': 'Responsible management for customers and society',
+    
+    // News Section
+    'news.title': 'Latest News',
+    'news.subtitle': 'Check the latest news and announcements from Momentum Foundation',
+    'news.notice.title': 'Notices',
+    'news.notice.desc': 'Check important company announcements and policy changes.',
+    'news.company.title': 'Company News',
+    'news.company.desc': 'Check the latest trends and achievements of Momentum Foundation.',
+'news.btn': 'View More',
+    
+    // Franchise Business Translation
+    'franchise.subtitle': 'Overwhelming cost-effectiveness and fresh meat through headquarters food distribution network',
+    'franchise.headline': 'Overwhelming cost-effectiveness and fresh meat through headquarters food distribution network',
+    'franchise.brand.title': 'Cheongnyon Chuksan',
+    'franchise.brand.subtitle': '– Honest innovation by young people passionate about meat',
+    'franchise.brand.desc': 'Cheongnyon Chuksan realizes shocking cost-effectiveness that allows you to eat 3 servings at the price of 1 serving by improving the inefficiency of existing distribution structures. We minimize intermediate margins by utilizing our headquarters\' meat distribution business capabilities and return those benefits to customers.',
+    'franchise.model.desc': 'Cheongnyon Chuksan adopts a \'butcher restaurant\' model that combines a butcher shop and restaurant. Customers can directly check and purchase the meat they want at the butcher shop in the store and grill it immediately, providing both visual trust and satisfaction.',
+    'franchise.startup.title': 'Startup Guide - Your reliable partner for success',
+    'franchise.competitive.title': 'Cheongnyon Chuksan\'s Competitiveness',
+    'franchise.competitive.desc': 'Based on our headquarters\' strong distribution network, stable and affordable raw meat supply is possible, which leads to stable margin security for franchisees. We provide a business model that has already been verified at multiple directly managed stores and franchises, and even prospective entrepreneurs without butchery experience can easily start and operate businesses through our headquarters\' systematic training.',
+    'franchise.process.title': 'Startup Process',
+    'franchise.step1': 'Step 1',
+    'franchise.step1.desc': 'Information collection and\\nfranchise consultation',
+    'franchise.step2': 'Step 2',
+    'franchise.step2.desc': 'Store development and\\nmarket analysis',
+    'franchise.step3': 'Step 3',
+    'franchise.step3.desc': 'Franchise contract\\nsigning',
+    'franchise.step4': 'Step 4',
+    'franchise.step4.desc': 'Interior construction\\nand opening preparation',
+    'franchise.step5': 'Step 5',
+    'franchise.step5.desc': 'Headquarters training\\ncompletion',
+    'franchise.step6': 'Step 6',
+    'franchise.step6.desc': 'Store opening and\\nafter-sales management',
+    'franchise.closing.desc': 'Cheongnyon Chuksan pursues not just a simple franchise business, but a partnership relationship that grows together with partners. We are building a healthy franchise ecosystem where headquarters\' continuous support and franchisees\' passion meet to develop mutually.',
+    
+    // Franchise Features Translation
+    'franchise.feature1.title': 'Quality First',
+    'franchise.feature1.desc': 'Handle only selected Korean beef and pork, guaranteeing freshness',
+    'franchise.feature2.title': 'Overwhelming Price Competitiveness',
+    'franchise.feature2.desc': 'Realizing reasonable prices through distribution innovation',
+    'franchise.feature3.title': 'Special Customer Experience',
+    'franchise.feature3.desc': 'A satisfying space where anyone can dine comfortably and enjoyably',
+    
+    // Restaurant Features Translation
+    'franchise.restaurant.feature1.title': 'Young and Sophisticated Space',
+    'franchise.restaurant.feature1.desc': 'Modern and comfortable interior\\nutilizing teal brand colors',
+    'franchise.restaurant.feature2.title': 'Self-Service Bar Operation',
+    'franchise.restaurant.feature2.desc': 'System that allows free addition of side dishes\\nto improve customer satisfaction',
+    'franchise.restaurant.feature3.title': 'Professional Service',
+    'franchise.restaurant.feature3.desc': 'Friendly service by professional staff and\\nprofessional meat cutting service',
+    'franchise.restaurant.feature4.title': 'Safe Dining Environment',
+'franchise.restaurant.feature4.desc': 'Thorough hygiene management and\\nsafe dining at HACCP certified facilities',
+    'franchise.brand.slogan': 'A place where you can eat meat to your heart\'s content and enjoy happiness!',
+    'franchise.model.title': 'Butcher Restaurant Model Innovation',
+    'franchise.closing.title': 'Growing Together with Franchisees',
+    
+    // Franchise Advantages Translation (English)
+    'franchise.advantage1.title': 'Butcher Restaurant Model Innovation',
+    'franchise.advantage1.desc': 'Innovative model combining butcher shop and restaurant',
+    'franchise.advantage2.title': 'Overwhelming Cost-Effectiveness',
+    'franchise.advantage2.desc': 'Shocking cost-effectiveness that allows you to eat\\n3 servings at the price of 1 serving',
+    'franchise.advantage3.title': 'Systematic Startup Support',
+    'franchise.advantage3.desc': 'Intensive marketing in early opening, regular operation consulting, stable logistics system',
+    'franchise.advantage4.title': 'Growing Together with Franchisees',
+'franchise.advantage4.desc': 'Building a healthy franchise ecosystem\\nthat grows together with partners',
+    
+    // FM/Outsourcing Business Translation (English)
+    'fm.headline': 'Maximizing customer operational efficiency and cost reduction through non-core business outsourcing',
+    'fm.partner.title': 'Professional Partner Company Liaison Service',
+    'fm.partner.desc': 'We select and manage verified professional companies in each field to provide optimal outsourcing solutions that meet customer needs. Momentum Foundation takes responsibility for the entire process from partner selection to quality management and guarantees stable service.',
+    'fm.security.title': 'Security Service Outsourcing Management',
+    'fm.security.desc': 'We secure customer asset protection and facility safety through cooperation with professional security companies. We select and manage verified security companies to provide seamless security services.',
+    'fm.building.title': 'Building Facility Management (FM) Outsourcing',
+'fm.building.desc': 'Through partnerships with facility management professional companies, we maintain the value of buildings and facilities and provide\\na comfortable environment for tenants and users.',
+    
+    // Careers Page Translation (English)
+    'careers.headline': 'We are waiting for you to achieve our vision together',
+'careers.description': 'Momentum Foundation is a company that continuously challenges and innovates under the corporate philosophy of \'growth through sharing\' and the core values of \'customer happiness\', \'sharing and mutual growth\', \'social contribution\', and \'future value\'. We value the joy of growing together with excellent colleagues as our most important value. We are looking for talent who will unleash their potential at Momentum Foundation and create meaningful change.',
+    'careers.culture.title': 'Our Corporate Culture',
+    'careers.culture.desc': 'This is the corporate culture that Momentum Foundation pursues',
+    'careers.jobs.title': 'Recruitment Information',
+    'careers.jobs.desc': 'Check recruitment-related information from Momentum Foundation',
+    
+    // Company Values (English)
+    'careers.values.communication.title': 'Communication and Cooperation',
+    'careers.values.communication.desc': 'In a horizontal organizational culture based on open communication,\nall members freely share opinions and cooperate.',
+    'careers.values.growth.title': 'Growth and Challenge',
+    'careers.values.growth.desc': 'We develop together in an environment that supports\nindividual growth and encourages new challenges.',
+    'careers.values.balance.title': 'Work-Life Balance',
+'careers.values.balance.desc': 'We value the balance between work and life,\nand operate various systems for employees\' happy lives.',
+    
+    // Recruitment Cards (English)
+    'careers.recruitment.title': 'Job Postings',
+    'careers.recruitment.desc': 'Check current open positions and apply',
+    'careers.culture.card.title': 'Corporate Culture',
+    'careers.culture.card.desc': 'Learn about the principles we practice at work',
+    'careers.process.title': 'Recruitment Process',
+'careers.process.desc': 'Check the recruitment process and procedures',
+    
+    // Culture Page Translation (English)
+    'culture.principles.title': 'Working Principles',
+    'culture.principles.desc': 'Basic standards and attitudes that Momentum Foundation takes toward work.',
+    'culture.environment.title': 'Work Environment',
+'culture.environment.desc': 'Momentum Foundation aims for a horizontal organizational culture with smooth communication. Through quick decision-making and flexible work methods that utilize the characteristics of organizational scale, we are creating an environment where each member can actively participate in the company\'s work.',
+    'culture.growth.title': 'Growth and Learning',
+'culture.growth.desc': 'We believe that individual growth leads to organizational growth. Through work performance and project experience, we aim for a culture that builds practical capabilities and respects each other\'s growth while developing together.',
+    'culture.trust.title': 'Participation and Trust',
+'culture.trust.desc': 'Momentum Foundation\'s organizational culture is created through trust and participation among members rather than being unilaterally determined. We create better ways of working through the process of sharing opinions and thinking together.',
+    
+    // Working Principles (English)
+    'culture.principle1.title': 'Mutual Respect and Consideration',
+    'culture.principle1.desc': 'We respect each other\'s roles and opinions, and create a healthy organizational culture based on trust.',
+    'culture.principle2.title': 'Communication and Collaboration',
+    'culture.principle2.desc': 'We share opinions through open communication and achieve better results through collaboration.',
+    'culture.principle3.title': 'Challenge and Innovation',
+'culture.principle3.desc': 'We do not settle for existing methods and continue to attempt changes and improvements.',
+    
+    // Process Page Translation (English)
+    'process.title': 'Recruitment Process',
+    'process.subtitle': 'We select optimal talent through transparent and fair recruitment procedures',
+    'process.requirements.title': 'Application Requirements',
+'process.requirements.subtitle': 'The ideal candidate that Momentum Foundation is looking for',
+    
+    // Process Steps (English)
+    'process.step1.title': 'Document Screening',
+    'process.step1.desc': 'Application receipt and document review',
+    'process.step2.title': 'Interview Process',
+    'process.step2.desc': '1st practical interview and 2nd executive interview',
+    'process.step3.title': 'Final Selection',
+    'process.step3.desc': 'Final candidate announcement and onboarding guidance',
+    'process.step4.title': 'Onboarding and Training',
+    'process.step4.desc': 'New employee training program',
+    
+    // Requirements (English)
+    'process.req1': 'Bachelor\'s degree or higher in related field',
+    'process.req2': 'Sincere and responsible work attitude',
+    'process.req3': 'Smooth communication skills',
+    'process.req4': 'Teamwork and collaboration skills',
+    'process.req5': 'Proactive attitude toward new challenges',
+
+    
+
+    
+    // Contact Section
+    'contact.title': 'Contact Us',
+    'contact.subtitle': 'Please contact us anytime if you have any questions',
+    'contact.phone': 'Phone',
+    'contact.phone.time': 'Weekdays 09:00-18:00',
+    'contact.email': 'Email',
+    'contact.email.time': '24/7 Reception',
+    'contact.address': 'Address',
+    'contact.address.detail': 'Detailed address upon inquiry',
+'contact.btn': 'Online Inquiry',
+    
+    // Contact Page Translation (English)
+    'contact.headline': 'Professional Consultation Service',
+    'contact.service.title': 'Professional Consultation Service',
+    'contact.service.desc': 'Momentum Foundation\'s professional consultants provide kind and accurate guidance for your inquiries',
+    'contact.info.title': 'Contact Information',
+'contact.info.desc': 'You can contact us anytime by phone or email',
+    
+    // Contact Cards (English)
+    'contact.phone.title': 'Phone Inquiry',
+    'contact.phone.number': '02-2138-1214',
+    'contact.phone.hours': 'Weekdays 09:00 - 18:00',
+    'contact.email.title': 'Email Inquiry',
+    'contact.email.address': 'info@onemomentum.co.kr',
+    'contact.email.hours': '24/7 Reception Available',
+    'contact.visit.title': 'Visit Inquiry',
+    'contact.visit.address': '4, Jeongui-ro 8-gil, Songpa-gu, Seoul',
+'contact.visit.note': 'Advance reservation required',
+    
+    // Inquiry Page Translation (English)
+    'inquiry.submit': 'Submit Inquiry',
+    'inquiry.title': 'Online Inquiry',
+    'inquiry.subtitle': 'Please write your inquiry and we will respond within a quick time',
+    'inquiry.form.name': 'Name',
+    'inquiry.form.email': 'Email',
+    'inquiry.form.phone': 'Phone',
+    'inquiry.form.company': 'Company',
+    'inquiry.form.type': 'Inquiry Type',
+    'inquiry.form.subject': 'Subject',
+'inquiry.form.message': 'Message',
+    
+    // Form Placeholders and Labels (English)
+    'inquiry.form.name.placeholder': 'Please enter your name',
+    'inquiry.form.email.placeholder': 'Please enter your email',
+    'inquiry.form.phone.placeholder': 'Please enter your phone number',
+    'inquiry.form.company.placeholder': 'Please enter your company name',
+    'inquiry.form.type.placeholder': 'Please select inquiry type',
+    'inquiry.form.subject.placeholder': 'Please enter inquiry subject',
+'inquiry.form.message.placeholder': 'Please enter your inquiry details',
+    
+    // Location Page Translation (English)
+    'location.title': 'Directions',
+    'location.subtitle': 'Momentum Foundation headquarters location and transportation guide',
+    'location.office.title': 'Headquarters Location',
+    'location.address.title': 'Address',
+    'location.address.detail': '4, Jeongui-ro 8-gil, Songpa-gu, Seoul',
+    'location.phone.title': 'Phone Number',
+    'location.phone.number': '02-2138-1214',
+    'location.email.title': 'Email',
+    'location.email.address': 'info@onemomentum.co.kr',
+    'location.hours.title': 'Business Hours',
+'location.hours.detail': 'Weekdays 09:00 - 18:00 (Closed on weekends and holidays)',
+    
+    // Transportation Guide (English)
+    'location.transport.title': 'Transportation Guide',
+    'location.subway.title': 'Subway',
+    'location.subway.line8': 'Line 8 Munjeong Station Exit 1, 5 min walk',
+    'location.subway.line9': 'Line 9 Garak Market Station Exit 3, 10 min walk',
+    'location.bus.title': 'Bus',
+    'location.bus.main': 'Main Line Bus',
+    'location.bus.main.numbers': '301, 401, 462',
+    'location.bus.branch': 'Branch Line Bus',
+    'location.bus.branch.numbers': '3217, 3313, 3314',
+    'location.car.title': 'By Car',
+    'location.car.route1': 'Olympic-daero → Garak IC → Songpa-daero → Jeongui-ro 8-gil',
+    'location.car.route2': 'Gangnam Ring Road → Munjeong-ro → Jeongui-ro 8-gil',
+    'location.car.parking': 'Underground parking available',
+    
+    // Departments Page Translation (English)
+    'departments.title': 'Business Division Contacts',
+'departments.subtitle': 'Please contact the relevant business division directly for work-related inquiries',
+    
+    // Department Details (English)
+    'departments.management.name': 'Management Division',
+    'departments.management.desc': 'Organizational operation support, financial management, business planning',
+    'departments.management.email': 'admin@onemomentum.co.kr',
+    'departments.food.name': 'Food Materials Division',
+    'departments.food.desc': 'Food material processing & distribution, quality management, supply chain management',
+    'departments.food.email': 'food@onemomentum.co.kr',
+    'departments.franchise.name': 'Franchise Division',
+    'departments.franchise.desc': 'Youth Livestock brand operation, franchise management, startup support',
+    'departments.franchise.email': 'franchise@onemomentum.co.kr',
+    'departments.fm.name': 'FM/Outsourcing Division',
+    'departments.fm.desc': 'Facility management, security services, outsourcing solution provision',
+    'departments.fm.email': 'fm@onemomentum.co.kr',
+'departments.main.contact': 'Main Contact',
+    
+    // News Page Translation (English)
+    'news.notice.tab': 'Notices',
+    'news.company.tab': 'Company News',
+    'news.jobs.tab': 'Job Postings',
+    'news.view.more': 'View More',
+    'news.views': 'Views',
+    
+    // About Page Content
+    'about.intro.title': 'Introducing Momentum Foundation',
+    'about.intro.desc': 'Established in 2024, Momentum Foundation is an innovative company that adds new value to customers\' lives through healthy food and convenient services.',
+    'about.mission.title': 'Our Mission',
+    'about.mission.desc': 'We create success together with customers and partners through premium food distribution, innovative franchise models, and professional FM/outsourcing services.',
+    'about.ceo.title': 'CEO Message',
+    'about.ceo.message': 'Momentum Foundation aims to be a partner that creates success together with customers and partners beyond simple business. We will create a better future through healthy food and convenient services.',
+    'about.ceo.name': 'CEO Kim Young-jin',
+    
+    // HOME Page Sections
+    'home.about.title': 'Introducing Momentum Foundation',
+    'home.about.desc': 'Established in 2024, Momentum Foundation is an innovative company that adds new value to customers\' lives through healthy food and convenient services.',
+    'home.mission.title': 'Our Vision',
+    'home.mission.desc': 'We create success together with customers and partners through premium food distribution, innovative franchise models, and professional FM/outsourcing services.',
+    'home.business.title': 'Main Business Areas',
+    'home.business.desc': 'We provide innovative services in various fields and create success together with our customers',
+    'home.values.title': 'Core Values',
+    'home.values.desc': 'Values and principles pursued by Momentum Foundation',
+    
+    // HOME Page Additional Content
+    'home.vision.item1': 'Sustainable Growth',
+    'home.vision.item2': 'Customer-Centered Innovation',
+    'home.vision.item3': 'Social Responsibility Management',
+    'home.business.food.title': 'Premium Fresh Food Processing & Distribution',
+    'home.business.food.desc': 'Agricultural, Livestock & Marine Product Processing & Distribution',
+    'home.business.franchise.title': 'The Standard of Franchise "Youth Livestock"',
+    'home.business.franchise.desc': 'Meat Restaurant Model Innovation',
+    'home.business.fm.title': 'New Horizons in FM/Outsourcing',
+    'home.business.fm.desc': 'FM/Outsourcing',
+    'home.business.btn': 'Learn More',
+    'home.values.trust.title': 'Reliability',
+    'home.values.trust.desc': 'Strict quality control and safety assurance',
+    'home.values.expertise.title': 'Expertise',
+    'home.values.expertise.desc': 'Professional knowledge and know-how in each field',
+    'home.values.innovation.title': 'Innovation',
+    'home.values.innovation.desc': 'Continuous technology development and service improvement',
+    'home.values.responsibility.title': 'Responsibility',
+    'home.values.responsibility.desc': 'Responsible management for customers and society',
+    
+    // News Section
+    'home.news.notice.title': 'Notice',
+    'home.news.notice.desc': 'Check important announcements',
+    'home.news.notice.btn': 'View More',
+    'home.news.company.title': 'Company News',
+    'home.news.company.desc': 'Stay updated with Momentum Foundation\'s latest news',
+    'home.news.company.btn': 'View More',
+    
+    // Careers Section
+    'home.careers.title': 'We are looking for talent to grow together',
+    'home.careers.desc': 'We provide opportunities to grow and develop together with Momentum Foundation',
+    'home.careers.jobs.title': 'Job Information',
+    'home.careers.jobs.desc': 'Explore various career opportunities',
+    'home.careers.jobs.btn': 'View Job Postings',
+    'home.careers.culture.title': 'Corporate Culture',
+    'home.careers.culture.desc': 'Learn about our corporate culture and values',
+    'home.careers.culture.btn': 'View Corporate Culture',
+    
+    // Contact Section
+    'home.contact.phone': 'Phone',
+    'home.contact.phone.number': '02-2138-1214',
+    'home.contact.email': 'Email',
+'home.contact.email.address': 'info@onemomentum.co.kr',
+    'home.contact.address': 'Address',
+    'home.contact.address.detail': '4, Jeongui-ro 8-gil, Songpa-gu, Seoul',
+    'home.contact.btn': 'Online Inquiry',
+    
+    // Additional HOME Content
+    'home.stats.since': 'Since 2024',
+    'home.stats.business': 'Business Areas',
+    'home.stats.satisfaction': 'Customer Satisfaction',
+    'home.stats.service': 'Service Support',
+    'home.stats.growth': 'Growth Potential',
+    'home.culture.desc': 'We pursue individual growth and company development together in a horizontal organizational culture based on communication and cooperation.',
+    'home.contact.phone.hours': 'Weekdays',
+    'home.contact.email.hours': '24/7 Available',
+    
+    // Page Content Translations
+    'page.about.title': 'About Us',
+    'page.about.subtitle': 'A company that creates customer value through healthy food and convenient services',
+    'page.business.title': 'Business Areas',
+    'page.business.subtitle': 'We provide innovative services in various fields',
+    'page.news.title': 'News & Notice',
+    'page.news.subtitle': 'Check out Momentum Foundation\'s news and information',
+    'page.careers.title': 'Careers',
+    'page.careers.subtitle': 'We are looking for talent to grow together',
+    'page.contact.title': 'Customer Service',
+    'page.contact.subtitle': 'Feel free to contact us anytime',
+    
+    // Company Introduction Page
+    'company.intro.title': 'Company Introduction',
+    'company.intro.subtitle': 'A total solutions provider, from food distribution to facility management',
+    'company.intro.desc1': 'Momentum Foundation is a food distribution company dedicated to ensuring freshness and health on our customers\' tables. We prioritize reliable quality and safety, supplying only rigorously selected products to our customers.',
+    'company.intro.desc2': 'Since its founding, Momentum Foundation has grown beyond a simple distribution company into a comprehensive service provider, adding value to every aspect of our customers\' daily lives. Building on our core competencies in food processing and distribution, we have expanded our business to include franchises and facility management services.',
+    'company.values.title': 'Core Values of Momentum Foundation',
+    'company.values.subtitle': 'Corporate philosophy that fulfills responsibilities to customers and society',
+    
+    // Company Page Complete Translation
+    'company.headline': 'A company that creates customer value through healthy food and convenient services',
+    'company.desc1': 'Momentum Foundation is a comprehensive service company that has been recognized for its expertise and growth in food distribution, franchise, and facility management since its establishment.',
+    'company.desc2': 'We provide differentiated value through safe meat processing through partnerships with affiliates and professional partners, fresh fruit supply through direct transactions with excellent farms nationwide, and high-quality rice distribution based on RPC rice processing systems.',
+    'company.desc3': 'We meet customers\' diverse needs through the operation of the \'Youth Livestock\' meat restaurant brand and professional partner-linked FM services, and practice responsible management that coexists with the local community.',
+    'company.office.alt': 'Momentum Foundation Headquarters',
+    'company.values.trust.title': 'Reliability',
+    'company.values.trust.desc': 'Build trust with customers through transparent and honest transactions',
+    'company.values.expertise.title': 'Expertise',
+    'company.values.expertise.desc': 'Provide optimal customer-tailored solutions based on accumulated experience and expertise',
+    'company.values.innovation.title': 'Innovation',
+    'company.values.innovation.desc': 'Respond to customers\' changing needs through continuous innovation',
+    'company.values.responsibility.title': 'Responsibility',
+    'company.values.responsibility.desc': 'Practice responsible management for customers and society',
+    'company.promise.title': 'Our Promise',
+    'company.promise.desc': 'Momentum Foundation is expanding its business from food distribution expertise to franchise and facility management, and is constantly strengthening its capabilities to become a comprehensive service company representing Korea.',
+    'company.promise.customer.title': 'Customer-Centered',
+    'company.promise.customer.desc': 'Building customer trust through transparent and honest transactions',
+    'company.promise.quality.title': 'Quality & Safety Management',
+    'company.promise.quality.desc': 'Food safety and strict quality management system',
+    'company.promise.value.title': 'Value Creation',
+    'company.promise.value.desc': 'Creating customer value through continuous innovation',
+    
+    // About Page Complete Translation
+    'about.headline': 'Creating customer value through healthy food and convenient services',
+    
+    // Company Intro Page Translation
+    'companyintro.subtitle': 'A total solutions provider, from food distribution to facility management',
+    'companyintro.core.title': '3 Core Business Areas',
+    'companyintro.desc1': 'Momentum Foundation is a food distribution company that takes responsibility for freshness and health on customers\' tables. We prioritize reliable quality and safety as our core values, supplying only strictly selected products to our customers. Our ultimate goal is to contribute to improving customers\' quality of life through healthy ingredients from our land.',
+    'companyintro.desc2': 'Since its establishment, Momentum Foundation has grown beyond a simple distribution company to become a comprehensive service company that adds value to every aspect of customers\' daily lives. Based on our core competency in food processing and distribution, we have expanded our business areas to franchise operations and facility management services, providing customers with richer and more convenient experiences. We realize customer satisfaction based on the expertise and know-how accumulated in each business field, and are establishing ourselves as a company that grows together with the local community.',
+    
+    // Business Areas Translation
+    'business.food.title': 'Food Processing & Distribution',
+    'business.food.desc': 'We are a specialized food processing and distribution company covering all types of food ingredients from meat, fruits, to rice.',
+    'business.meat.title': 'Korean Beef & Pork Processing/Distribution_The Damwoo',
+    'business.meat.desc': 'We supply premium domestic meat through our affiliate \'The Damwoo\' with HACCP-certified facilities using a perfect cold chain system.',
+    'business.fruit.title': 'Fruit Distribution_Youth Narae',
+    'business.fruit.desc': 'We deliver the freshest seasonal fruits in the shortest time after harvest through direct contracts with excellent farms nationwide.',
+    'business.rice.title': 'Brand Rice & Grains',
+    'business.rice.desc': 'We freshly supply selected rice and grains from the nation\'s best production areas using the latest RPC rice processing system.',
+    'business.franchise.title': 'Franchise_Youth Livestock',
+    'business.franchise.subtitle': '"A place where you can fill your stomach with meat and enjoy happiness"',
+    'business.franchise.desc': 'A meat restaurant franchise that realizes customer satisfaction with honest prices and the highest quality. Based on our headquarters\' solid distribution network, we realize overwhelming cost-effectiveness where you can eat for 3 people at the price of 1 person through distribution innovation. The \'meat restaurant\' model, which combines a butcher shop and restaurant, provides a special experience where customers can directly check and purchase meat and grill it on the spot.',
+    'business.fm.title': 'FM/Outsourcing',
+    'business.fm.desc': 'Through cooperation with verified professional partners, we professionally manage outsourced non-core tasks such as security, cleaning, and facility management for client companies. We maximize client operational efficiency and reduce costs through customized solution provision and integrated management systems.',
+    
+    // Footer Translation
+    'footer.company.name': 'Momentum Foundation',
+    'footer.company.desc': 'A company that creates customer value through healthy food and convenient services',
+    'footer.contact.title': 'Contact',
+    'footer.contact.phone': 'Phone: 02-2138-1214',
+    'footer.contact.fax': 'Fax: 02-2138-1215',
+'footer.contact.email': 'Email: info@onemomentum.co.kr',
+    'footer.contact.address': 'Address: 4, Jeongui-ro 8-gil, Songpa-gu, Seoul',
+    'footer.links.title': 'Quick Links',
+    'footer.links.about': 'About Us',
+    'footer.links.business': 'Business',
+    'footer.links.careers': 'Careers',
+    'footer.links.contact': 'Contact',
+    'footer.copyright': '© 2024 Momentum Foundation. All rights reserved.',
+    'footer.ceo.label': 'CEO',
+    'footer.ceo.names': 'So Min-ji / Lee Byung-jun',
+    'footer.philosophy.label': 'Corporate Philosophy',
+    'footer.philosophy.text': 'Mutual growth through sharing',
+    
+    // Page Subtitles for Responsive Design
+    'page.about.responsive': 'A total solutions provider, from food distribution to facility management',
+    'page.ceo.responsive': 'A comprehensive service company pursuing sharing and mutual growth',
+    'page.philosophy.responsive': 'Corporate Philosophy System / Core Values Details',
+    'page.history.responsive': 'Growth Process of Momentum Foundation',
+    'page.food.responsive': 'High-quality food selection and thorough quality control with cutting-edge system construction / Korean beef and pork processing and distribution / Rising star in fruit distribution_Youth Narae / High-quality brand rice and grain specialized distribution',
+    'page.franchise.responsive': 'Overwhelming cost-effectiveness and fresh meat supply through headquarters food distribution network / Meat restaurant model innovation / Startup guidance - Your reliable partner for success',
+    'page.fm.responsive': 'Maximizing customer operational efficiency and cost reduction through non-core business outsourcing / Security service outsourcing management / Building comprehensive management (FM) outsourcing',
+    'page.careers.responsive': 'We are waiting for you to achieve our vision together / Our corporate culture',
+    'page.process.responsive': 'Recruitment Process',
+    'page.contact.responsive': 'Professional Consultation Service',
+    'page.departments.responsive': 'Business Division Contact'
+  }
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('ko');
+
+  const t = (key: string): string => {
+    return translations[language][key as keyof typeof translations['ko']] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};

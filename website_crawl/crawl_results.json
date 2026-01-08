@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "message": "Successfully crawled 1 pages from http://www.donghwafp.com/web/Main.aspx. The HTML content has been saved and should be analyzed to understand the website's structure, design patterns, navigation, content organization, and visual elements for creating a similar website.",
+  "website_url": "http://www.donghwafp.com/web/Main.aspx",
+  "total_pages": 1,
+  "combined_summary": "页面 1: http://www.donghwafp.com/web/Main.aspx\n摘要: 동화청과\n",
+  "file_paths": [
+    {
+      "page_number": 1,
+      "url": "http://www.donghwafp.com/web/Main.aspx",
+      "html_file_path": "/workspace/momentum_foundation/website_crawl/pages/page_0_www.donghwafp.com_web_Main.aspx.html",
+      "summary": "동화청과"
+    }
+  ]
+}
