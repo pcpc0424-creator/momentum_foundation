@@ -119,7 +119,7 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled || !isHomepage
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
+        ? 'bg-black/50 backdrop-blur-md shadow-lg'
         : 'bg-gradient-to-b from-black/30 to-transparent backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +128,7 @@ const Navigation = () => {
           <Link to="/" className="flex items-center flex-shrink-0 group gap-2">
             <div className={`relative p-1.5 sm:p-2 rounded-xl transition-all duration-300 ${
               isScrolled || !isHomepage
-                ? 'bg-white shadow-sm border border-gray-100 group-hover:shadow-md'
+                ? 'bg-white/10 group-hover:bg-white/20'
                 : 'bg-white/10 group-hover:bg-white/20'
             }`}>
               <img
@@ -137,13 +137,6 @@ const Navigation = () => {
                 className="h-8 sm:h-10 w-auto transition-all duration-300 group-hover:scale-105"
               />
             </div>
-            <span className={`text-lg sm:text-xl font-bold transition-all duration-300 ${
-              isScrolled || !isHomepage
-                ? 'text-gray-800'
-                : 'text-white'
-            }`}>
-              momentum
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -156,7 +149,7 @@ const Navigation = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     isScrolled || !isHomepage
-                      ? 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
+                      ? 'text-white/90 hover:text-white hover:bg-white/10'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -177,10 +170,10 @@ const Navigation = () => {
                     className={`relative flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                       isActive(item.path)
                         ? isScrolled || !isHomepage
-                          ? 'text-emerald-600 bg-emerald-50'
+                          ? 'text-white bg-white/20'
                           : 'text-white bg-white/20'
                         : isScrolled || !isHomepage
-                          ? 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
+                          ? 'text-white/90 hover:text-white hover:bg-white/10'
                           : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
@@ -194,7 +187,7 @@ const Navigation = () => {
                     {/* Active indicator */}
                     {isActive(item.path) && (
                       <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${
-                        isScrolled || !isHomepage ? 'bg-emerald-500' : 'bg-white'
+                        isScrolled || !isHomepage ? 'bg-white' : 'bg-white'
                       }`}></span>
                     )}
                   </Link>
@@ -226,14 +219,14 @@ const Navigation = () => {
 
             {/* Divider */}
             <div className={`w-px h-6 mx-2 ${
-              isScrolled || !isHomepage ? 'bg-gray-200' : 'bg-white/20'
+              isScrolled || !isHomepage ? 'bg-white/20' : 'bg-white/20'
             }`}></div>
 
             {/* Language Toggle */}
             <div className="flex items-center ml-2">
               <div className={`flex items-center rounded-full p-1 transition-all duration-300 ${
                 isScrolled || !isHomepage
-                  ? 'bg-gray-100 border border-gray-200'
+                  ? 'bg-white/10 border border-white/20'
                   : 'bg-white/10 border border-white/20'
               }`}>
                 <button
@@ -242,7 +235,7 @@ const Navigation = () => {
                     language === 'ko'
                       ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
                       : isScrolled || !isHomepage
-                        ? 'text-gray-500 hover:text-gray-700'
+                        ? 'text-white/70 hover:text-white'
                         : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -254,7 +247,7 @@ const Navigation = () => {
                     language === 'en'
                       ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
                       : isScrolled || !isHomepage
-                        ? 'text-gray-500 hover:text-gray-700'
+                        ? 'text-white/70 hover:text-white'
                         : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -270,7 +263,7 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${
                 isScrolled || !isHomepage
-                  ? 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
+                  ? 'text-white hover:bg-white/10'
                   : 'text-white hover:bg-white/10'
               }`}
             >
