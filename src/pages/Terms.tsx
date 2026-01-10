@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Terms = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -10,12 +12,12 @@ const Terms = () => {
 <section className="bg-[#E8F5E9] text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              이용약관
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('terms.hero.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              홈페이지 이용약관
+              {t('terms.hero.subtitle')}
             </span>
           </div>
         </div>

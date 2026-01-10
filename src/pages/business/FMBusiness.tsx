@@ -104,13 +104,13 @@ const FMBusiness = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-              FM/아웃소싱
+              {t('fm.title')}
             </h1>
 
             <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-green-500 mx-auto mb-8 rounded-full" />
 
             <p className="text-xl md:text-2xl text-emerald-200/90 max-w-3xl mx-auto leading-relaxed font-light">
-              비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감
+              {t('fm.subtitle')}
             </p>
 
             {/* Stats Bar */}
@@ -204,7 +204,7 @@ const FMBusiness = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
               <img
                 src="/momentum_foundation/images/business_team_20251219_072051.png"
-                alt="경비용역 서비스"
+                alt={t('fm.security.alt')}
                 className="relative rounded-2xl shadow-2xl w-full h-auto border border-gray-700/50 group-hover:border-emerald-500/30 transition-all duration-500"
               />
               {/* Premium Badge on Image */}

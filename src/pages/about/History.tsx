@@ -127,7 +127,7 @@ const History = () => {
             {/* Main Title */}
             <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
-                발자취
+                {t('about.history.title')}
               </span>
             </h1>
 
@@ -233,7 +233,7 @@ const History = () => {
                               ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                               : 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
                           }`}>
-                            {item.month}월
+                            {item.month}{t('history.month.suffix')}
                           </span>
                         </div>
 
@@ -277,7 +277,7 @@ const History = () => {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-emerald-500"></div>
           </div>
           <p className="text-2xl md:text-3xl font-light text-gray-300">
-            <span className="text-emerald-400 font-semibold">모멘텀재단</span>과 함께하는 미래를 향한 여정
+            {t('history.cta.text')}
           </p>
         </div>
       </section>

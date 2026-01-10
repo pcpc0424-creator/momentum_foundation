@@ -160,7 +160,7 @@ const News = () => {
 <section className="bg-dusty-blue text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
 {t('news.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
@@ -203,19 +203,19 @@ const News = () => {
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-20">
-                    번호
+                    {t('news.table.no')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-32">
-                    카테고리
+                    {t('news.table.category')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    제목
+                    {t('news.table.title')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-32">
-                    작성일
+                    {t('news.table.date')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24">
-                    조회수
+                    {t('news.table.views')}
                   </th>
                 </tr>
               </thead>
@@ -257,7 +257,7 @@ const News = () => {
           {/* 상세보기 안내 */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
-              게시글을 클릭하면 {activeTab === "notice" ? "공지사항" : "회사소식"} 상세 페이지로 이동합니다.
+              {activeTab === "notice" ? t('news.notice.hint') : t('news.company.hint')}
             </p>
           </div>
         </div>

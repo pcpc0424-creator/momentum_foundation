@@ -37,17 +37,17 @@ const Careers = () => {
   ];
 
   const benefits = [
-    { icon: <Award className="w-6 h-6" />, title: "성과 보상", desc: "업계 최고 수준의 보상 체계" },
-    { icon: <Clock className="w-6 h-6" />, title: "유연 근무", desc: "자율적인 근무 환경" },
-    { icon: <Heart className="w-6 h-6" />, title: "복지 혜택", desc: "다양한 복지 프로그램" },
-    { icon: <TrendingUp className="w-6 h-6" />, title: "성장 지원", desc: "교육 및 자기계발 지원" }
+    { icon: <Award className="w-6 h-6" />, title: t('careers.benefits.reward.title'), desc: t('careers.benefits.reward.desc') },
+    { icon: <Clock className="w-6 h-6" />, title: t('careers.benefits.flexible.title'), desc: t('careers.benefits.flexible.desc') },
+    { icon: <Heart className="w-6 h-6" />, title: t('careers.benefits.welfare.title'), desc: t('careers.benefits.welfare.desc') },
+    { icon: <TrendingUp className="w-6 h-6" />, title: t('careers.benefits.growth.title'), desc: t('careers.benefits.growth.desc') }
   ];
 
   const positions = [
-    { dept: "경영관리본부", role: "경영지원 담당자", type: "정규직", location: "서울" },
-    { dept: "식자재사업본부", role: "영업 담당자", type: "정규직", location: "서울/경기" },
-    { dept: "프랜차이즈사업본부", role: "슈퍼바이저", type: "정규직", location: "전국" },
-    { dept: "FM사업본부", role: "현장 운영 매니저", type: "정규직", location: "서울" }
+    { dept: t('careers.positions.management.dept'), role: t('careers.positions.management.role'), type: t('careers.positions.type.fulltime'), location: t('careers.positions.location.seoul') },
+    { dept: t('careers.positions.food.dept'), role: t('careers.positions.food.role'), type: t('careers.positions.type.fulltime'), location: t('careers.positions.location.seoulgyeonggi') },
+    { dept: t('careers.positions.franchise.dept'), role: t('careers.positions.franchise.role'), type: t('careers.positions.type.fulltime'), location: t('careers.positions.location.nationwide') },
+    { dept: t('careers.positions.fm.dept'), role: t('careers.positions.fm.role'), type: t('careers.positions.type.fulltime'), location: t('careers.positions.location.seoul') }
   ];
 
   return (
@@ -90,9 +90,9 @@ const Careers = () => {
             </div>
 
             <h1 className="text-6xl lg:text-8xl font-black text-white mb-8 tracking-tight leading-tight">
-              <span className="block">함께 성장할</span>
+              <span className="block">{t('careers.hero.title1')}</span>
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                인재를 찾습니다
+                {t('careers.hero.title2')}
               </span>
             </h1>
 
@@ -103,9 +103,9 @@ const Careers = () => {
             {/* Animated Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-16">
               {[
-                { number: "100+", label: "임직원" },
-                { number: "4개", label: "사업본부" },
-                { number: "∞", label: "성장가능성" }
+                { number: "100+", label: t('careers.stats.employees') },
+                { number: "4", label: t('careers.stats.divisions') },
+                { number: "∞", label: t('careers.stats.growth') }
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -201,10 +201,10 @@ const Careers = () => {
               Benefits
             </span>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              복리후생
+              {t('careers.benefits.title')}
             </h2>
             <p className="text-xl text-gray-300">
-              직원들의 성장과 행복을 위한 다양한 혜택
+              {t('careers.benefits.subtitle')}
             </p>
           </div>
 
@@ -277,10 +277,10 @@ const Careers = () => {
 
           {/* CTA */}
           <div className="mt-16 text-center">
-            <p className="text-gray-500 mb-4">원하시는 포지션이 없으신가요?</p>
+            <p className="text-gray-500 mb-4">{t('careers.positions.noMatch')}</p>
             <button className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors duration-300">
               <Sparkles className="w-5 h-5" />
-              상시 지원하기
+              {t('careers.positions.openApplication')}
             </button>
           </div>
         </div>
@@ -297,20 +297,19 @@ const Careers = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-8">
-            Ready to Start?
+            {t('careers.final.title')}
           </h2>
           <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
-            모멘텀파운데이션과 함께 새로운 도전을 시작하세요.
-            여러분의 성장을 응원합니다.
+            {t('careers.final.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-600 rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-xl">
               <Briefcase className="w-5 h-5" />
-              채용 공고 보기
+              {t('careers.final.btn.jobs')}
             </button>
             <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors duration-300 border border-white/30">
               <Heart className="w-5 h-5" />
-              회사 문화 알아보기
+              {t('careers.final.btn.culture')}
             </button>
           </div>
         </div>

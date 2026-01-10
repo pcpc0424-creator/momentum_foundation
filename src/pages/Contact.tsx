@@ -74,9 +74,9 @@ const Contact = () => {
             </div>
 
             <h1 className="text-6xl lg:text-8xl font-black text-white mb-8 tracking-tight leading-tight">
-              <span className="block">언제든</span>
+              <span className="block">{t('contact.hero.title1')}</span>
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                연락주세요
+                {t('contact.hero.title2')}
               </span>
             </h1>
 
@@ -85,7 +85,7 @@ const Contact = () => {
             </p>
 
             {/* Stats Row */}
-            <div className="flex flex-wrap justify-center gap-6 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-12 max-w-2xl mx-auto">
               {[
                 { icon: <Clock className="w-5 h-5" />, text: "24/7 Support" },
                 { icon: <Shield className="w-5 h-5" />, text: "Secure & Private" },
@@ -93,11 +93,11 @@ const Contact = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/10 transform transition-all duration-700 hover:scale-105 hover:bg-white/10 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                  className={`flex items-center justify-center gap-2 sm:gap-3 bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border border-white/10 transform transition-all duration-700 hover:scale-105 hover:bg-white/10 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                   style={{ transitionDelay: `${400 + index * 100}ms` }}
                 >
                   <div className="text-emerald-400">{item.icon}</div>
-                  <span className="text-gray-300 font-medium">{item.text}</span>
+                  <span className="text-gray-300 font-medium text-sm sm:text-base">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -234,11 +234,11 @@ const Contact = () => {
 
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
-                문의하기
+                {t('contact.form.title')}
               </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              문의사항을 남겨주시면 24시간 이내에 답변드리겠습니다
+              {t('contact.form.desc')}
             </p>
           </div>
 
@@ -250,27 +250,27 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   {/* Name Input */}
                   <div>
-                    <label className="block text-emerald-300 text-sm font-medium mb-3">이름</label>
+                    <label className="block text-emerald-300 text-sm font-medium mb-3">{t('contact.form.name')}</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full bg-white/5 border-2 border-white/20 rounded-2xl px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 transition-all duration-300 hover:border-white/40"
-                      placeholder="이름을 입력하세요"
+                      placeholder={t('contact.form.name.placeholder')}
                     />
                   </div>
 
                   {/* Email Input */}
                   <div>
-                    <label className="block text-emerald-300 text-sm font-medium mb-3">이메일</label>
+                    <label className="block text-emerald-300 text-sm font-medium mb-3">{t('contact.form.email')}</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full bg-white/5 border-2 border-white/20 rounded-2xl px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 transition-all duration-300 hover:border-white/40"
-                      placeholder="이메일을 입력하세요"
+                      placeholder={t('contact.form.email.placeholder')}
                     />
                   </div>
                 </div>
@@ -278,45 +278,45 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   {/* Phone Input */}
                   <div>
-                    <label className="block text-emerald-300 text-sm font-medium mb-3">연락처</label>
+                    <label className="block text-emerald-300 text-sm font-medium mb-3">{t('contact.form.phone')}</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full bg-white/5 border-2 border-white/20 rounded-2xl px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 transition-all duration-300 hover:border-white/40"
-                      placeholder="연락처를 입력하세요"
+                      placeholder={t('contact.form.phone.placeholder')}
                     />
                   </div>
 
                   {/* Subject Select */}
                   <div>
-                    <label className="block text-emerald-300 text-sm font-medium mb-3">문의 유형</label>
+                    <label className="block text-emerald-300 text-sm font-medium mb-3">{t('contact.form.type')}</label>
                     <select
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       className="w-full bg-white/5 border-2 border-white/20 rounded-2xl px-5 py-4 text-white focus:outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 transition-all duration-300 hover:border-white/40 appearance-none cursor-pointer"
                     >
-                      <option value="" className="bg-gray-800">문의 유형을 선택하세요</option>
-                      <option value="general" className="bg-gray-800">일반 문의</option>
-                      <option value="support" className="bg-gray-800">기술 지원</option>
-                      <option value="partnership" className="bg-gray-800">제휴 문의</option>
-                      <option value="feedback" className="bg-gray-800">피드백</option>
+                      <option value="" className="bg-gray-800">{t('contact.form.type.placeholder')}</option>
+                      <option value="general" className="bg-gray-800">{t('contact.form.type.general')}</option>
+                      <option value="support" className="bg-gray-800">{t('contact.form.type.support')}</option>
+                      <option value="partnership" className="bg-gray-800">{t('contact.form.type.partnership')}</option>
+                      <option value="feedback" className="bg-gray-800">{t('contact.form.type.feedback')}</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Message Textarea */}
                 <div className="mb-8">
-                  <label className="block text-emerald-300 text-sm font-medium mb-3">문의 내용</label>
+                  <label className="block text-emerald-300 text-sm font-medium mb-3">{t('contact.form.message')}</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={6}
                     className="w-full bg-white/5 border-2 border-white/20 rounded-2xl px-5 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20 transition-all duration-300 hover:border-white/40 resize-none"
-                    placeholder="문의하실 내용을 자세히 작성해주세요..."
+                    placeholder={t('contact.form.message.placeholder')}
                   />
                 </div>
 
@@ -328,7 +328,7 @@ const Contact = () => {
                   <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></span>
                   <span className="relative flex items-center justify-center gap-3 text-lg">
                     <Send className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    문의하기
+                    {t('contact.form.submit')}
                     <ArrowRight className="w-5 h-5 opacity-0 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all duration-300" />
                   </span>
                 </button>

@@ -57,6 +57,54 @@ const translations = {
     'ceo.ceo1': '대표이사 소민지',
 'ceo.ceo2': '대표이사 이병준',
     
+    // About Page Titles
+    'about.companyintro.title': '기업소개',
+    'about.philosophy.title': '기업이념',
+    'about.history.title': '발자취',
+    'about.org.title': '조직도',
+    'about.org.subtitle': '체계적이고 전문적인 조직 구성으로 최상의 서비스를 제공합니다',
+    'about.stats.business': '사업 분야',
+    'about.stats.satisfaction': '고객 만족',
+    'about.stats.service': '서비스',
+
+    // History Page Additional
+    'history.month.suffix': '월',
+    'history.cta.text': '모멘텀재단과 함께하는 미래를 향한 여정',
+
+    // Organization Page
+    'org.board': '이사회',
+    'org.chairman': '회장',
+    'org.auditor': '감사',
+    'org.executives': '최고 경영진',
+    'org.ceo': '대표이사',
+    'org.ceo.desc': '4개의 주요 사업 본부를 총괄',
+    'org.chart.title': '회사 조직도',
+    'org.stats.divisions': '사업본부',
+    'org.stats.teams': '전문팀',
+    'org.stats.employees': '임직원',
+    'org.stats.growth': '성장가능성',
+    'org.division.management.title': '경영관리본부',
+    'org.division.management.desc': '조직 운영 지원, 재무 관리, 사업 기획 및 인사 관리',
+    'org.division.food.title': '식자재사업본부',
+    'org.division.food.desc': '식자재 가공·유통, 품질 관리 및 공급망 관리',
+    'org.division.franchise.title': '프랜차이즈사업본부',
+    'org.division.franchise.desc': '청년축산 브랜드 운영, 가맹점 관리 및 창업 지원',
+    'org.division.fm.title': 'FM/아웃소싱사업본부',
+    'org.division.fm.desc': '시설 관리, 경비용역, 아웃소싱 솔루션 제공',
+    'org.team.management1': '경영지원팀',
+    'org.team.management2': '재경회계팀',
+    'org.team.management3': '기획/IR팀',
+    'org.team.food1': '국내영업팀',
+    'org.team.food2': '온라인사업팀',
+    'org.team.food3': '물류팀',
+    'org.team.food4': '상품개발팀',
+    'org.team.food5': '품질관리팀',
+    'org.team.franchise1': '가맹영업팀',
+    'org.team.franchise2': '슈퍼바이징팀',
+    'org.team.franchise3': '메뉴/상품기획팀',
+    'org.team.fm1': '사업영업팀',
+    'org.team.fm2': '현장운영팀',
+
     // Philosophy Page Translation
     'philosophy.subtitle': '기업 이념 체계',
     'philosophy.title1': '기업 이념 체계',
@@ -146,9 +194,16 @@ const translations = {
     'business.strengths.reliability.desc': '검증된 파트너사와의\n안정적인 협력 관계',
     'business.strengths.innovation.title': '혁신성',
 'business.strengths.innovation.desc': '지속적인 혁신을 통한 고객 가치 창출',
-    
+
+    // Business Hero Section
+    'business.hero.title': '사업영역',
+    'business.hero.subtitle': '다양한 분야에서 전문성을 바탕으로 고객에게 최상의 서비스를 제공합니다',
+
     // Food Business Page Translation
+    'food.title': '식자재가공·유통',
     'food.subtitle': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
+    'food.cta.title': '최고 품질의 식자재를 약속합니다',
+    'food.cta.desc': '모멘텀 재단은 철저한 품질 관리와 신뢰를 바탕으로 최상의 식자재를 공급합니다.',
     'food.headline': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
     'food.meat.title': '한우·한돈 가공 및 유통',
     'food.meat.desc': '국내 최고급 한우와 한돈을 엄선하여 신선하고 안전한 육류를 공급합니다. HACCP 인증 시설을 갖춘 계열사 \'더담우\'를 통해 안전하고 청결하게 가공되며, 완벽한 콜드체인 시스템으로 최상의 품질을 보장합니다.',
@@ -180,7 +235,68 @@ const translations = {
 'food.rice.feature3.desc': '철저한 품질 관리를 통한 안전하고 신뢰할 수 있는 곡물 유통',
     
     'food.products.fruit': '과일 제품',
-    'food.products.rice': '쌌 제품',
+    'food.products.rice': '쌀 제품',
+    'food.meat.products.alt': '한우·한돈 제품',
+    'food.meat.label': '한우·한돈',
+    'food.fruit.label': '청년나래',
+    'food.fruit.products.alt': '과일 제품',
+    'food.rice.products.alt': '쌀 제품',
+    'food.rice.label': '브랜드쌀',
+    'food.cta.quality': '품질 보증',
+    'food.cta.delivery': '신속 배송',
+    'food.cta.certified': '인증 제품',
+
+    // Meat Business Page (Standalone)
+    'meat.title': '육류유통업',
+    'meat.subtitle': '프리미엄 국내산 한우와 한돈의 전문 유통 서비스',
+    'meat.headline': '최고 품질의 육류 유통',
+    'meat.desc': '모멘텀파운데이션은 국내 최고급 한우와 한돈을 엄선하여 고객에게 신선하고 안전한 육류를 공급합니다. 철저한 품질 관리와 완벽한 콜드체인 시스템을 통해 최상의 품질을 보장합니다.',
+    'meat.feature1.title': '프리미엄 국내산 한우와 한돈 취급',
+    'meat.feature1.desc': '엄선된 국내 최고급 한우와 한돈만을 공급합니다',
+    'meat.feature2.title': '철저한 품질 관리',
+    'meat.feature2.desc': 'HACCP 인증 시설에서 안전하게 관리되는 육류',
+    'meat.feature3.title': '콜드체인 시스템',
+    'meat.feature3.desc': '신선도 유지를 위한 완벽한 냉장 유통 시스템',
+    'meat.products.alt': '육류 제품',
+
+    // Fruit Business Page (Standalone)
+    'fruit.title': '과일유통업',
+    'fruit.subtitle': '신선하고 달콤한 계절 과일의 전문 유통 서비스',
+    'fruit.headline': '신선함이 살아있는 과일',
+    'fruit.desc': '모멘텀파운데이션은 전국 각지의 우수한 과일 농가와 직접 계약하여 가장 신선하고 맛있는 제철 과일을 고객에게 공급합니다.',
+    'fruit.feature1.title': '신선한 계절 과일',
+    'fruit.feature1.desc': '제철 과일을 엄선하여 최상의 신선도로 공급',
+    'fruit.feature2.title': '프리미엄 품질',
+    'fruit.feature2.desc': '까다로운 선별 기준을 통과한 고품질 과일만 취급',
+    'fruit.feature3.title': '신속한 배송',
+    'fruit.feature3.desc': '수확 후 최단 시간 내 고객에게 전달하는 시스템',
+    'fruit.products.alt': '과일 제품',
+
+    // Rice Business Page (Standalone)
+    'rice.title': '미곡유통업',
+    'rice.subtitle': '브랜드 쌀과 곡물류의 전문 유통 서비스',
+    'rice.headline': '프리미엄 쌀과 곡물',
+    'rice.desc': '모멘텀파운데이션은 전국 최고의 쌀 생산지에서 엄선된 브랜드 쌀과 다양한 곡물류를 RPC 도정 시스템을 통해 신선하게 가공하여 공급합니다.',
+    'rice.feature1.title': '브랜드 쌀 및 곡물류의 전문 유통 서비스',
+    'rice.feature1.desc': '엄선된 브랜드 쌀과 다양한 곡물류를 전문적으로 유통',
+    'rice.feature2.title': 'RPC 도정 시스템 활용한 신선한 쌀 제공',
+    'rice.feature2.desc': '최신 도정 기술로 가공된 신선하고 맛있는 쌀',
+    'rice.feature3.title': '품질 보증',
+    'rice.feature3.desc': '철저한 품질 관리를 통한 안전하고 신뢰할 수 있는 곡물',
+    'rice.products.alt': '쌀 제품',
+
+    // Cosmetics Business Page (Standalone)
+    'cosmetics.title': '화장품도소매',
+    'cosmetics.subtitle': '프리미엄 화장품 및 화장용품의 전문 도소매 서비스',
+    'cosmetics.headline': '뷰티 트렌드를 선도하는 화장품',
+    'cosmetics.desc': '모멘텀파운데이션은 국내외 우수한 화장품 브랜드와 파트너십을 구축하여 최신 뷰티 트렌드를 반영한 다양한 화장품을 도매로 공급합니다.',
+    'cosmetics.feature1.title': '프리미엄 화장품 브랜드',
+    'cosmetics.feature1.desc': '엄선된 국내외 우수 화장품 브랜드 전문 도매',
+    'cosmetics.feature2.title': '다양한 제품군',
+    'cosmetics.feature2.desc': '스킨케어, 메이크업, 바디케어 등 전 카테고리 취급',
+    'cosmetics.feature3.title': '안정적인 공급망',
+    'cosmetics.feature3.desc': '체계적인 재고 관리와 신속한 배송 서비스',
+    'cosmetics.products.alt': '화장품 제품',
     'hero.subtitle': '모멘텀파운데이션은 프리미엄 식자재 유통부터 혁신적인 프랜차이즈, 전문적인 FM/아웃소싱 서비스까지 다양한 분야에서 새로운 가치를 창출합니다.',
     'hero.btn1': '회사 소개',
     'hero.btn2': '사업 영역 보기',
@@ -194,12 +310,9 @@ const translations = {
     'about.vision.item2': '고객 중심의 혁신',
     'about.vision.item3': '사회적 책임 경영',
     'about.stats.title': '2024년 설립 이후',
-    'about.stats.business': '사업 영역',
-    'about.stats.satisfaction': '고객 만족',
-    'about.stats.service': '서비스 지원',
-    'about.stats.growth': '성장 가능성',
-    
+
     // Franchise Business Translation
+    'franchise.title': '프랜차이즈',
     'franchise.subtitle': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공',
     'franchise.headline': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공',
     'franchise.brand.title': '청년축산',
@@ -233,7 +346,8 @@ const translations = {
     'franchise.closing.desc': '청년축산은 단순한 가맹 사업이 아닌, 파트너와 함께 성장하는 동반자 관계를 추구합니다. 본사의 지속적인 지원과 가맹점주의\
 열정이 만나 상호 발전하는 건강한 프랜차이즈 생태계를 구축하고 있습니다.',
     'franchise.closing.title': '가맹점과 동반 성장',
-    
+    'franchise.store.alt': '청년축산 매장',
+
     // Franchise Advantages Translation
     'franchise.advantage1.title': '정육 식당 모델 혁신',
     'franchise.advantage1.desc': '정육점과 식당이 결합된 혁신적 모델',
@@ -245,11 +359,14 @@ const translations = {
 'franchise.advantage4.desc': '파트너와 함께 성장하는 건강한\n프랜차이즈 생태계 구축',
     
     // FM/Outsourcing Business Translation
+    'fm.title': 'FM/아웃소싱',
+    'fm.subtitle': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감',
     'fm.headline': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감',
     'fm.partner.title': '전문 파트너사 연계 서비스',
     'fm.partner.desc': '각 분야별 검증된 전문 업체를 선별하고 관리하여, 고객사의 요구에 맞는 최적의 아웃소싱 솔루션을 제공합니다. 모멘텀파운데이션은 파트너사 선정부터 품질 관리까지 전 과정을 책임지며 안정적인 서비스를 보장합니다.',
     'fm.security.title': '경비용역 위탁 관리',
     'fm.security.desc': '전문 경비 업체와의 협력을 통해 고객 자산 보호와 시설 안전을 확보합니다. 검증된 경비 업체를 선정하고 관리하여 빈틈없는 보안 서비스를 제공합니다.',
+    'fm.security.alt': '경비용역 서비스',
     'fm.building.title': '빌딩 종합 관리(FM) 위탁',
 'fm.building.desc': '시설 관리 전문 업체와의 파트너십을 통해 빌딩 및 시설물의 가치를 유지하고, 입주자와 이용객에게\n쾌적한 환경을 제공합니다.',
     
@@ -325,10 +442,80 @@ const translations = {
     // Recruitment Cards
     'careers.recruitment.title': '채용공고',
     'careers.recruitment.desc': '현재 모집 중인 포지션을 확인하고 지원하세요',
+    'careers.recruitment.subtitle': '모멘텀파운데이션과 함께 성장할 인재를 찾습니다',
     'careers.culture.card.title': '기업문화',
     'careers.culture.card.desc': '우리가 일하며 실천하는 원칙을 알아보세요',
+    'careers.culture.subtitle': '함께 성장하고 발전하는 모멘텀파운데이션의 기업문화를 소개합니다',
     'careers.process.title': '채용절차',
 'careers.process.desc': '채용 프로세스와 절차를 확인하세요',
+
+    // Job Postings Page
+    'jobs.list': '공고목록',
+    'jobs.apply': '지원하기',
+    'jobs.attachment': '첨부파일',
+    'jobs.posting': '채용공고',
+    'jobs.posting.file': '채용공고.pdf',
+    'jobs.filter.all': '전체',
+    'jobs.filter.fulltime': '정규직',
+    'jobs.filter.contract': '계약직',
+    'jobs.table.no': '번호',
+    'jobs.table.title': '제목',
+    'jobs.table.date': '등록일',
+    'jobs.table.attachment': '첨부',
+    'jobs.table.views': '조회',
+    'jobs.type.fulltime': '정규직',
+    'jobs.type.contract': '계약직',
+    'jobs.status.active': '진행중',
+    'jobs.status.closed': '마감',
+    'jobs.pagination.info': '총 {total}개의 게시글 (페이지 {current} / {pages})',
+
+    // Home Careers CTA
+    'home.careers.cta.title': 'Ready to Start Your Journey?',
+    'home.careers.cta.desc': '모멘텀파운데이션과 함께 성장하세요',
+    'home.careers.cta.btn': '모든 채용 공고 보기',
+
+    // Careers Hero
+    'careers.hero.title1': '함께 성장할',
+    'careers.hero.title2': '인재를 찾습니다',
+
+    // Careers Stats
+    'careers.stats.employees': '임직원',
+    'careers.stats.divisions': '사업본부',
+    'careers.stats.growth': '성장가능성',
+
+    // Careers Benefits
+    'careers.benefits.title': '복리후생',
+    'careers.benefits.subtitle': '직원들의 성장과 행복을 위한 다양한 혜택',
+    'careers.benefits.reward.title': '성과 보상',
+    'careers.benefits.reward.desc': '업계 최고 수준의 보상 체계',
+    'careers.benefits.flexible.title': '유연 근무',
+    'careers.benefits.flexible.desc': '자율적인 근무 환경',
+    'careers.benefits.welfare.title': '복지 혜택',
+    'careers.benefits.welfare.desc': '다양한 복지 프로그램',
+    'careers.benefits.growth.title': '성장 지원',
+    'careers.benefits.growth.desc': '교육 및 자기계발 지원',
+
+    // Careers Positions
+    'careers.positions.management.dept': '경영관리본부',
+    'careers.positions.management.role': '경영지원 담당자',
+    'careers.positions.food.dept': '식자재사업본부',
+    'careers.positions.food.role': '영업 담당자',
+    'careers.positions.franchise.dept': '프랜차이즈사업본부',
+    'careers.positions.franchise.role': '슈퍼바이저',
+    'careers.positions.fm.dept': 'FM사업본부',
+    'careers.positions.fm.role': '현장 운영 매니저',
+    'careers.positions.type.fulltime': '정규직',
+    'careers.positions.location.seoul': '서울',
+    'careers.positions.location.seoulgyeonggi': '서울/경기',
+    'careers.positions.location.nationwide': '전국',
+    'careers.positions.noMatch': '원하시는 포지션이 없으신가요?',
+    'careers.positions.openApplication': '상시 지원하기',
+
+    // Careers Final CTA
+    'careers.final.title': 'Ready to Start?',
+    'careers.final.desc': '모멘텀파운데이션과 함께 새로운 도전을 시작하세요. 여러분의 성장을 응원합니다.',
+    'careers.final.btn.jobs': '채용 공고 보기',
+    'careers.final.btn.culture': '회사 문화 알아보기',
     
     // Culture Page Translation
     'culture.principles.title': '일하는 원칙',
@@ -354,15 +541,31 @@ const translations = {
     'process.requirements.title': '지원 자격',
 'process.requirements.subtitle': '모멘텀파운데이션이 찾는 인재상입니다',
     
+    // Process Hero
+    'process.hero.title': '채용절차',
+    'process.hero.subtitle': '채용 프로세스',
+
     // Process Steps
     'process.step1.title': '서류 전형',
     'process.step1.desc': '지원서 접수 및 서류 심사',
+    'process.step1.detail1': '이력서 및 자기소개서 제출',
+    'process.step1.detail2': '경력증명서 (해당자)',
+    'process.step1.detail3': '포트폴리오 (해당 직무)',
     'process.step2.title': '면접 전형',
     'process.step2.desc': '1차 실무 면접 및 2차 임원 면접',
+    'process.step2.detail1': '1차: 실무진 면접 (직무 적합성)',
+    'process.step2.detail2': '2차: 임원 면접 (인성 및 비전)',
+    'process.step2.detail3': '면접 일정은 개별 안내',
     'process.step3.title': '최종 합격',
     'process.step3.desc': '최종 합격자 발표 및 입사 안내',
+    'process.step3.detail1': '합격자 개별 연락',
+    'process.step3.detail2': '입사 서류 안내',
+    'process.step3.detail3': '오리엔테이션 일정 공지',
     'process.step4.title': '입사 및 교육',
     'process.step4.desc': '신입사원 교육 프로그램',
+    'process.step4.detail1': '회사 소개 및 조직 문화',
+    'process.step4.detail2': '직무별 전문 교육',
+    'process.step4.detail3': '멘토링 프로그램 배정',
     
     // Requirements
     'process.req1': '관련 분야 학사 학위 이상',
@@ -370,7 +573,82 @@ const translations = {
     'process.req3': '원활한 의사소통 능력',
     'process.req4': '팀워크 및 협업 능력',
 'process.req5': '새로운 도전에 대한 적극적인 자세',
-    
+
+    // Job Application Page
+    'application.default.position': '채용 포지션',
+    'application.hero.title': '입사지원',
+    'application.hero.subtitle': '모멘텀파운데이션과 함께 성장할 우수한 인재를 찾습니다',
+    'application.form.title': '입사지원서 작성',
+    'application.form.position': '지원 포지션',
+    'application.form.positionNote': '포지션 확인 후 작성해 주세요',
+    'application.section.basicInfo': '기본 정보',
+    'application.section.education': '학력 및 경력',
+    'application.section.motivation': '지원 동기',
+    'application.section.documents': '서류 첨부',
+    'application.label.division': '지원분야',
+    'application.label.department': '지원부서',
+    'application.label.name': '이름',
+    'application.label.birthDate': '생년월일',
+    'application.label.email': '이메일',
+    'application.label.phone': '연락처',
+    'application.label.address': '주소',
+    'application.label.education': '최종 학력',
+    'application.label.experience': '경력 사항',
+    'application.label.motivation': '지원 동기 및 포부',
+    'application.label.resume': '이력서 (선택)',
+    'application.label.portfolio': '포트폴리오 (선택)',
+    'application.placeholder.division': '예: 경영관리본부, 식자재사업본부 등',
+    'application.placeholder.department': '예: 인사/총무, 영업/마케팅 등',
+    'application.placeholder.name': '홍길동',
+    'application.placeholder.address': '서울시 송파구...',
+    'application.placeholder.education': '예: OO대학교 경영학과 졸업',
+    'application.placeholder.experience': '주요 경력 사항을 입력해주세요',
+    'application.placeholder.motivation': '지원 동기와 입사 후 포부를 작성해주세요',
+    'application.file.resume': '이력서',
+    'application.file.portfolio': '포트폴리오',
+    'application.file.resumeNote': '업로드 용량 5MB 이내 | PDF 형식 권장',
+    'application.file.portfolioNote': '업로드 용량 10MB 이내 | PDF 형식 권장',
+    'application.error.input': '입력 오류',
+    'application.error.name': '이름을 입력해주세요.',
+    'application.error.email': '이메일을 입력해주세요.',
+    'application.error.phone': '전화번호를 입력해주세요.',
+    'application.error.birthDate': '생년월일을 입력해주세요.',
+    'application.error.birthDateFuture': '생년월일은 오늘 날짜보다 이전이어야 합니다.',
+    'application.error.motivation': '지원동기를 입력해주세요.',
+    'application.error.divisionDept': '지원분야와 지원부서를 입력해주세요.',
+    'application.error.emailFormat': '이메일 오류',
+    'application.error.emailFormatDesc': '올바른 이메일 형식을 입력해주세요.',
+    'application.error.phoneFormat': '전화번호 오류',
+    'application.error.phoneFormatDesc': '올바른 전화번호 형식을 입력해주세요.',
+    'application.error.fileSize': '파일 크기 초과!',
+    'application.error.fileSizeDesc': '{field} 파일 크기가 초과되었습니다! 최대 허용: {max}, 현재 파일: {current}MB',
+    'application.error.fileProcess': '파일 처리 오류',
+    'application.error.fileProcessDesc': '파일 처리 중 오류가 발생했습니다. 다시 시도해주세요.',
+    'application.error.fileRead': '파일 읽기 오류',
+    'application.error.fileReadDesc': '파일을 읽는 중 오류가 발생했습니다.',
+    'application.info.fileFormat': '파일 형식 안내',
+    'application.info.pdfRecommended': '{field}은 PDF 형식을 권장합니다.',
+    'application.success.fileUpload': '파일 업로드 성공',
+    'application.success.fileUploadDesc': '{field} 파일이 업로드되었습니다: {name}',
+    'application.success.submit': '지원 완료',
+    'application.success.submitDesc': '입사지원이 성공적으로 접수되었습니다.',
+    'application.complete.title': '입사지원이 완료되었습니다',
+    'application.complete.appNumber': '접수번호',
+    'application.complete.remember': '위 접수번호를 기억해주세요.',
+    'application.complete.emailNotice': '채용 진행 상황은 이메일로 안내드립니다.',
+    'application.complete.position': '지원하신 포지션',
+    'application.complete.applicant': '지원자명',
+    'application.complete.email': '이메일',
+    'application.complete.date': '접수일시',
+    'application.complete.viewJobs': '채용공고 목록',
+    'application.complete.home': '홈으로',
+    'application.privacy.title': '개인정보 수집 및 이용 동의',
+    'application.privacy.items': '수집 항목: 이름, 주민등록번호, 이메일, 연락처, 주소, 학력, 경력',
+    'application.privacy.purpose': '이용 목적: 채용 전형 진행 및 결과 안내',
+    'application.privacy.retention': '보유 기간: 채용 종료 후 3개월',
+    'application.button.submit': '지원서 제출',
+    'application.button.cancel': '취소',
+
     // Contact Page Translation
     'contact.headline': '전문 상담 서비스',
     'contact.service.title': '전문 상담 서비스',
@@ -387,8 +665,29 @@ const translations = {
     'contact.email.hours': '24시간 접수 가능',
     'contact.visit.title': '방문 문의',
     'contact.visit.address': '서울시 송파구 정의로8길 4',
-'contact.visit.note': '사전 예약 필수',
-    
+    'contact.visit.note': '사전 예약 필수',
+
+    // Contact Page Hero and Form
+    'contact.hero.title1': '언제든',
+    'contact.hero.title2': '연락주세요',
+    'contact.form.title': '문의하기',
+    'contact.form.desc': '문의사항을 남겨주시면 24시간 이내에 답변드리겠습니다',
+    'contact.form.name': '이름',
+    'contact.form.name.placeholder': '이름을 입력하세요',
+    'contact.form.email': '이메일',
+    'contact.form.email.placeholder': '이메일을 입력하세요',
+    'contact.form.phone': '연락처',
+    'contact.form.phone.placeholder': '연락처를 입력하세요',
+    'contact.form.type': '문의 유형',
+    'contact.form.type.placeholder': '문의 유형을 선택하세요',
+    'contact.form.type.general': '일반 문의',
+    'contact.form.type.support': '기술 지원',
+    'contact.form.type.partnership': '제휴 문의',
+    'contact.form.type.feedback': '피드백',
+    'contact.form.message': '문의 내용',
+    'contact.form.message.placeholder': '문의하실 내용을 자세히 작성해주세요...',
+    'contact.form.submit': '문의하기',
+
     // Inquiry Page Translation
     'inquiry.submit': '문의하기',
     'inquiry.title': '온라인 문의',
@@ -409,7 +708,22 @@ const translations = {
     'inquiry.form.type.placeholder': '문의 유형을 선택해주세요',
     'inquiry.form.subject.placeholder': '문의 제목을 입력해주세요',
 'inquiry.form.message.placeholder': '문의 내용을 상세히 입력해주세요',
-    
+
+    // Inquiry Error and Success Messages
+    'inquiry.error.input': '입력 오류',
+    'inquiry.error.required': '필수 항목을 모두 입력해주세요.',
+    'inquiry.error.email': '이메일 오류',
+    'inquiry.error.emailFormat': '올바른 이메일 형식을 입력해주세요.',
+    'inquiry.success.title': '문의 접수 완료',
+    'inquiry.success.number': '문의번호',
+    'inquiry.success.message': '문의사항이 정상적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.',
+
+    // Inquiry Type Options
+    'inquiry.type.product': '제품 문의',
+    'inquiry.type.partnership': '입점/제휴 문의',
+    'inquiry.type.recruitment': '채용 문의',
+    'inquiry.type.other': '기타 문의',
+
     // Location Page Translation
     'location.title': '오시는길',
     'location.subtitle': '모멘텀파운데이션 본사 위치 및 교통편 안내',
@@ -439,6 +753,9 @@ const translations = {
     'location.car.parking': '건물 지하 주차장 이용 가능',
     
     // Departments Page Translation
+    'departments.hero.title': '부서안내',
+    'departments.hero.subtitle': '사업본부 연락처',
+    'departments.phone.label': '전화번호',
     'departments.title': '사업본부 연락처',
 'departments.subtitle': '업무 관련 문의사항은 해당 사업본부로 직접 연락해 주세요',
     
@@ -465,6 +782,28 @@ const translations = {
     'news.jobs.tab': '채용공고',
     'news.view.more': '더보기',
     'news.views': '조회수',
+    'news.backToList': '목록으로',
+    'news.attachment': '첨부파일',
+    'news.viewDetails': '자세히 보기',
+    'news.total': '총 ',
+    'news.count': '개의 소식',
+    'news.noticeCount': '개의 공지',
+    'news.totalNews': '전체 소식',
+    'news.totalNotices': '전체 공지',
+    'news.growing': '성장중',
+    'news.importantNotice': '중요 공지',
+    'news.latestNews': '최신 소식',
+    'news.latestNotices': '최신 공지',
+    'news.company.subtitle': '모멘텀파운데이션의 최신 소식을 전해드립니다',
+    'news.company.hero.desc': '모멘텀파운데이션의 성장과 발전을 함께 하세요',
+    'news.notice.subtitle': '모멘텀파운데이션의 중요한 안내사항을 확인하세요',
+    'news.table.no': '번호',
+    'news.table.category': '카테고리',
+    'news.table.title': '제목',
+    'news.table.date': '작성일',
+    'news.table.views': '조회수',
+    'news.notice.hint': '게시글을 클릭하면 공지사항 상세 페이지로 이동합니다.',
+    'news.company.hint': '게시글을 클릭하면 회사소식 상세 페이지로 이동합니다.',
 
     'franchise.restaurant.feature4.title': '안전한 식사 환경',
     'franchise.restaurant.feature4.desc': '철저한 위생 관리와\nHACCP 인증 시설에서의 안전한 식사',
@@ -672,7 +1011,13 @@ const translations = {
     'page.careers.responsive': '우리의 비전을 함께 이뤄갈 당신을 기다립니다 / 우리의 기업문화',
     'page.process.responsive': '채용 프로세스',
     'page.contact.responsive': '전문 상담 서비스',
-    'page.departments.responsive': '사업본부 연락처'
+    'page.departments.responsive': '사업본부 연락처',
+
+    // Privacy & Terms
+    'privacy.hero.title': '개인정보 처리방침',
+    'privacy.hero.subtitle': '개인정보 보호를 위한 처리방침',
+    'terms.hero.title': '이용약관',
+    'terms.hero.subtitle': '홈페이지 이용약관'
   },
   en: {
     // Navigation
@@ -721,7 +1066,55 @@ const translations = {
     'ceo.company': 'Momentum Foundation Co., Ltd.',
     'ceo.ceo1': 'CEO So Min-ji',
 'ceo.ceo2': 'CEO Lee Byung-jun',
-    
+
+    // About Page Titles (English)
+    'about.companyintro.title': 'Company Introduction',
+    'about.philosophy.title': 'Corporate Philosophy',
+    'about.history.title': 'History',
+    'about.org.title': 'Organization',
+    'about.org.subtitle': 'Providing the best service with a systematic and professional organizational structure',
+    'about.stats.business': 'Business Areas',
+    'about.stats.satisfaction': 'Satisfaction',
+    'about.stats.service': 'Service',
+
+    // History Page Additional (English)
+    'history.month.suffix': '',
+    'history.cta.text': 'A journey towards the future with Momentum Foundation',
+
+    // Organization Page (English)
+    'org.board': 'Board of Directors',
+    'org.chairman': 'Chairman',
+    'org.auditor': 'Auditor',
+    'org.executives': 'Executive Management',
+    'org.ceo': 'CEO',
+    'org.ceo.desc': 'Overseeing 4 major business divisions',
+    'org.chart.title': 'Company Organization Chart',
+    'org.stats.divisions': 'Divisions',
+    'org.stats.teams': 'Teams',
+    'org.stats.employees': 'Employees',
+    'org.stats.growth': 'Growth Potential',
+    'org.division.management.title': 'Management Division',
+    'org.division.management.desc': 'Organizational operation support, financial management, business planning and HR',
+    'org.division.food.title': 'Food Materials Division',
+    'org.division.food.desc': 'Food material processing & distribution, quality management, supply chain management',
+    'org.division.franchise.title': 'Franchise Division',
+    'org.division.franchise.desc': 'Cheongnyeon Livestock brand operation, franchise management, startup support',
+    'org.division.fm.title': 'FM/Outsourcing Division',
+    'org.division.fm.desc': 'Facility management, security services, outsourcing solutions',
+    'org.team.management1': 'Management Support Team',
+    'org.team.management2': 'Finance & Accounting Team',
+    'org.team.management3': 'Planning/IR Team',
+    'org.team.food1': 'Domestic Sales Team',
+    'org.team.food2': 'Online Business Team',
+    'org.team.food3': 'Logistics Team',
+    'org.team.food4': 'Product Development Team',
+    'org.team.food5': 'Quality Management Team',
+    'org.team.franchise1': 'Franchise Sales Team',
+    'org.team.franchise2': 'Supervising Team',
+    'org.team.franchise3': 'Menu/Product Planning Team',
+    'org.team.fm1': 'Business Sales Team',
+    'org.team.fm2': 'Site Operations Team',
+
     // Philosophy Page Translation
     'philosophy.subtitle': 'Corporate Philosophy System',
     'philosophy.title1': 'Corporate Philosophy System',
@@ -811,8 +1204,15 @@ const translations = {
     'business.strengths.reliability.desc': 'Stable cooperative relationships\nwith verified partner companies',
     'business.strengths.innovation.title': 'Innovation',
 'business.strengths.innovation.desc': 'Creating customer value through continuous innovation',
-    
+
+    // Business Hero Section
+    'business.hero.title': 'Business Areas',
+    'business.hero.subtitle': 'Providing the best services to customers based on expertise in various fields',
+
     // Food Business Page Translation
+    'food.title': 'Food Processing & Distribution',
+    'food.cta.title': 'We Promise the Highest Quality Food Ingredients',
+    'food.cta.desc': 'Momentum Foundation supplies the best food ingredients based on thorough quality management and trust.',
     'food.subtitle': 'High-quality food ingredient selection and thorough quality management with cutting-edge system construction',
     'food.headline': 'High-quality food ingredient selection and thorough quality management with cutting-edge system construction',
     'food.meat.title': 'Korean Beef & Pork Processing and Distribution',
@@ -846,6 +1246,68 @@ const translations = {
     
     'food.products.fruit': 'Fruit Products',
     'food.products.rice': 'Rice Products',
+    'food.meat.products.alt': 'Korean Beef & Pork Products',
+    'food.meat.label': 'Korean Beef & Pork',
+    'food.fruit.label': 'Cheongnyeon Narae',
+    'food.fruit.products.alt': 'Fruit Products',
+    'food.rice.products.alt': 'Rice Products',
+    'food.rice.label': 'Brand Rice',
+    'food.cta.quality': 'Quality Guarantee',
+    'food.cta.delivery': 'Fast Delivery',
+    'food.cta.certified': 'Certified Products',
+
+    // Meat Business Page (Standalone)
+    'meat.title': 'Meat Distribution',
+    'meat.subtitle': 'Professional distribution service for premium domestic Korean beef and pork',
+    'meat.headline': 'Top Quality Meat Distribution',
+    'meat.desc': 'Momentum Foundation carefully selects the highest quality Korean beef and pork to supply fresh and safe meat to customers. We guarantee the best quality through thorough quality management and a perfect cold chain system.',
+    'meat.feature1.title': 'Premium Domestic Korean Beef and Pork',
+    'meat.feature1.desc': 'We supply only carefully selected top-quality Korean beef and pork',
+    'meat.feature2.title': 'Thorough Quality Management',
+    'meat.feature2.desc': 'Meat safely managed in HACCP certified facilities',
+    'meat.feature3.title': 'Cold Chain System',
+    'meat.feature3.desc': 'Perfect refrigerated distribution system for maintaining freshness',
+    'meat.products.alt': 'Meat Products',
+
+    // Fruit Business Page (Standalone)
+    'fruit.title': 'Fruit Distribution',
+    'fruit.subtitle': 'Professional distribution service for fresh and sweet seasonal fruits',
+    'fruit.headline': 'Fresh Living Fruits',
+    'fruit.desc': 'Momentum Foundation directly contracts with excellent fruit farms across the country to supply the freshest and most delicious seasonal fruits to customers.',
+    'fruit.feature1.title': 'Fresh Seasonal Fruits',
+    'fruit.feature1.desc': 'Supply seasonal fruits with the highest freshness by careful selection',
+    'fruit.feature2.title': 'Premium Quality',
+    'fruit.feature2.desc': 'Handle only high-quality fruits that pass strict selection criteria',
+    'fruit.feature3.title': 'Fast Delivery',
+    'fruit.feature3.desc': 'System that delivers to customers in the shortest time after harvest',
+    'fruit.products.alt': 'Fruit Products',
+
+    // Rice Business Page (Standalone)
+    'rice.title': 'Rice Distribution',
+    'rice.subtitle': 'Professional distribution service for brand rice and grains',
+    'rice.headline': 'Premium Rice and Grains',
+    'rice.desc': 'Momentum Foundation freshly processes and supplies selected brand rice and various grains from the best rice production areas nationwide through RPC milling system.',
+    'rice.feature1.title': 'Professional Distribution of Brand Rice and Grains',
+    'rice.feature1.desc': 'Professional distribution of selected brand rice and various grains',
+    'rice.feature2.title': 'Fresh Rice Using RPC Milling System',
+    'rice.feature2.desc': 'Fresh and delicious rice processed with the latest milling technology',
+    'rice.feature3.title': 'Quality Assurance',
+    'rice.feature3.desc': 'Safe and reliable grains through thorough quality management',
+    'rice.products.alt': 'Rice Products',
+
+    // Cosmetics Business Page (Standalone)
+    'cosmetics.title': 'Cosmetics Wholesale',
+    'cosmetics.subtitle': 'Professional wholesale service for premium cosmetics and beauty products',
+    'cosmetics.headline': 'Leading Beauty Trends with Cosmetics',
+    'cosmetics.desc': 'Momentum Foundation builds partnerships with excellent domestic and international cosmetics brands to supply various cosmetics reflecting the latest beauty trends through wholesale.',
+    'cosmetics.feature1.title': 'Premium Cosmetics Brands',
+    'cosmetics.feature1.desc': 'Professional wholesale of selected excellent domestic and international cosmetics brands',
+    'cosmetics.feature2.title': 'Diverse Product Range',
+    'cosmetics.feature2.desc': 'Handling all categories including skincare, makeup, and body care',
+    'cosmetics.feature3.title': 'Stable Supply Chain',
+    'cosmetics.feature3.desc': 'Systematic inventory management and fast delivery service',
+    'cosmetics.products.alt': 'Cosmetics Products',
+
     'hero.subtitle': 'Momentum Foundation creates new value in various fields from premium food distribution to innovative franchises and professional FM/outsourcing services.',
     'hero.btn1': 'About Us',
     'hero.btn2': 'View Business Areas',
@@ -859,11 +1321,7 @@ const translations = {
     'about.vision.item2': 'Customer-Centered Innovation',
     'about.vision.item3': 'Social Responsibility Management',
     'about.stats.title': 'Since Establishment in 2024',
-    'about.stats.business': 'Business Areas',
-    'about.stats.satisfaction': 'Customer Satisfaction',
-    'about.stats.service': 'Service Support',
-    'about.stats.growth': 'Growth Potential',
-    
+
     // Values Section
     'values.title': 'Core Values',
     'values.subtitle': 'The values and principles that Momentum Foundation pursues',
@@ -884,8 +1342,16 @@ const translations = {
     'news.company.title': 'Company News',
     'news.company.desc': 'Check the latest trends and achievements of Momentum Foundation.',
 'news.btn': 'View More',
-    
+    'news.table.no': 'No.',
+    'news.table.category': 'Category',
+    'news.table.title': 'Title',
+    'news.table.date': 'Date',
+    'news.table.views': 'Views',
+    'news.notice.hint': 'Click on a post to view notice details.',
+    'news.company.hint': 'Click on a post to view company news details.',
+
     // Franchise Business Translation
+    'franchise.title': 'Franchise',
     'franchise.subtitle': 'Overwhelming cost-effectiveness and fresh meat through headquarters food distribution network',
     'franchise.headline': 'Overwhelming cost-effectiveness and fresh meat through headquarters food distribution network',
     'franchise.brand.title': 'Cheongnyon Chuksan',
@@ -930,7 +1396,8 @@ const translations = {
     'franchise.brand.slogan': 'A place where you can eat meat to your heart\'s content and enjoy happiness!',
     'franchise.model.title': 'Butcher Restaurant Model Innovation',
     'franchise.closing.title': 'Growing Together with Franchisees',
-    
+    'franchise.store.alt': 'Cheongnyeon Chuksan Store',
+
     // Franchise Advantages Translation (English)
     'franchise.advantage1.title': 'Butcher Restaurant Model Innovation',
     'franchise.advantage1.desc': 'Innovative model combining butcher shop and restaurant',
@@ -942,11 +1409,14 @@ const translations = {
 'franchise.advantage4.desc': 'Building a healthy franchise ecosystem\\nthat grows together with partners',
     
     // FM/Outsourcing Business Translation (English)
+    'fm.title': 'FM/Outsourcing',
+    'fm.subtitle': 'Maximizing customer operational efficiency and cost reduction through non-core business outsourcing',
     'fm.headline': 'Maximizing customer operational efficiency and cost reduction through non-core business outsourcing',
     'fm.partner.title': 'Professional Partner Company Liaison Service',
     'fm.partner.desc': 'We select and manage verified professional companies in each field to provide optimal outsourcing solutions that meet customer needs. Momentum Foundation takes responsibility for the entire process from partner selection to quality management and guarantees stable service.',
     'fm.security.title': 'Security Service Outsourcing Management',
     'fm.security.desc': 'We secure customer asset protection and facility safety through cooperation with professional security companies. We select and manage verified security companies to provide seamless security services.',
+    'fm.security.alt': 'Security Service',
     'fm.building.title': 'Building Facility Management (FM) Outsourcing',
 'fm.building.desc': 'Through partnerships with facility management professional companies, we maintain the value of buildings and facilities and provide\\na comfortable environment for tenants and users.',
     
@@ -973,7 +1443,27 @@ const translations = {
     'careers.culture.card.desc': 'Learn about the principles we practice at work',
     'careers.process.title': 'Recruitment Process',
 'careers.process.desc': 'Check the recruitment process and procedures',
-    
+
+    // Job Postings Page (English)
+    'jobs.list': 'Job List',
+    'jobs.apply': 'Apply',
+    'jobs.attachment': 'Attachment',
+    'jobs.posting': 'Job Posting',
+    'jobs.posting.file': 'job_posting.pdf',
+    'jobs.filter.all': 'All',
+    'jobs.filter.fulltime': 'Full-time',
+    'jobs.filter.contract': 'Contract',
+    'jobs.table.no': 'No.',
+    'jobs.table.title': 'Title',
+    'jobs.table.date': 'Date',
+    'jobs.table.attachment': 'Attach',
+    'jobs.table.views': 'Views',
+    'jobs.type.fulltime': 'Full-time',
+    'jobs.type.contract': 'Contract',
+    'jobs.status.active': 'Active',
+    'jobs.status.closed': 'Closed',
+    'jobs.pagination.info': 'Total {total} posts (Page {current} / {pages})',
+
     // Culture Page Translation (English)
     'culture.principles.title': 'Working Principles',
     'culture.principles.desc': 'Basic standards and attitudes that Momentum Foundation takes toward work.',
@@ -998,15 +1488,31 @@ const translations = {
     'process.requirements.title': 'Application Requirements',
 'process.requirements.subtitle': 'The ideal candidate that Momentum Foundation is looking for',
     
+    // Process Hero (English)
+    'process.hero.title': 'Recruitment Process',
+    'process.hero.subtitle': 'Hiring Procedure',
+
     // Process Steps (English)
     'process.step1.title': 'Document Screening',
     'process.step1.desc': 'Application receipt and document review',
+    'process.step1.detail1': 'Submit resume and cover letter',
+    'process.step1.detail2': 'Career certificate (if applicable)',
+    'process.step1.detail3': 'Portfolio (if applicable)',
     'process.step2.title': 'Interview Process',
     'process.step2.desc': '1st practical interview and 2nd executive interview',
+    'process.step2.detail1': '1st: Working-level interview (job suitability)',
+    'process.step2.detail2': '2nd: Executive interview (personality and vision)',
+    'process.step2.detail3': 'Interview schedule will be individually notified',
     'process.step3.title': 'Final Selection',
     'process.step3.desc': 'Final candidate announcement and onboarding guidance',
+    'process.step3.detail1': 'Individual contact for successful candidates',
+    'process.step3.detail2': 'Onboarding document guidance',
+    'process.step3.detail3': 'Orientation schedule notice',
     'process.step4.title': 'Onboarding and Training',
     'process.step4.desc': 'New employee training program',
+    'process.step4.detail1': 'Company introduction and organizational culture',
+    'process.step4.detail2': 'Job-specific professional training',
+    'process.step4.detail3': 'Mentoring program assignment',
     
     // Requirements (English)
     'process.req1': 'Bachelor\'s degree or higher in related field',
@@ -1015,9 +1521,133 @@ const translations = {
     'process.req4': 'Teamwork and collaboration skills',
     'process.req5': 'Proactive attitude toward new challenges',
 
-    
+    // Job Application Page (English)
+    'application.default.position': 'Job Position',
+    'application.hero.title': 'Job Application',
+    'application.hero.subtitle': 'Looking for talented individuals to grow with Momentum Foundation',
+    'application.form.title': 'Application Form',
+    'application.form.position': 'Position',
+    'application.form.positionNote': 'Please verify the position before filling out',
+    'application.section.basicInfo': 'Basic Information',
+    'application.section.education': 'Education & Experience',
+    'application.section.motivation': 'Motivation',
+    'application.section.documents': 'Document Attachments',
+    'application.label.division': 'Division',
+    'application.label.department': 'Department',
+    'application.label.name': 'Name',
+    'application.label.birthDate': 'Date of Birth',
+    'application.label.email': 'Email',
+    'application.label.phone': 'Phone',
+    'application.label.address': 'Address',
+    'application.label.education': 'Education',
+    'application.label.experience': 'Work Experience',
+    'application.label.motivation': 'Motivation & Aspirations',
+    'application.label.resume': 'Resume (Optional)',
+    'application.label.portfolio': 'Portfolio (Optional)',
+    'application.placeholder.division': 'e.g., Management Division, Food Business Division',
+    'application.placeholder.department': 'e.g., HR/Admin, Sales/Marketing',
+    'application.placeholder.name': 'John Doe',
+    'application.placeholder.address': 'Seoul, Songpa-gu...',
+    'application.placeholder.education': 'e.g., XX University, Business Administration',
+    'application.placeholder.experience': 'Please enter your work experience',
+    'application.placeholder.motivation': 'Please write your motivation and aspirations',
+    'application.file.resume': 'Resume',
+    'application.file.portfolio': 'Portfolio',
+    'application.file.resumeNote': 'Max 5MB | PDF format recommended',
+    'application.file.portfolioNote': 'Max 10MB | PDF format recommended',
+    'application.error.input': 'Input Error',
+    'application.error.name': 'Please enter your name.',
+    'application.error.email': 'Please enter your email.',
+    'application.error.phone': 'Please enter your phone number.',
+    'application.error.birthDate': 'Please enter your date of birth.',
+    'application.error.birthDateFuture': 'Date of birth must be before today.',
+    'application.error.motivation': 'Please enter your motivation.',
+    'application.error.divisionDept': 'Please enter division and department.',
+    'application.error.emailFormat': 'Email Error',
+    'application.error.emailFormatDesc': 'Please enter a valid email format.',
+    'application.error.phoneFormat': 'Phone Error',
+    'application.error.phoneFormatDesc': 'Please enter a valid phone number format.',
+    'application.error.fileSize': 'File Size Exceeded!',
+    'application.error.fileSizeDesc': '{field} file size exceeded! Max allowed: {max}, Current file: {current}MB',
+    'application.error.fileProcess': 'File Processing Error',
+    'application.error.fileProcessDesc': 'An error occurred while processing the file. Please try again.',
+    'application.error.fileRead': 'File Read Error',
+    'application.error.fileReadDesc': 'An error occurred while reading the file.',
+    'application.info.fileFormat': 'File Format Notice',
+    'application.info.pdfRecommended': 'PDF format is recommended for {field}.',
+    'application.success.fileUpload': 'File Upload Success',
+    'application.success.fileUploadDesc': '{field} file has been uploaded: {name}',
+    'application.success.submit': 'Application Complete',
+    'application.success.submitDesc': 'Your application has been successfully submitted.',
+    'application.complete.title': 'Application Submitted Successfully',
+    'application.complete.appNumber': 'Application Number',
+    'application.complete.remember': 'Please remember this application number.',
+    'application.complete.emailNotice': 'We will notify you via email about the recruitment progress.',
+    'application.complete.position': 'Applied Position',
+    'application.complete.applicant': 'Applicant Name',
+    'application.complete.email': 'Email',
+    'application.complete.date': 'Submission Date',
+    'application.complete.viewJobs': 'View Job Postings',
+    'application.complete.home': 'Home',
+    'application.privacy.title': 'Consent to Collection and Use of Personal Information',
+    'application.privacy.items': 'Collected Items: Name, ID Number, Email, Phone, Address, Education, Experience',
+    'application.privacy.purpose': 'Purpose: Recruitment process and result notification',
+    'application.privacy.retention': 'Retention Period: 3 months after recruitment ends',
+    'application.button.submit': 'Submit Application',
+    'application.button.cancel': 'Cancel',
 
-    
+    // Home Careers CTA (English)
+    'home.careers.cta.title': 'Ready to Start Your Journey?',
+    'home.careers.cta.desc': 'Grow with Momentum Foundation',
+    'home.careers.cta.btn': 'View All Job Postings',
+
+    // Careers Hero (English)
+    'careers.hero.title1': 'Looking for',
+    'careers.hero.title2': 'Talent to Grow With',
+
+    // Careers Stats (English)
+    'careers.stats.employees': 'Employees',
+    'careers.stats.divisions': 'Divisions',
+    'careers.stats.growth': 'Growth Potential',
+
+    // Careers Benefits (English)
+    'careers.benefits.title': 'Benefits',
+    'careers.benefits.subtitle': 'Various benefits for employee growth and happiness',
+    'careers.benefits.reward.title': 'Performance Rewards',
+    'careers.benefits.reward.desc': 'Industry-leading compensation system',
+    'careers.benefits.flexible.title': 'Flexible Work',
+    'careers.benefits.flexible.desc': 'Autonomous work environment',
+    'careers.benefits.welfare.title': 'Welfare Benefits',
+    'careers.benefits.welfare.desc': 'Various welfare programs',
+    'careers.benefits.growth.title': 'Growth Support',
+    'careers.benefits.growth.desc': 'Education and self-development support',
+
+    // Careers Positions (English)
+    'careers.positions.management.dept': 'Management Division',
+    'careers.positions.management.role': 'Management Support Staff',
+    'careers.positions.food.dept': 'Food Materials Division',
+    'careers.positions.food.role': 'Sales Representative',
+    'careers.positions.franchise.dept': 'Franchise Division',
+    'careers.positions.franchise.role': 'Supervisor',
+    'careers.positions.fm.dept': 'FM Division',
+    'careers.positions.fm.role': 'Site Operations Manager',
+    'careers.positions.type.fulltime': 'Full-time',
+    'careers.positions.location.seoul': 'Seoul',
+    'careers.positions.location.seoulgyeonggi': 'Seoul/Gyeonggi',
+    'careers.positions.location.nationwide': 'Nationwide',
+    'careers.positions.noMatch': 'Don\'t see a position you want?',
+    'careers.positions.openApplication': 'Open Application',
+
+    // Careers Final CTA (English)
+    'careers.final.title': 'Ready to Start?',
+    'careers.final.desc': 'Start a new challenge with Momentum Foundation. We support your growth.',
+    'careers.final.btn.jobs': 'View Job Postings',
+    'careers.final.btn.culture': 'Learn About Our Culture',
+
+    // Careers Recruitment (English)
+    'careers.recruitment.subtitle': 'Looking for talent to grow with Momentum Foundation',
+    'careers.culture.subtitle': 'Introducing Momentum Foundation\'s corporate culture of growing together',
+
     // Contact Section
     'contact.title': 'Contact Us',
     'contact.subtitle': 'Please contact us anytime if you have any questions',
@@ -1045,8 +1675,29 @@ const translations = {
     'contact.email.hours': '24/7 Reception Available',
     'contact.visit.title': 'Visit Inquiry',
     'contact.visit.address': '4, Jeongui-ro 8-gil, Songpa-gu, Seoul',
-'contact.visit.note': 'Advance reservation required',
-    
+    'contact.visit.note': 'Advance reservation required',
+
+    // Contact Page Hero and Form (English)
+    'contact.hero.title1': 'Contact Us',
+    'contact.hero.title2': 'Anytime',
+    'contact.form.title': 'Contact Us',
+    'contact.form.desc': 'Leave your inquiry and we will respond within 24 hours',
+    'contact.form.name': 'Name',
+    'contact.form.name.placeholder': 'Enter your name',
+    'contact.form.email': 'Email',
+    'contact.form.email.placeholder': 'Enter your email',
+    'contact.form.phone': 'Phone',
+    'contact.form.phone.placeholder': 'Enter your phone number',
+    'contact.form.type': 'Inquiry Type',
+    'contact.form.type.placeholder': 'Select inquiry type',
+    'contact.form.type.general': 'General Inquiry',
+    'contact.form.type.support': 'Technical Support',
+    'contact.form.type.partnership': 'Partnership Inquiry',
+    'contact.form.type.feedback': 'Feedback',
+    'contact.form.message': 'Message',
+    'contact.form.message.placeholder': 'Please describe your inquiry in detail...',
+    'contact.form.submit': 'Submit',
+
     // Inquiry Page Translation (English)
     'inquiry.submit': 'Submit Inquiry',
     'inquiry.title': 'Online Inquiry',
@@ -1067,7 +1718,22 @@ const translations = {
     'inquiry.form.type.placeholder': 'Please select inquiry type',
     'inquiry.form.subject.placeholder': 'Please enter inquiry subject',
 'inquiry.form.message.placeholder': 'Please enter your inquiry details',
-    
+
+    // Inquiry Error and Success Messages (English)
+    'inquiry.error.input': 'Input Error',
+    'inquiry.error.required': 'Please fill in all required fields.',
+    'inquiry.error.email': 'Email Error',
+    'inquiry.error.emailFormat': 'Please enter a valid email format.',
+    'inquiry.success.title': 'Inquiry Submitted',
+    'inquiry.success.number': 'Inquiry Number',
+    'inquiry.success.message': 'Your inquiry has been submitted successfully. We will respond as soon as possible.',
+
+    // Inquiry Type Options (English)
+    'inquiry.type.product': 'Product Inquiry',
+    'inquiry.type.partnership': 'Partnership Inquiry',
+    'inquiry.type.recruitment': 'Recruitment Inquiry',
+    'inquiry.type.other': 'Other Inquiry',
+
     // Location Page Translation (English)
     'location.title': 'Directions',
     'location.subtitle': 'Momentum Foundation headquarters location and transportation guide',
@@ -1097,6 +1763,9 @@ const translations = {
     'location.car.parking': 'Underground parking available',
     
     // Departments Page Translation (English)
+    'departments.hero.title': 'Departments',
+    'departments.hero.subtitle': 'Business Division Contacts',
+    'departments.phone.label': 'Phone',
     'departments.title': 'Business Division Contacts',
 'departments.subtitle': 'Please contact the relevant business division directly for work-related inquiries',
     
@@ -1121,7 +1790,22 @@ const translations = {
     'news.jobs.tab': 'Job Postings',
     'news.view.more': 'View More',
     'news.views': 'Views',
-    
+    'news.backToList': 'Back to List',
+    'news.attachment': 'Attachment',
+    'news.viewDetails': 'View Details',
+    'news.total': 'Total ',
+    'news.count': ' news',
+    'news.noticeCount': ' notices',
+    'news.totalNews': 'Total News',
+    'news.totalNotices': 'Total Notices',
+    'news.growing': 'Growing',
+    'news.importantNotice': 'Important',
+    'news.latestNews': 'Latest News',
+    'news.latestNotices': 'Latest Notices',
+    'news.company.subtitle': 'Latest news from Momentum Foundation',
+    'news.company.hero.desc': 'Join our growth and development journey',
+    'news.notice.subtitle': 'Check important announcements from Momentum Foundation',
+
     // About Page Content
     'about.intro.title': 'Introducing Momentum Foundation',
     'about.intro.desc': 'Established in 2024, Momentum Foundation is an innovative company that adds new value to customers\' lives through healthy food and convenient services.',
@@ -1295,7 +1979,13 @@ const translations = {
     'page.careers.responsive': 'We are waiting for you to achieve our vision together / Our corporate culture',
     'page.process.responsive': 'Recruitment Process',
     'page.contact.responsive': 'Professional Consultation Service',
-    'page.departments.responsive': 'Business Division Contact'
+    'page.departments.responsive': 'Business Division Contact',
+
+    // Privacy & Terms
+    'privacy.hero.title': 'Privacy Policy',
+    'privacy.hero.subtitle': 'Our commitment to protecting your privacy',
+    'terms.hero.title': 'Terms of Service',
+    'terms.hero.subtitle': 'Website Terms and Conditions'
   }
 };
 

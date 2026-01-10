@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ApplicationData {
   id: string;
@@ -30,13 +31,14 @@ interface ApplicationData {
 }
 
 const JobApplication = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [applicationNumber, setApplicationNumber] = useState("");
-  
-  const jobTitle = (location.state as any)?.jobTitle || "채용 포지션";
+
+  const jobTitle = (location.state as any)?.jobTitle || t('application.default.position');
 
   const [formData, setFormData] = useState({
     division: "",
@@ -78,31 +80,30 @@ const JobApplication = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // 파일 크기 제한 및 형식 검증
-const maxSize = field === 'resumeFile' ? 5 * 1024 * 1024 : 10 * 1024 * 1024; // 이력서 5MB, 포트폴리오 10MB
-    const fieldName = field === 'resumeFile' ? '이력서' : '포트폴리오';
-const maxSizeMB = field === 'resumeFile' ? '5MB' : '10MB';
-    
+    // File size and format validation
+    const maxSize = field === 'resumeFile' ? 5 * 1024 * 1024 : 10 * 1024 * 1024;
+    const fieldName = field === 'resumeFile' ? t('application.file.resume') : t('application.file.portfolio');
+    const maxSizeMB = field === 'resumeFile' ? '5MB' : '10MB';
+
     if (file.size > maxSize) {
-toast({
-        title: "파일 크기 초과!",
-        description: fieldName + " 파일 크기가 초과되었습니다!\n최대 허용: " + maxSizeMB + "\n현재 파일: " + (file.size / 1024 / 1024).toFixed(1) + "MB\n\n더 작은 파일로 다시 시도해주세요.",
+      toast({
+        title: t('application.error.fileSize'),
+        description: t('application.error.fileSizeDesc').replace('{field}', fieldName).replace('{max}', maxSizeMB).replace('{current}', (file.size / 1024 / 1024).toFixed(1)),
         variant: "destructive",
         duration: 5000,
       });
-      
-      // 파일 입력 초기화
+
       if (e.target) {
         e.target.value = '';
       }
       return;
     }
-    
-    // PDF 형식 권장 (필수 아님)
+
+    // PDF format recommended (not required)
     if (!file.type.includes('pdf') && !file.type.includes('image') && !file.type.includes('document')) {
       toast({
-        title: "파일 형식 안내",
-        description: fieldName + "은 PDF 형식을 권장합니다.",
+        title: t('application.info.fileFormat'),
+        description: t('application.info.pdfRecommended').replace('{field}', fieldName),
         variant: "default",
       });
     }
@@ -114,26 +115,25 @@ const reader = new FileReader();
     reader.onloadend = () => {
       try {
         setFormData({ ...formData, [field]: reader.result as string });
-        
-        // 성공 메시지
+
         toast({
-          title: "파일 업로드 성공",
-          description: fieldName + " 파일이 업로드되었습니다: " + file.name,
+          title: t('application.success.fileUpload'),
+          description: t('application.success.fileUploadDesc').replace('{field}', fieldName).replace('{name}', file.name),
         });
       } catch (error) {
         console.error('File processing error:', error);
         toast({
-          title: "파일 처리 오류",
-          description: "파일 처리 중 오류가 발생했습니다. 다시 시도해주세요.",
+          title: t('application.error.fileProcess'),
+          description: t('application.error.fileProcessDesc'),
           variant: "destructive",
         });
       }
     };
-    
+
     reader.onerror = () => {
       toast({
-        title: "파일 읽기 오류",
-        description: "파일을 읽는 중 오류가 발생했습니다.",
+        title: t('application.error.fileRead'),
+        description: t('application.error.fileReadDesc'),
         variant: "destructive",
       });
     };
@@ -148,60 +148,60 @@ const reader = new FileReader();
     console.log('Form validation - formData:', formData);
     
     if (!formData.name?.trim()) {
-      toast({ title: "입력 오류", description: "이름을 입력해주세요.", variant: "destructive" });
+      toast({ title: t('application.error.input'), description: t('application.error.name'), variant: "destructive" });
       return;
     }
     if (!formData.email?.trim()) {
-      toast({ title: "입력 오류", description: "이메일을 입력해주세요.", variant: "destructive" });
+      toast({ title: t('application.error.input'), description: t('application.error.email'), variant: "destructive" });
       return;
     }
     if (!formData.phone?.trim()) {
-      toast({ title: "입력 오류", description: "전화번호를 입력해주세요.", variant: "destructive" });
+      toast({ title: t('application.error.input'), description: t('application.error.phone'), variant: "destructive" });
       return;
     }
-if (!formData.birthDate?.trim()) {
-      toast({ title: "입력 오류", description: "생년월일을 입력해주세요.", variant: "destructive" });
+    if (!formData.birthDate?.trim()) {
+      toast({ title: t('application.error.input'), description: t('application.error.birthDate'), variant: "destructive" });
       return;
     }
-    // 생년월일 유효성 검사 (미래 날짜 방지)
+    // Birth date validation
     const today = new Date();
     const birthDate = new Date(formData.birthDate);
     if (birthDate > today) {
-      toast({ title: "입력 오류", description: "생년월일은 오늘 날짜보다 이전이어야 합니다.", variant: "destructive" });
+      toast({ title: t('application.error.input'), description: t('application.error.birthDateFuture'), variant: "destructive" });
       return;
     }
     if (!formData.motivation?.trim()) {
-      toast({ title: "입력 오류", description: "지원동기를 입력해주세요.", variant: "destructive" });
+      toast({ title: t('application.error.input'), description: t('application.error.motivation'), variant: "destructive" });
       return;
     }
 
-    // 지원분야/지원부서 검증
+    // Division/Department validation
     if (!formData.division?.trim() || !formData.department?.trim()) {
       toast({
-        title: "입력 오류",
-        description: "지원분야와 지원부서를 입력해주세요.",
+        title: t('application.error.input'),
+        description: t('application.error.divisionDept'),
         variant: "destructive",
       });
       return;
     }
 
-    // 이메일 형식 검증
+    // Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast({
-        title: "이메일 오류",
-        description: "올바른 이메일 형식을 입력해주세요.",
+        title: t('application.error.emailFormat'),
+        description: t('application.error.emailFormatDesc'),
         variant: "destructive",
       });
       return;
     }
 
-    // 전화번호 형식 검증
+    // Phone number format validation
     const phoneRegex = /^[0-9-]+$/;
     if (!phoneRegex.test(formData.phone)) {
       toast({
-        title: "전화번호 오류",
-        description: "올바른 전화번호 형식을 입력해주세요.",
+        title: t('application.error.phoneFormat'),
+        description: t('application.error.phoneFormatDesc'),
         variant: "destructive",
       });
       return;
@@ -243,26 +243,26 @@ if (!formData.birthDate?.trim()) {
     setIsSubmitted(true);
 
     toast({
-      title: "지원 완료",
-      description: "입사지원이 성공적으로 접수되었습니다.",
+      title: t('application.success.submit'),
+      description: t('application.success.submitDesc'),
     });
   };
 
-  // 제출 완료 화면
+  // Submission complete screen
   if (isSubmitted) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navigation />
-        
+
         <section className="bg-cool-grey text-gray-800 py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center ml-4 md:ml-16">
-              <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-                입사지원
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+                {t('application.hero.title')}
               </h1>
               <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
               <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-                모멘텀파운데이션과 함께 성장할 우수한 인재를 찾습니다
+                {t('application.hero.subtitle')}
               </span>
             </div>
           </div>
@@ -274,30 +274,30 @@ if (!formData.birthDate?.trim()) {
               <CardContent className="p-12 text-center">
                 <CheckCircle className="h-20 w-20 text-green-500 mx-auto mb-6" />
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  입사지원이 완료되었습니다
+                  {t('application.complete.title')}
                 </h2>
                 <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                  <p className="text-sm text-gray-600 mb-2">접수번호</p>
+                  <p className="text-sm text-gray-600 mb-2">{t('application.complete.appNumber')}</p>
                   <p className="text-2xl font-bold text-primary mb-4">
                     {applicationNumber}
                   </p>
                   <p className="text-sm text-gray-600">
-                    위 접수번호를 기억해주세요.<br/>
-                    채용 진행 상황은 이메일로 안내드립니다.
+                    {t('application.complete.remember')}<br/>
+                    {t('application.complete.emailNotice')}
                   </p>
                 </div>
                 <div className="space-y-2 text-sm text-gray-600 mb-8">
-                  <p>• 지원하신 포지션: <strong>{jobTitle}</strong></p>
-                  <p>• 지원자명: <strong>{formData.name}</strong></p>
-                  <p>• 이메일: <strong>{formData.email}</strong></p>
-                  <p>• 접수일시: <strong>{new Date().toLocaleString('ko-KR')}</strong></p>
+                  <p>• {t('application.complete.position')}: <strong>{jobTitle}</strong></p>
+                  <p>• {t('application.complete.applicant')}: <strong>{formData.name}</strong></p>
+                  <p>• {t('application.complete.email')}: <strong>{formData.email}</strong></p>
+                  <p>• {t('application.complete.date')}: <strong>{new Date().toLocaleString('ko-KR')}</strong></p>
                 </div>
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => navigate("/careers/jobs")}>
-                    채용공고 목록
+                    {t('application.complete.viewJobs')}
                   </Button>
                   <Button variant="outline" onClick={() => navigate("/")}>
-                    홈으로
+                    {t('application.complete.home')}
                   </Button>
                 </div>
               </CardContent>
@@ -310,20 +310,20 @@ if (!formData.birthDate?.trim()) {
     );
   }
 
-  // 지원서 작성 화면
+  // Application form screen
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       <section className="bg-cool-grey text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              입사지원
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('application.hero.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              모멘텀파운데이션과 함께 성장할 우수한 인재를 찾습니다
+              {t('application.hero.subtitle')}
             </span>
           </div>
         </div>
@@ -334,47 +334,45 @@ if (!formData.birthDate?.trim()) {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl">
-                입사지원서 작성
+                {t('application.form.title')}
               </CardTitle>
-<div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                 <p className="text-sm font-medium text-blue-800 mb-2">
-지원 포지션: <span className="text-lg font-bold text-blue-900">{jobTitle}</span>
+                  {t('application.form.position')}: <span className="text-lg font-bold text-blue-900">{jobTitle}</span>
                 </p>
                 <p className="text-xs text-blue-600">
-                  ※ 포지션 확인 후 작성해 주세요
+                  ※ {t('application.form.positionNote')}
                 </p>
               </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* 기본 정보 */}
+                {/* Basic Info */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold border-b pb-2">기본 정보</h3>
-                  
-                  {/* 지원분야 & 지원부서 */}
+                  <h3 className="text-lg font-semibold border-b pb-2">{t('application.section.basicInfo')}</h3>
+
+                  {/* Division & Department */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* 지원분야 */}
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        지원분야 <span className="text-red-500">*</span>
+                        {t('application.label.division')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         value={formData.division}
                         onChange={(e) => setFormData({ ...formData, division: e.target.value })}
-                        placeholder="예: 경영관리본부, 식자재사업본부 등"
+                        placeholder={t('application.placeholder.division')}
                         required
                       />
                     </div>
 
-                    {/* 지원부서 */}
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        지원부서 <span className="text-red-500">*</span>
+                        {t('application.label.department')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         value={formData.department}
                         onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                        placeholder="예: 인사/총무, 영업/마케팅 등"
+                        placeholder={t('application.placeholder.department')}
                         required
                       />
                     </div>
@@ -383,19 +381,19 @@ if (!formData.birthDate?.trim()) {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        이름 <span className="text-red-500">*</span>
+                        {t('application.label.name')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="홍길동"
+                        placeholder={t('application.placeholder.name')}
                         required
                       />
                     </div>
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        생년월일 <span className="text-red-500">*</span>
+                        {t('application.label.birthDate')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         type="date"
@@ -409,7 +407,7 @@ if (!formData.birthDate?.trim()) {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        이메일 <span className="text-red-500">*</span>
+                        {t('application.label.email')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         type="email"
@@ -422,7 +420,7 @@ if (!formData.birthDate?.trim()) {
 
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        연락처 <span className="text-red-500">*</span>
+                        {t('application.label.phone')} <span className="text-red-500">*</span>
                       </label>
                       <Input
                         type="tel"
@@ -435,64 +433,64 @@ if (!formData.birthDate?.trim()) {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">주소</label>
+                    <label className="block text-sm font-medium mb-2">{t('application.label.address')}</label>
                     <Input
                       value={formData.address}
                       onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                      placeholder="서울시 송파구..."
+                      placeholder={t('application.placeholder.address')}
                     />
                   </div>
                 </div>
 
-                {/* 학력 및 경력 */}
+                {/* Education & Experience */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold border-b pb-2">학력 및 경력</h3>
-                  
+                  <h3 className="text-lg font-semibold border-b pb-2">{t('application.section.education')}</h3>
+
                   <div>
-                    <label className="block text-sm font-medium mb-2">최종 학력</label>
+                    <label className="block text-sm font-medium mb-2">{t('application.label.education')}</label>
                     <Input
                       value={formData.education}
                       onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-                      placeholder="예: OO대학교 경영학과 졸업"
+                      placeholder={t('application.placeholder.education')}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">경력 사항</label>
+                    <label className="block text-sm font-medium mb-2">{t('application.label.experience')}</label>
                     <Textarea
                       value={formData.experience}
                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                      placeholder="주요 경력 사항을 입력해주세요&#10;예:&#10;- 2020-2023: OO회사 영업팀 (3년)&#10;- 주요 업무: 신규 고객 개발, 매출 관리"
+                      placeholder={t('application.placeholder.experience')}
                       rows={6}
                     />
                   </div>
                 </div>
 
-                {/* 지원 동기 */}
+                {/* Motivation */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold border-b pb-2">지원 동기</h3>
-                  
+                  <h3 className="text-lg font-semibold border-b pb-2">{t('application.section.motivation')}</h3>
+
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      지원 동기 및 포부 <span className="text-red-500">*</span>
+                      {t('application.label.motivation')} <span className="text-red-500">*</span>
                     </label>
                     <Textarea
                       value={formData.motivation}
                       onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-                      placeholder="지원 동기와 입사 후 포부를 작성해주세요"
+                      placeholder={t('application.placeholder.motivation')}
                       rows={8}
                       required
                     />
                   </div>
                 </div>
 
-                {/* 파일 첨부 */}
+                {/* File Attachments */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold border-b pb-2">서류 첨부</h3>
-                  
+                  <h3 className="text-lg font-semibold border-b pb-2">{t('application.section.documents')}</h3>
+
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      이력서 (선택)
+                      {t('application.label.resume')}
                     </label>
                     <Input
                       type="file"
@@ -501,13 +499,13 @@ if (!formData.birthDate?.trim()) {
                       className="cursor-pointer"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-업로드 용량 5MB 이내 | PDF 형식 권장
+                      {t('application.file.resumeNote')}
                     </p>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      포트폴리오 (선택)
+                      {t('application.label.portfolio')}
                     </label>
                     <Input
                       type="file"
@@ -516,33 +514,33 @@ if (!formData.birthDate?.trim()) {
                       className="cursor-pointer"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-업로드 용량 10MB 이내 | PDF 형식 권장
+                      {t('application.file.portfolioNote')}
                     </p>
                   </div>
                 </div>
 
-                {/* 개인정보 동의 */}
+                {/* Privacy Consent */}
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-sm text-gray-600">
-                    <strong>개인정보 수집 및 이용 동의</strong><br/>
-                    수집 항목: 이름, 주민등록번호, 이메일, 연락처, 주소, 학력, 경력<br/>
-                    이용 목적: 채용 전형 진행 및 결과 안내<br/>
-                    보유 기간: 채용 종료 후 3개월
+                    <strong>{t('application.privacy.title')}</strong><br/>
+                    {t('application.privacy.items')}<br/>
+                    {t('application.privacy.purpose')}<br/>
+                    {t('application.privacy.retention')}
                   </p>
                 </div>
 
-                {/* 제출 버튼 */}
+                {/* Submit Button */}
                 <div className="flex gap-4">
                   <Button type="submit" className="flex-1">
-                    지원서 제출
+                    {t('application.button.submit')}
                   </Button>
-                  <Button 
-                    type="button" 
-                    variant="outline" 
+                  <Button
+                    type="button"
+                    variant="outline"
                     onClick={() => navigate(-1)}
                     className="flex-1"
                   >
-                    취소
+                    {t('application.button.cancel')}
                   </Button>
                 </div>
               </form>

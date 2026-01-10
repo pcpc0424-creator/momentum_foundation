@@ -101,7 +101,7 @@ const FoodBusiness = () => {
 
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
-                식자재가공·유통
+                {t('food.title')}
               </span>
             </h1>
 
@@ -143,7 +143,7 @@ const FoodBusiness = () => {
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src="/momentum_foundation/images/meat_products_20251219_072051.png"
-                  alt="한우·한돈 제품"
+                  alt={t('food.meat.products.alt')}
                   className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -162,7 +162,7 @@ const FoodBusiness = () => {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-4">
                   <Leaf className="w-4 h-4" />
-                  한우·한돈
+                  {t('food.meat.label')}
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                   {t('food.meat.title')}
@@ -211,7 +211,7 @@ const FoodBusiness = () => {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-4">
                   <Sparkles className="w-4 h-4" />
-                  청년나래
+                  {t('food.fruit.label')}
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                   {t('food.fruit.title')}
@@ -250,7 +250,7 @@ const FoodBusiness = () => {
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src="/momentum_foundation/images/fruit_products_20251219_072051.png"
-                  alt="과일 제품"
+                  alt={t('food.fruit.products.alt')}
                   className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -277,7 +277,7 @@ const FoodBusiness = () => {
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src="/momentum_foundation/images/rice_products_20251219_072051.png"
-                  alt="쌀 제품"
+                  alt={t('food.rice.products.alt')}
                   className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -296,7 +296,7 @@ const FoodBusiness = () => {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-4">
                   <Award className="w-4 h-4" />
-                  브랜드쌀
+                  {t('food.rice.label')}
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                   {t('food.rice.title')}
@@ -346,26 +346,26 @@ const FoodBusiness = () => {
 
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
-              최고 품질의 식자재를 약속합니다
+              {t('food.cta.title')}
             </span>
           </h2>
 
           <p className="text-lg text-emerald-200/70 mb-10 max-w-2xl mx-auto">
-            모멘텀 재단은 철저한 품질 관리와 신뢰를 바탕으로 최상의 식자재를 공급합니다.
+            {t('food.cta.desc')}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-              <Shield className="w-5 h-5 text-emerald-400" />
-              <span className="text-white font-medium">품질 보증</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+              <Shield className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <span className="text-white font-medium text-sm sm:text-base">{t('food.cta.quality')}</span>
             </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-              <Truck className="w-5 h-5 text-emerald-400" />
-              <span className="text-white font-medium">신속 배송</span>
+            <div className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+              <Truck className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <span className="text-white font-medium text-sm sm:text-base">{t('food.cta.delivery')}</span>
             </div>
-            <div className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
-              <Award className="w-5 h-5 text-emerald-400" />
-              <span className="text-white font-medium">인증 제품</span>
+            <div className="flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+              <Award className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <span className="text-white font-medium text-sm sm:text-base">{t('food.cta.certified')}</span>
             </div>
           </div>
         </div>

@@ -10,30 +10,30 @@ const Process = () => {
     {
       step: "01",
       icon: <FileText className="h-8 w-8 text-white" />,
-title: t('process.step1.title'),
+      title: t('process.step1.title'),
       description: t('process.step1.desc'),
-      details: ["이력서 및 자기소개서 제출", "경력증명서 (해당자)", "포트폴리오 (해당 직무)"]
+      details: [t('process.step1.detail1'), t('process.step1.detail2'), t('process.step1.detail3')]
     },
     {
-      step: "02", 
+      step: "02",
       icon: <Users className="h-8 w-8 text-white" />,
-title: t('process.step2.title'),
+      title: t('process.step2.title'),
       description: t('process.step2.desc'),
-      details: ["1차: 실무진 면접 (직무 적합성)", "2차: 임원 면접 (인성 및 비전)", "면접 일정은 개별 안내"]
+      details: [t('process.step2.detail1'), t('process.step2.detail2'), t('process.step2.detail3')]
     },
     {
       step: "03",
       icon: <CheckCircle className="h-8 w-8 text-white" />,
-title: t('process.step3.title'),
+      title: t('process.step3.title'),
       description: t('process.step3.desc'),
-      details: ["합격자 개별 연락", "입사 서류 안내", "오리엔테이션 일정 공지"]
+      details: [t('process.step3.detail1'), t('process.step3.detail2'), t('process.step3.detail3')]
     },
     {
       step: "04",
       icon: <Award className="h-8 w-8 text-white" />,
-title: t('process.step4.title'),
+      title: t('process.step4.title'),
       description: t('process.step4.desc'),
-      details: ["회사 소개 및 조직 문화", "직무별 전문 교육", "멘토링 프로그램 배정"]
+      details: [t('process.step4.detail1'), t('process.step4.detail2'), t('process.step4.detail3')]
     }
   ];
 
@@ -53,12 +53,12 @@ const requirements = [
                               <section className="bg-cool-grey text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              채용절차
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('process.hero.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
 <span className="text-sm lg:text-base font-medium hidden md:inline" style={{color: '#059669'}}>
-              채용 프로세스
+              {t('process.hero.subtitle')}
             </span>
           </div>
         </div>

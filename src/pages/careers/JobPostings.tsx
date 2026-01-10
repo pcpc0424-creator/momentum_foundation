@@ -199,12 +199,12 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
         <section className="bg-cool-grey text-gray-800 py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center ml-4 md:ml-16">
-              <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-                채용공고
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+                {t('careers.recruitment.title')}
               </h1>
               <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
               <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-                모멘텀파운데이션과 함께 성장할 인재를 찾습니다
+                {t('careers.recruitment.subtitle')}
               </span>
             </div>
           </div>
@@ -212,13 +212,13 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
 
         <section className="flex-grow py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={handleBackToList}
               className="mb-6"
             >
               <ChevronLeft className="h-4 w-4 mr-2" />
-              공고목록
+              {t('jobs.list')}
             </Button>
 
             <Card>
@@ -234,14 +234,14 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
 
 {selectedJob.attachmentFile && (
                   <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
-                    <h3 className="text-lg font-semibold mb-4 text-gray-900">첫부파일</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-gray-900">{t('jobs.attachment')}</h3>
                     <div className="space-y-2">
                       <Button
                         variant="outline"
                         onClick={() => {
                           const link = document.createElement('a');
                           link.href = selectedJob.attachmentFile!;
-                          link.download = selectedJob.attachmentFileName || '채용공고.pdf';
+                          link.download = selectedJob.attachmentFileName || t('jobs.posting.file');
                           link.click();
                         }}
                         className="w-full justify-start mb-2"
@@ -249,7 +249,7 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
                         <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        {selectedJob.attachmentFileName || '채용공고'}
+                        {selectedJob.attachmentFileName || t('jobs.posting')}
                       </Button>
                     </div>
                   </div>
@@ -260,11 +260,11 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
                     variant="outline"
                     onClick={handleBackToList}
                   >
-                    공고목록
+                    {t('jobs.list')}
                   </Button>
                   {selectedJob.status !== "채용마감" && (
                     <Button onClick={handleApply}>
-                      지원하기
+                      {t('jobs.apply')}
                     </Button>
                   )}
                 </div>
@@ -286,12 +286,12 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
       <section className="bg-cool-grey text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              채용공고
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('careers.recruitment.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              모멘텀파운데이션과 함께 성장할 인재를 찾습니다
+              {t('careers.recruitment.subtitle')}
             </span>
           </div>
         </div>
@@ -299,7 +299,7 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
 
       <section className="flex-grow py-20 bg-white">
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 고용형태 필터 버튼 */}
+          {/* Job type filter buttons */}
           <div className="mb-6 flex justify-center gap-2">
             <Button
               variant={jobTypeFilter === "all" ? "default" : "outline"}
@@ -309,7 +309,7 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
               }}
               size="sm"
             >
-              전체
+              {t('jobs.filter.all')}
             </Button>
             <Button
               variant={jobTypeFilter === "정규직" ? "default" : "outline"}
@@ -319,7 +319,7 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
               }}
               size="sm"
             >
-              정규직
+              {t('jobs.filter.fulltime')}
             </Button>
             <Button
               variant={jobTypeFilter === "계약직" ? "default" : "outline"}
@@ -329,7 +329,7 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
               }}
               size="sm"
             >
-              계약직
+              {t('jobs.filter.contract')}
             </Button>
           </div>
           
@@ -338,19 +338,19 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
               <thead>
                 <tr className="border-b-2 border-gray-300 bg-gray-50">
 <th className="py-3 px-2 text-center text-sm font-semibold text-gray-700 w-16">
-                    번호
+                    {t('jobs.table.no')}
                   </th>
 <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 w-96">
-                    제목
+                    {t('jobs.table.title')}
                   </th>
                   <th className="py-3 px-3 text-center text-sm font-semibold text-gray-700 w-32">
-                    등록일
+                    {t('jobs.table.date')}
                   </th>
                   <th className="py-3 px-2 text-center text-sm font-semibold text-gray-700 w-12">
-                    첨부
+                    {t('jobs.table.attachment')}
                   </th>
                   <th className="py-3 px-2 text-center text-sm font-semibold text-gray-700 w-16">
-                    조회
+                    {t('jobs.table.views')}
                   </th>
                 </tr>
               </thead>
@@ -368,20 +368,20 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
                       <div className="flex items-center gap-2">
                         {job.jobType && (
                           <span className={`inline-block px-2 py-1 text-xs rounded font-medium ${
-                            job.jobType === "정규직" 
-                              ? "bg-blue-100 text-blue-800" 
+                            job.jobType === "정규직"
+                              ? "bg-blue-100 text-blue-800"
                               : "bg-orange-100 text-orange-800"
                           }`}>
-                            ({job.jobType})
+                            ({job.jobType === "정규직" ? t('jobs.type.fulltime') : t('jobs.type.contract')})
                           </span>
                         )}
                         <span className="truncate">{job.title}</span>
                         <span className={`inline-block px-2 py-1 text-xs rounded ml-2 ${
-                          job.status === "채용중" || job.status === "상시채용" 
-                            ? "bg-green-100 text-green-800" 
+                          job.status === "채용중" || job.status === "상시채용"
+                            ? "bg-green-100 text-green-800"
                             : "bg-red-100 text-red-800"
                         }`}>
-                          {job.status === "채용중" || job.status === "상시채용" ? "진행중" : "마감"}
+                          {job.status === "채용중" || job.status === "상시채용" ? t('jobs.status.active') : t('jobs.status.closed')}
                         </span>
                       </div>
                     </td>
@@ -410,9 +410,9 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
             </div>
           )}
 
-          {/* 게시글 정보 */}
+          {/* Post info */}
           <div className="mt-4 text-center text-sm text-gray-500">
-총 {filteredJobs.length}개의 게시글 (페이지 {currentPage} / {totalPages})
+            {t('jobs.pagination.info').replace('{total}', filteredJobs.length.toString()).replace('{current}', currentPage.toString()).replace('{pages}', totalPages.toString())}
           </div>
         </div>
       </section>

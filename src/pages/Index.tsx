@@ -141,31 +141,31 @@ return { displayText, isTyping, startTyping };
     
     return (
       <div ref={statsRef} className="bg-gradient-to-br from-lawn-green to-green-600 rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
-<h4 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4">{t('home.stats.since')}</h4>
-        <div className="grid grid-cols-2 gap-4 sm:gap-6">
+<h4 className="text-base sm:text-lg lg:text-2xl font-bold mb-3 sm:mb-4 text-center">{t('home.stats.since')}</h4>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
           <div className="text-center group">
-            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               {businessCount.count}+
             </div>
-<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.business')}</div>
+<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.business')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               {satisfactionCount.count}%
             </div>
-<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.satisfaction')}</div>
+<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.satisfaction')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               24/7
             </div>
-<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.service')}</div>
+<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.service')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               ∞
             </div>
-<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.growth')}</div>
+<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.growth')}</div>
           </div>
         </div>
       </div>
@@ -714,11 +714,11 @@ const companyValues = [
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
               <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">Ready to Start Your Journey?</h3>
-                <p className="text-white/80 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">모멘텀파운데이션과 함께 성장하세요</p>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">{t('home.careers.cta.title')}</h3>
+                <p className="text-white/80 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">{t('home.careers.cta.desc')}</p>
                 <Link to="/careers">
                   <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                    모든 채용 공고 보기 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    {t('home.careers.cta.btn')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </Link>
               </div>

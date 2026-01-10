@@ -82,7 +82,7 @@ const Philosophy = () => {
               <span className="text-sm font-medium tracking-wider uppercase">Philosophy</span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-              기업이념
+              {t('about.philosophy.title')}
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
               {t('philosophy.subtitle')}

@@ -35,18 +35,18 @@ const FranchiseBusiness = () => {
   const restaurantFeatures = [
     {
       icon: <Sparkles className="h-8 w-8 text-emerald-400" />,
-      title: "젊고 세련된 공간",
-      description: "청록색 브랜드 컬러를 활용한\n모던하고 쾌적한 인테리어"
+      title: t('franchise.restaurant.feature1.title'),
+      description: t('franchise.restaurant.feature1.desc')
     },
     {
       icon: <Users className="h-8 w-8 text-emerald-400" />,
-      title: "셀프바 운영",
-      description: "자유롭게 반찬을 추가할 수 있는\n시스템으로 고객 만족도 향상"
+      title: t('franchise.restaurant.feature2.title'),
+      description: t('franchise.restaurant.feature2.desc')
     },
     {
       icon: <Crown className="h-8 w-8 text-emerald-400" />,
-      title: "시그니처 메뉴",
-      description: "'큰돼지한판', '큰소한판' 등\n가성비와 구성이 뛰어난 세트 메뉴"
+      title: t('franchise.restaurant.feature3.title'),
+      description: t('franchise.restaurant.feature3.desc')
     }
   ];
 
@@ -63,13 +63,13 @@ const FranchiseBusiness = () => {
     },
     {
       icon: <TrendingUp className="h-8 w-8 text-emerald-400" />,
-      title: "체계적인 창업 지원",
-      description: "오픈 초기 집중 마케팅, 정기 운영 컨설팅, 안정적 물류 시스템"
+      title: t('franchise.advantage3.title'),
+      description: t('franchise.advantage3.desc')
     },
     {
       icon: <Zap className="h-8 w-8 text-emerald-400" />,
-      title: "가맹점과 동반 성장",
-      description: "파트너와 함께 성장하는 건강한\n프랜차이즈 생태계 구축"
+      title: t('franchise.advantage4.title'),
+      description: t('franchise.advantage4.desc')
     }
   ];
 
@@ -106,7 +106,7 @@ const FranchiseBusiness = () => {
 
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
-                프랜차이즈
+                {t('franchise.title')}
               </span>
             </h1>
 
@@ -147,7 +147,7 @@ const FranchiseBusiness = () => {
               <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 shadow-2xl shadow-emerald-900/20">
                 <img
                   src="https://skyagent-artifacts.skywork.ai/image/2001914996586934272/db7ed674-7238-439c-9b5c-b10bd2ecf3f7/prod_agent_2001914996586934272/meat_restaurant_separate_area_20251228081422_1.png"
-                  alt="청년축산 매장"
+                  alt={t('franchise.store.alt')}
                   className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
@@ -299,11 +299,11 @@ const FranchiseBusiness = () => {
           </div>
 
           {/* Process Steps */}
-          <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-emerald-900/30 border border-emerald-500/20 rounded-3xl p-10 shadow-2xl shadow-emerald-900/20">
-            <h3 className="text-2xl font-bold text-white mb-10 text-center">
+          <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-emerald-900/30 border border-emerald-500/20 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl shadow-emerald-900/20">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 lg:mb-10 text-center">
               {t('franchise.process.title')}
             </h3>
-            <div className="flex flex-wrap justify-center items-stretch gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
               {[
                 { step: t('franchise.step1'), desc: t('franchise.step1.desc') },
                 { step: t('franchise.step2'), desc: t('franchise.step2.desc') },
@@ -311,21 +311,12 @@ const FranchiseBusiness = () => {
                 { step: t('franchise.step4'), desc: t('franchise.step4.desc') },
                 { step: t('franchise.step5'), desc: t('franchise.step5.desc') },
                 { step: t('franchise.step6'), desc: t('franchise.step6.desc') },
-              ].map((item, index, arr) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="group bg-gray-800/80 hover:bg-gray-800 border border-emerald-500/30 hover:border-emerald-500/50 rounded-xl p-5 min-w-[160px] transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10">
-                    <div className="text-emerald-400 font-bold text-lg mb-2 group-hover:text-emerald-300 transition-colors duration-300">
-                      {item.step}
-                    </div>
-                    <div className="text-sm text-gray-400" dangerouslySetInnerHTML={{__html: item.desc}}></div>
+              ].map((item, index) => (
+                <div key={index} className="group bg-gray-800/80 hover:bg-gray-800 border border-emerald-500/30 hover:border-emerald-500/50 rounded-xl p-4 sm:p-5 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10 text-center">
+                  <div className="text-emerald-400 font-bold text-base sm:text-lg mb-2 group-hover:text-emerald-300 transition-colors duration-300">
+                    {item.step}
                   </div>
-                  {index < arr.length - 1 && (
-                    <div className="text-emerald-500 text-2xl font-light hidden lg:block">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  )}
+                  <div className="text-xs sm:text-sm text-gray-400" dangerouslySetInnerHTML={{__html: item.desc}}></div>
                 </div>
               ))}
             </div>
@@ -349,7 +340,7 @@ const FranchiseBusiness = () => {
           </div>
 
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-8">
-            가맹점과 <span className="text-emerald-400">동반 성장</span>
+            {t('franchise.closing.title')}
           </h2>
 
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">

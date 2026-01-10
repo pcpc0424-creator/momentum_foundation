@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, Paperclip, ChevronRight, Bell, Calendar, Eye, Sparkles, ArrowRight, Megaphone, AlertCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NoticePost {
   id: number;
@@ -32,6 +33,7 @@ const getDefaultNotices = (): NoticePost[] => [
 ];
 
 const Notice = () => {
+  const { t } = useLanguage();
   const [notices, setNotices] = useState<NoticePost[]>([]);
   const [selectedNotice, setSelectedNotice] = useState<NoticePost | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -158,9 +160,9 @@ const Notice = () => {
                 <span className="w-8 h-px bg-emerald-400"></span>
                 <span className="text-sm font-medium tracking-wider uppercase">Notice Board</span>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-4">공지사항</h1>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-4">{t('news.notice.title')}</h1>
               <p className="text-xl text-gray-300 max-w-2xl">
-                모멘텀파운데이션의 중요한 안내사항을 확인하세요
+                {t('news.notice.subtitle')}
               </p>
             </div>
           </div>
@@ -175,7 +177,7 @@ const Notice = () => {
               className="mb-8 border-emerald-300 text-emerald-700 hover:bg-emerald-50 hover:border-emerald-400 transition-all duration-300 group rounded-full px-6"
             >
               <ChevronLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-              목록으로
+              {t('news.backToList')}
             </Button>
 
             <article className="bg-white rounded-3xl shadow-2xl shadow-emerald-500/10 overflow-hidden border border-gray-100">
@@ -214,7 +216,7 @@ const Notice = () => {
                   <div className="mt-12 pt-8 border-t border-gray-100">
                     <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-gray-800">
                       <Paperclip className="w-5 h-5 text-emerald-500" />
-                      첨부파일
+                      {t('news.attachment')}
                     </h3>
                     <a
                       href={selectedNotice.attachmentFile}
@@ -275,25 +277,25 @@ const Notice = () => {
 
             <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
               <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
-                공지사항
+                {t('news.notice.title')}
               </span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              모멘텀파운데이션의 중요한 안내사항을 확인하세요
+              {t('news.notice.subtitle')}
             </p>
 
             {/* Stats */}
             <div className="flex justify-center gap-8 mt-12">
               <div className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-emerald-400">{notices.length}</div>
-                <div className="text-gray-400 text-sm">전체 공지</div>
+                <div className="text-gray-400 text-sm">{t('news.totalNotices')}</div>
               </div>
               <div className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-3xl font-bold text-cyan-400">
                   <AlertCircle className="w-8 h-8 mx-auto" />
                 </div>
-                <div className="text-gray-400 text-sm">중요 공지</div>
+                <div className="text-gray-400 text-sm">{t('news.importantNotice')}</div>
               </div>
             </div>
           </div>
@@ -314,10 +316,10 @@ const Notice = () => {
                 <Sparkles className="w-4 h-4" />
                 Announcements
               </span>
-              <h2 className="text-3xl font-bold text-gray-900">최신 공지</h2>
+              <h2 className="text-3xl font-bold text-gray-900">{t('news.latestNotices')}</h2>
             </div>
             <div className="text-gray-500">
-              총 <span className="text-emerald-600 font-bold">{notices.length}</span>개의 공지
+              {t('news.total')} <span className="text-emerald-600 font-bold">{notices.length}</span>{t('news.noticeCount')}
             </div>
           </div>
 
@@ -371,7 +373,7 @@ const Notice = () => {
                         )}
                       </div>
                       <div className="flex items-center gap-2 text-emerald-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>자세히 보기</span>
+                        <span>{t('news.viewDetails')}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>

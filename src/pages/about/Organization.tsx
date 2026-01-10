@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Users, Building2, Truck, Briefcase, ShoppingCart, Shield, Crown, UserCircle, Search } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Organization = () => {
+  const { t } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -12,47 +14,47 @@ const Organization = () => {
   }, []);
 
   const executives = [
-    { title: "이사회", icon: <Users className="w-5 h-5" /> },
-    { title: "회장", icon: <Crown className="w-5 h-5" />, highlight: true },
-    { title: "감사", icon: <Search className="w-5 h-5" /> }
+    { title: t('org.board'), icon: <Users className="w-5 h-5" /> },
+    { title: t('org.chairman'), icon: <Crown className="w-5 h-5" />, highlight: true },
+    { title: t('org.auditor'), icon: <Search className="w-5 h-5" /> }
   ];
 
   const divisions = [
     {
-      title: "경영관리본부",
+      title: t('org.division.management.title'),
       icon: <Briefcase className="w-8 h-8" />,
       color: "from-blue-500 to-blue-600",
       borderColor: "border-blue-400",
       bgColor: "bg-blue-50",
-      teams: ["경영지원팀", "재경회계팀", "기획/IR팀"],
-      description: "조직 운영 지원, 재무 관리, 사업 기획 및 인사 관리"
+      teams: [t('org.team.management1'), t('org.team.management2'), t('org.team.management3')],
+      description: t('org.division.management.desc')
     },
     {
-      title: "식자재사업본부",
+      title: t('org.division.food.title'),
       icon: <ShoppingCart className="w-8 h-8" />,
       color: "from-emerald-500 to-green-600",
       borderColor: "border-emerald-400",
       bgColor: "bg-emerald-50",
-      teams: ["국내영업팀", "온라인사업팀", "물류팀", "상품개발팀", "품질관리팀"],
-      description: "식자재 가공·유통, 품질 관리 및 공급망 관리"
+      teams: [t('org.team.food1'), t('org.team.food2'), t('org.team.food3'), t('org.team.food4'), t('org.team.food5')],
+      description: t('org.division.food.desc')
     },
     {
-      title: "프랜차이즈사업본부",
+      title: t('org.division.franchise.title'),
       icon: <Truck className="w-8 h-8" />,
       color: "from-amber-500 to-orange-600",
       borderColor: "border-amber-400",
       bgColor: "bg-amber-50",
-      teams: ["가맹영업팀", "슈퍼바이징팀", "메뉴/상품기획팀"],
-      description: "청년축산 브랜드 운영, 가맹점 관리 및 창업 지원"
+      teams: [t('org.team.franchise1'), t('org.team.franchise2'), t('org.team.franchise3')],
+      description: t('org.division.franchise.desc')
     },
     {
-      title: "FM/아웃소싱사업본부",
+      title: t('org.division.fm.title'),
       icon: <Building2 className="w-8 h-8" />,
       color: "from-cyan-500 to-teal-600",
       borderColor: "border-cyan-400",
       bgColor: "bg-cyan-50",
-      teams: ["사업영업팀", "현장운영팀"],
-      description: "시설 관리, 경비용역, 아웃소싱 솔루션 제공"
+      teams: [t('org.team.fm1'), t('org.team.fm2')],
+      description: t('org.division.fm.desc')
     }
   ];
 
@@ -74,10 +76,10 @@ const Organization = () => {
               <span className="text-sm font-medium tracking-wider uppercase">Organization</span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-              조직도
+              {t('about.org.title')}
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl">
-              체계적이고 전문적인 조직 구성으로 최상의 서비스를 제공합니다
+              {t('about.org.subtitle')}
             </p>
           </div>
         </div>
@@ -95,7 +97,7 @@ const Organization = () => {
           <div className={`text-center mb-16 transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">CHART</span>
             <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
-              회사 조직도
+              {t('org.chart.title')}
             </h2>
           </div>
 
@@ -104,7 +106,7 @@ const Organization = () => {
             <div className="flex justify-center mb-6">
               <div className="inline-flex items-center gap-2 px-6 py-2 bg-gray-800 text-white rounded-full shadow-lg">
                 <Shield className="w-5 h-5 text-emerald-400" />
-                <span className="font-semibold">최고 경영진</span>
+                <span className="font-semibold">{t('org.executives')}</span>
               </div>
             </div>
 
@@ -144,8 +146,8 @@ const Organization = () => {
                   <UserCircle className="w-8 h-8" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">대표이사</p>
-                  <p className="text-emerald-400 text-sm">4개의 주요 사업 본부를 총괄</p>
+                  <p className="text-2xl font-bold">{t('org.ceo')}</p>
+                  <p className="text-emerald-400 text-sm">{t('org.ceo.desc')}</p>
                 </div>
               </div>
             </div>
@@ -212,10 +214,10 @@ const Organization = () => {
           {/* Bottom Stats */}
           <div className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-700 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {[
-              { number: "4", label: "사업본부" },
-              { number: "14", label: "전문팀" },
-              { number: "100+", label: "임직원" },
-              { number: "∞", label: "성장가능성" }
+              { number: "4", label: t('org.stats.divisions') },
+              { number: "14", label: t('org.stats.teams') },
+              { number: "100+", label: t('org.stats.employees') },
+              { number: "∞", label: t('org.stats.growth') }
             ].map((stat, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
                 <div className="text-3xl font-bold text-emerald-600 mb-1">{stat.number}</div>

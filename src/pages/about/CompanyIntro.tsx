@@ -52,16 +52,16 @@ const CompanyIntro = () => {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center sm:text-left">
           <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex items-center gap-2 text-emerald-400 mb-4">
+            <div className="flex items-center justify-center sm:justify-start gap-2 text-emerald-400 mb-4">
               <span className="w-8 h-px bg-emerald-400"></span>
               <span className="text-sm font-medium tracking-wider uppercase">About Us</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-              기업소개
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4">
+              {t('about.companyintro.title')}
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto sm:mx-0">
               {t('companyintro.subtitle')}
             </p>
           </div>
@@ -90,15 +90,15 @@ const CompanyIntro = () => {
               </p>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-8">
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-8">
                 {[
-                  { number: "3+", label: "사업 분야" },
-                  { number: "100%", label: "고객 만족" },
-                  { number: "24/7", label: "서비스" }
+                  { number: "3+", label: t('about.stats.business') },
+                  { number: "100%", label: t('about.stats.satisfaction') },
+                  { number: "24/7", label: t('about.stats.service') }
                 ].map((stat, index) => (
-                  <div key={index} className="text-center p-4 bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl">
-                    <div className="text-2xl font-bold text-emerald-600">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                  <div key={index} className="text-center p-3 sm:p-4 bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl">
+                    <div className="text-xl sm:text-2xl font-bold text-emerald-600">{stat.number}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -108,7 +108,7 @@ const CompanyIntro = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-2xl opacity-20" />
               <img
                 src="/momentum_foundation/images/company_office_interior_20260105_150140.png"
-                alt="모멘텀파운데이션 본사"
+                alt={t('company.office.alt')}
                 className="relative rounded-2xl shadow-2xl w-full h-80 object-cover object-bottom"
                 style={{objectPosition: '50% 70%'}}
               />
@@ -134,17 +134,17 @@ const CompanyIntro = () => {
                 className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-emerald-200"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="p-8 lg:p-10">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 text-center sm:text-left">
+                    <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
                       {area.icon}
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                      <div className="flex items-center justify-center sm:justify-start gap-3">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
                           {area.title}
                         </h3>
-                        <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all" />
+                        <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all hidden sm:block" />
                       </div>
                       {area.subtitle && (
                         <p className="text-emerald-600 font-medium mt-1">{area.subtitle}</p>
@@ -152,12 +152,12 @@ const CompanyIntro = () => {
                     </div>
                   </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-8 pl-20">
+                  <p className="text-gray-600 leading-relaxed mb-8 text-center sm:text-left sm:pl-20">
                     {area.description}
                   </p>
 
                   {area.details && (
-                    <div className="grid md:grid-cols-3 gap-4 pl-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:pl-20">
                       {area.details.map((detail, detailIndex) => (
                         <div
                           key={detailIndex}

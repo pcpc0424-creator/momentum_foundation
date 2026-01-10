@@ -32,12 +32,12 @@ title: t('culture.principle3.title'),
       <section className="bg-cool-grey text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              기업문화
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('careers.culture.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              함께 성장하고 발전하는 모멘텀파운데이션의 기업문화를 소개합니다
+              {t('careers.culture.subtitle')}
             </span>
           </div>
         </div>

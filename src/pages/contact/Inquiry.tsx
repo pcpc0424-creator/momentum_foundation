@@ -48,19 +48,18 @@ const generateInquiryNumber = () => {
     
     if (!formData.name || !formData.email || !formData.inquiryType || !formData.message) {
       toast({
-        title: "입력 오류",
-        description: "필수 항목을 모두 입력해주세요.",
+        title: t('inquiry.error.input'),
+        description: t('inquiry.error.required'),
         variant: "destructive",
       });
       return;
     }
 
-    // 이메일 형식 검증
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       toast({
-        title: "이메일 오류",
-        description: "올바른 이메일 형식을 입력해주세요.",
+        title: t('inquiry.error.email'),
+        description: t('inquiry.error.emailFormat'),
         variant: "destructive",
       });
       return;
@@ -91,8 +90,8 @@ submissionDate: new Date().toISOString().split('T')[0],
     window.dispatchEvent(new Event('storage'));
 
     toast({
-      title: "문의 접수 완료",
-      description: `문의번호: ${inquiryNumber}\n문의사항이 정상적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.`,
+      title: t('inquiry.success.title'),
+      description: `${t('inquiry.success.number')}: ${inquiryNumber}\n${t('inquiry.success.message')}`,
     });
     // 폼 초기화
     setFormData({
@@ -121,12 +120,12 @@ submissionDate: new Date().toISOString().split('T')[0],
 <section className="bg-warm-beige text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              온라인문의
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('inquiry.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              궁금한 사항이나 제안사항이 있으시면 언제든지 문의해 주세요
+              {t('inquiry.subtitle')}
             </span>
           </div>
         </div>
@@ -199,10 +198,10 @@ placeholder={t('inquiry.form.company.placeholder')}
 <SelectValue placeholder={t('inquiry.form.type.placeholder')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="product">제품 문의</SelectItem>
-                    <SelectItem value="partnership">입점/제휴 문의</SelectItem>
-                    <SelectItem value="recruitment">채용 문의</SelectItem>
-                    <SelectItem value="other">기타 문의</SelectItem>
+                    <SelectItem value="product">{t('inquiry.type.product')}</SelectItem>
+                    <SelectItem value="partnership">{t('inquiry.type.partnership')}</SelectItem>
+                    <SelectItem value="recruitment">{t('inquiry.type.recruitment')}</SelectItem>
+                    <SelectItem value="other">{t('inquiry.type.other')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

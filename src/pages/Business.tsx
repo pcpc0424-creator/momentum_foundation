@@ -64,12 +64,12 @@ features: [
                               <section className="bg-dusty-blue text-gray-800 py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-2xl lg:text-3xl font-bold mr-4 whitespace-nowrap">
-              사업영역
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+              {t('business.hero.title')}
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              다양한 분야에서 전문성을 바탕으로 고객에게 최상의 서비스를 제공합니다
+              {t('business.hero.subtitle')}
             </span>
           </div>
         </div>
@@ -95,7 +95,7 @@ features: [
                   </div>
                 </div>
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-sage-green transition-colors whitespace-nowrap">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-sage-green transition-colors">
                     {area.title}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
