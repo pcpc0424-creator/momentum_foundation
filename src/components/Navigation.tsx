@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoImage from "/images/logo-1767868941.png";
+import logoImage from "/images/logo-new.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,18 +125,25 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0 group">
-            <div className={`relative p-2 rounded-xl transition-all duration-300 ${
+          <Link to="/" className="flex items-center flex-shrink-0 group gap-2">
+            <div className={`relative p-1.5 sm:p-2 rounded-xl transition-all duration-300 ${
               isScrolled || !isHomepage
-                ? 'bg-gradient-to-br from-emerald-50 to-green-50 group-hover:from-emerald-100 group-hover:to-green-100'
+                ? 'bg-white shadow-sm border border-gray-100 group-hover:shadow-md'
                 : 'bg-white/10 group-hover:bg-white/20'
             }`}>
               <img
                 src={logoImage}
                 alt="모멘텀파운데이션"
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-8 sm:h-10 w-auto transition-all duration-300 group-hover:scale-105"
               />
             </div>
+            <span className={`text-lg sm:text-xl font-bold transition-all duration-300 ${
+              isScrolled || !isHomepage
+                ? 'text-gray-800'
+                : 'text-white'
+            }`}>
+              momentum
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -274,77 +281,79 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 shadow-2xl rounded-b-2xl overflow-hidden">
-            <div className="px-3 pt-3 pb-4 space-y-1">
-              {isHomepage && !showRegularNav ? (
-                // Homepage: Scroll navigation
-                homepageNavItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all duration-200"
-                  >
-                    {item.label}
-                  </button>
-                ))
-              ) : (
-                // Other pages: Regular navigation
-                navItems.map((item) => (
-                  <div key={item.label}>
-                    <Link
-                      to={item.path}
-                      className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'text-emerald-600 bg-emerald-50'
-                          : 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
-                      }`}
-                      onClick={() => !item.submenu && setIsOpen(false)}
+          <div className="lg:hidden fixed top-20 left-0 right-0 bg-white border-t border-gray-100 shadow-2xl z-[9999]" style={{ maxHeight: 'calc(100vh - 80px)' }}>
+            <div className="overflow-y-auto" style={{ maxHeight: 'calc(100vh - 80px)' }}>
+              <div className="px-3 pt-3 pb-4 space-y-1">
+                {isHomepage && !showRegularNav ? (
+                  // Homepage: Scroll navigation
+                  homepageNavItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className="block w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all duration-200"
                     >
                       {item.label}
-                    </Link>
-                    {item.submenu && (
-                      <div className="pl-4 mt-1 space-y-1 border-l-2 border-emerald-100 ml-4">
-                        {item.submenu.map((subItem) => (
-                          <Link
-                            key={subItem.path}
-                            to={subItem.path}
-                            className="block px-4 py-2.5 text-sm text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-200"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))
-              )}
+                    </button>
+                  ))
+                ) : (
+                  // Other pages: Regular navigation
+                  navItems.map((item) => (
+                    <div key={item.label}>
+                      <Link
+                        to={item.path}
+                        className={`block px-4 py-2.5 text-sm font-medium rounded-xl transition-all duration-200 ${
+                          isActive(item.path)
+                            ? 'text-emerald-600 bg-emerald-50'
+                            : 'text-gray-700 hover:text-emerald-600 hover:bg-emerald-50'
+                        }`}
+                        onClick={() => !item.submenu && setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                      {item.submenu && (
+                        <div className="pl-3 mt-1 space-y-0.5 border-l-2 border-emerald-100 ml-4">
+                          {item.submenu.map((subItem) => (
+                            <Link
+                              key={subItem.path}
+                              to={subItem.path}
+                              className="block px-3 py-2 text-xs text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-200"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))
+                )}
 
-              {/* Mobile Language Toggle */}
-              <div className="border-t border-gray-100 mt-3 pt-4 px-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500 font-medium">Language</span>
-                  <div className="flex items-center rounded-full p-1 bg-gray-100 border border-gray-200">
-                    <button
-                      onClick={() => { setLanguage('ko'); setIsOpen(false); }}
-                      className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${
-                        language === 'ko'
-                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
-                          : 'text-gray-500 hover:text-gray-700'
-                      }`}
-                    >
-                      KO
-                    </button>
-                    <button
-                      onClick={() => { setLanguage('en'); setIsOpen(false); }}
-                      className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${
-                        language === 'en'
-                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
-                          : 'text-gray-500 hover:text-gray-700'
-                      }`}
-                    >
-                      EN
-                    </button>
+                {/* Mobile Language Toggle */}
+                <div className="border-t border-gray-100 mt-3 pt-3 px-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-gray-500 font-medium">Language</span>
+                    <div className="flex items-center rounded-full p-1 bg-gray-100 border border-gray-200">
+                      <button
+                        onClick={() => { setLanguage('ko'); setIsOpen(false); }}
+                        className={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 ${
+                          language === 'ko'
+                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
+                            : 'text-gray-500 hover:text-gray-700'
+                        }`}
+                      >
+                        KO
+                      </button>
+                      <button
+                        onClick={() => { setLanguage('en'); setIsOpen(false); }}
+                        className={`px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300 ${
+                          language === 'en'
+                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
+                            : 'text-gray-500 hover:text-gray-700'
+                        }`}
+                      >
+                        EN
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

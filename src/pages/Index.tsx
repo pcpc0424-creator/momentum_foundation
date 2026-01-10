@@ -140,32 +140,32 @@ return { displayText, isTyping, startTyping };
     }, [isStatsVisible]);
     
     return (
-      <div ref={statsRef} className="bg-gradient-to-br from-lawn-green to-green-600 rounded-2xl p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
-<h4 className="text-2xl font-bold mb-4">{t('home.stats.since')}</h4>
-        <div className="grid grid-cols-2 gap-6">
+      <div ref={statsRef} className="bg-gradient-to-br from-lawn-green to-green-600 rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
+<h4 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4">{t('home.stats.since')}</h4>
+        <div className="grid grid-cols-2 gap-4 sm:gap-6">
           <div className="text-center group">
-            <div className="text-3xl font-bold mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               {businessCount.count}+
             </div>
-<div className="text-green-100">{t('home.stats.business')}</div>
+<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.business')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-3xl font-bold mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               {satisfactionCount.count}%
             </div>
-<div className="text-green-100">{t('home.stats.satisfaction')}</div>
+<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.satisfaction')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-3xl font-bold mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               24/7
             </div>
-<div className="text-green-100">{t('home.stats.service')}</div>
+<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.service')}</div>
           </div>
           <div className="text-center group">
-            <div className="text-3xl font-bold mb-2 transform group-hover:scale-110 transition-transform">
+            <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
               ∞
             </div>
-<div className="text-green-100">{t('home.stats.growth')}</div>
+<div className="text-green-100 text-xs sm:text-sm">{t('home.stats.growth')}</div>
           </div>
         </div>
       </div>
@@ -239,10 +239,12 @@ const companyValues = [
       <section
         id="hero"
         ref={heroRef}
-        className="scroll-section relative min-h-screen flex items-center overflow-hidden"
+        className="scroll-section relative min-h-screen flex items-center justify-center overflow-hidden"
         data-section="0"
         style={{
-          background: `linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #134e4a 50%, #14532d 75%, #1a2e05 100%)`
+          background: `linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #134e4a 50%, #14532d 75%, #1a2e05 100%)`,
+          paddingTop: '90px',
+          paddingBottom: '60px'
         }}
       >
         {/* Animated Gradient Orbs */}
@@ -297,13 +299,13 @@ const companyValues = [
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             {/* Badge */}
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`} style={{ transitionDelay: '0.2s' }}>
-              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-              <span className="text-emerald-300 text-sm font-medium tracking-wide">MOMENTUM FOUNDATION</span>
+            <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-900/40 border border-emerald-500/30 backdrop-blur-sm mb-4 sm:mb-6 lg:mb-8 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`} style={{ transitionDelay: '0.2s' }}>
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              <span className="text-emerald-300 text-[11px] sm:text-sm font-medium tracking-wide">MOMENTUM FOUNDATION</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="hero-title-premium text-5xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight">
+            <h1 className="hero-title-premium text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight">
               <span
                 className={`block text-white mb-2 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: '0.3s' }}
@@ -320,7 +322,7 @@ const companyValues = [
 
             {/* Subtitle */}
             <p
-              className={`hero-subtitle text-lg lg:text-xl xl:text-2xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`hero-subtitle text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '0.7s' }}
             >
               {t('hero.subtitle')}
@@ -328,20 +330,20 @@ const companyValues = [
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: '0.9s' }}
             >
               <Button
                 size="lg"
-                className="btn-premium bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white text-lg px-8 py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                className="btn-premium bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                 onClick={() => scrollToSection('about')}
               >
-                {t('hero.btn1')} <ArrowRight className="ml-2 h-5 w-5" />
+                {t('hero.btn1')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="btn-premium border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg px-8 py-6 rounded-full backdrop-blur-sm transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                className="btn-premium border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full backdrop-blur-sm transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                 onClick={() => scrollToSection('business')}
               >
                 {t('hero.btn2')}
@@ -351,11 +353,11 @@ const companyValues = [
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center gap-2 text-white/50">
-            <span className="text-xs tracking-widest uppercase">Scroll</span>
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-              <div className="w-1.5 h-3 bg-white/50 rounded-full animate-bounce" />
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex flex-col items-center gap-1 sm:gap-2 text-white/70">
+            <span className="text-[10px] sm:text-xs tracking-widest uppercase">Scroll</span>
+            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center pt-1.5 sm:pt-2 bg-white/10 backdrop-blur-sm">
+              <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-white/80 rounded-full animate-bounce" />
             </div>
           </div>
         </div>
@@ -368,35 +370,35 @@ const companyValues = [
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">ABOUT US</span>
-            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">ABOUT US</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
               {t('home.about.title')}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               {t('home.about.desc')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 sm:space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 rounded-full">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-emerald-700 text-sm font-medium">Our Mission</span>
+                <span className="text-emerald-700 text-xs sm:text-sm font-medium">Our Mission</span>
               </div>
-              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">{t('home.mission.title')}</h3>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">{t('home.mission.title')}</h3>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
                 {t('home.mission.desc')}
               </p>
-              <div className="space-y-4 pt-4">
+              <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
                 {[t('home.vision.item1'), t('home.vision.item2'), t('home.vision.item3')].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-gray-700 font-medium">{item}</span>
+                    <span className="text-sm sm:text-base text-gray-700 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
@@ -419,17 +421,17 @@ const companyValues = [
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium mb-4 backdrop-blur-sm border border-emerald-500/30">OUR BUSINESS</span>
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 backdrop-blur-sm border border-emerald-500/30">OUR BUSINESS</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               {t('home.business.title')}
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4 sm:px-0">
               {t('home.business.desc')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {businessAreas.map((area, index) => (
               <Card
                 key={index}
@@ -439,23 +441,23 @@ const companyValues = [
                 {/* Glow Effect on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/0 via-emerald-500/0 to-emerald-500/0 group-hover:from-emerald-500/5 group-hover:via-emerald-500/10 group-hover:to-emerald-500/5 transition-all duration-500" />
 
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden">
                   <img
                     src={area.image}
                     alt={area.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 p-3 bg-emerald-500/20 backdrop-blur-sm rounded-xl border border-emerald-500/30 text-emerald-400">
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 p-2 sm:p-3 bg-emerald-500/20 backdrop-blur-sm rounded-xl border border-emerald-500/30 text-emerald-400">
                     {area.icon}
                   </div>
                 </div>
 
-                <CardContent className="p-6 relative">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors duration-300">
+                <CardContent className="p-4 sm:p-5 lg:p-6 relative">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-emerald-400 transition-colors duration-300">
                     {area.title}
                   </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed line-clamp-2">
+                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed line-clamp-2">
                     {area.description}
                   </p>
                   <Link to={area.link}>
@@ -479,40 +481,40 @@ const companyValues = [
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-emerald-300 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">CORE VALUES</span>
-            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">CORE VALUES</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
               {t('home.values.title')}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
               {t('home.values.desc')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {companyValues.map((value, index) => (
               <div
                 key={index}
-                className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2"
+                className="group relative bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Number Badge */}
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg">
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
-                <div className="w-16 h-16 mb-6 bg-gradient-to-br from-emerald-100 to-green-100 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mb-3 sm:mb-4 lg:mb-6 bg-gradient-to-br from-emerald-100 to-green-100 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 mb-1 sm:mb-2 lg:mb-3 group-hover:text-emerald-600 transition-colors leading-tight">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
+                <p className="text-gray-600 leading-relaxed text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
                   {value.description}
                 </p>
 
                 {/* Bottom Accent Line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-b-xl sm:rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </div>
             ))}
           </div>
@@ -532,47 +534,47 @@ const companyValues = [
         <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-8">
-              <Award className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">News & Updates</span>
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 sm:mb-8">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+              <span className="text-emerald-300 text-xs sm:text-sm font-medium tracking-wider uppercase">News & Updates</span>
             </div>
 
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               {t('page.news.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
               {t('page.news.subtitle')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             <Link to="/news/notice" className="group">
               <div className="relative h-full">
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-10 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
+                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                    <Award className="h-8 w-8 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
+                    <Award className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-4 group-hover:text-emerald-400 transition-colors">
                     {t('home.news.notice.title')}
                   </h3>
-                  <p className="text-gray-400 mb-8 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                     {t('home.news.notice.desc')}
                   </p>
 
-                  <div className="flex items-center gap-2 text-emerald-400 font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 font-medium text-sm sm:text-base">
                     <span>{t('home.news.notice.btn')}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
 
                   {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-b-2xl sm:rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </div>
               </div>
             </Link>
@@ -582,26 +584,26 @@ const companyValues = [
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 lg:p-10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
+                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                    <Building2 className="h-8 w-8 text-white" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
+                    <Building2 className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-4 group-hover:text-cyan-400 transition-colors">
                     {t('home.news.company.title')}
                   </h3>
-                  <p className="text-gray-400 mb-8 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                     {t('home.news.company.desc')}
                   </p>
 
-                  <div className="flex items-center gap-2 text-cyan-400 font-medium">
+                  <div className="flex items-center gap-2 text-cyan-400 font-medium text-sm sm:text-base">
                     <span>{t('home.news.company.btn')}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
 
                   {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-b-2xl sm:rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </div>
               </div>
             </Link>
@@ -617,54 +619,54 @@ const companyValues = [
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-emerald-100/30 to-cyan-100/30 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-100 mb-8">
-              <Users className="w-5 h-5 text-emerald-600" />
-              <span className="text-emerald-700 text-sm font-semibold tracking-wider uppercase">Join Our Team</span>
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-emerald-100 mb-6 sm:mb-8">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+              <span className="text-emerald-700 text-xs sm:text-sm font-semibold tracking-wider uppercase">Join Our Team</span>
             </div>
 
-            <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
               <span className="bg-gradient-to-r from-gray-900 via-emerald-800 to-emerald-600 bg-clip-text text-transparent">
                 {t('home.careers.title')}
               </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
               {t('home.careers.desc')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-12 lg:mb-16">
             {/* Jobs Card */}
             <Link to="/careers/jobs" className="group">
               <div className="relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500"></div>
 
-                <div className="relative h-full bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-emerald-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                <div className="relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 shadow-xl border-2 border-gray-100 hover:border-emerald-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
                   {/* Number Badge */}
-                  <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">01</span>
+                  <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white text-lg sm:text-xl lg:text-2xl font-bold">01</span>
                   </div>
 
                   {/* Icon */}
-                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                    <Users className="h-10 w-10 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
+                    <Users className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-emerald-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-4 group-hover:text-emerald-600 transition-colors">
                     {t('home.careers.jobs.title')}
                   </h3>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                     {t('home.careers.jobs.desc')}
                   </p>
 
-                  <div className="flex items-center gap-2 text-emerald-600 font-semibold">
+                  <div className="flex items-center gap-2 text-emerald-600 font-semibold text-sm sm:text-base">
                     <span>{t('home.careers.jobs.btn')}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
 
                   {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-emerald-500 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </div>
               </div>
             </Link>
@@ -674,31 +676,31 @@ const companyValues = [
               <div className="relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500"></div>
 
-                <div className="relative h-full bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-cyan-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
+                <div className="relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 shadow-xl border-2 border-gray-100 hover:border-cyan-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
                   {/* Number Badge */}
-                  <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">02</span>
+                  <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-white text-lg sm:text-xl lg:text-2xl font-bold">02</span>
                   </div>
 
                   {/* Icon */}
-                  <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                    <Award className="h-10 w-10 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
+                    <Award className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-cyan-600 transition-colors">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-4 group-hover:text-cyan-600 transition-colors">
                     {t('home.careers.culture.title')}
                   </h3>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                     {t('home.culture.desc')}
                   </p>
 
-                  <div className="flex items-center gap-2 text-cyan-600 font-semibold">
+                  <div className="flex items-center gap-2 text-cyan-600 font-semibold text-sm sm:text-base">
                     <span>{t('home.careers.culture.btn')}</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
 
                   {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-cyan-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
                 </div>
               </div>
             </Link>
@@ -706,17 +708,17 @@ const companyValues = [
 
           {/* CTA Banner */}
           <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-3xl blur opacity-20"></div>
-            <div className="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-cyan-500 rounded-3xl p-10 text-center text-white overflow-hidden">
+            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-2xl sm:rounded-3xl blur opacity-20"></div>
+            <div className="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-cyan-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 text-center text-white overflow-hidden">
               {/* Background Pattern */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
               <div className="relative z-10">
-                <h3 className="text-2xl lg:text-3xl font-bold mb-4">Ready to Start Your Journey?</h3>
-                <p className="text-white/80 mb-6 max-w-2xl mx-auto">모멘텀파운데이션과 함께 성장하세요</p>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">Ready to Start Your Journey?</h3>
+                <p className="text-white/80 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">모멘텀파운데이션과 함께 성장하세요</p>
                 <Link to="/careers">
-                  <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    모든 채용 공고 보기 <ArrowRight className="ml-2 h-5 w-5" />
+                  <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
+                    모든 채용 공고 보기 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </Link>
               </div>
@@ -738,38 +740,38 @@ const companyValues = [
         <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-8">
-              <Phone className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">Get In Touch</span>
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 sm:mb-8">
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
+              <span className="text-emerald-300 text-xs sm:text-sm font-medium tracking-wider uppercase">Get In Touch</span>
             </div>
 
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
               {t('page.contact.title')}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
               {t('page.contact.subtitle')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-12 lg:mb-16">
             {/* Phone Card */}
             <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                  <Phone className="h-10 w-10 text-white" />
+              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
+                  <Phone className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{t('home.contact.phone')}</h3>
-                <p className="text-emerald-400 font-semibold text-lg mb-2">{t('home.contact.phone.number')}</p>
-                <p className="text-gray-500 text-sm">{t('home.contact.phone.hours')}</p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.phone')}</h3>
+                <p className="text-emerald-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">{t('home.contact.phone.number')}</p>
+                <p className="text-gray-500 text-xs sm:text-sm">{t('home.contact.phone.hours')}</p>
 
                 {/* Hover Indicator */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-emerald-400 text-sm font-medium">
-                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="inline-flex items-center gap-2 text-emerald-400 text-xs sm:text-sm font-medium">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-pulse"></span>
                     Available Now
                   </span>
                 </div>
@@ -778,20 +780,20 @@ const companyValues = [
 
             {/* Email Card */}
             <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                  <Mail className="h-10 w-10 text-white" />
+              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
+                  <Mail className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{t('home.contact.email')}</h3>
-                <p className="text-cyan-400 font-semibold text-lg mb-2">{t('home.contact.email.address')}</p>
-                <p className="text-gray-500 text-sm">{t('home.contact.email.hours')}</p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.email')}</h3>
+                <p className="text-cyan-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 break-all">{t('home.contact.email.address')}</p>
+                <p className="text-gray-500 text-xs sm:text-sm">{t('home.contact.email.hours')}</p>
 
                 {/* Hover Indicator */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium">
-                    <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="inline-flex items-center gap-2 text-cyan-400 text-xs sm:text-sm font-medium">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-pulse"></span>
                     Quick Response
                   </span>
                 </div>
@@ -799,20 +801,20 @@ const companyValues = [
             </div>
 
             {/* Address Card */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
+            <div className="group relative sm:col-span-2 md:col-span-1">
+              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
 
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center hover:border-teal-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-teal-500/25">
-                  <MapPin className="h-10 w-10 text-white" />
+              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-teal-500/50 transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-teal-500/25">
+                  <MapPin className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{t('home.contact.address')}</h3>
-                <p className="text-teal-400 font-semibold text-lg mb-2">{t('home.contact.address.detail')}</p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.address')}</h3>
+                <p className="text-teal-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">{t('home.contact.address.detail')}</p>
 
                 {/* Hover Indicator */}
-                <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-teal-400 text-sm font-medium">
-                    <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
+                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="inline-flex items-center gap-2 text-teal-400 text-xs sm:text-sm font-medium">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-400 rounded-full animate-pulse"></span>
                     Visit Us
                   </span>
                 </div>
@@ -823,8 +825,8 @@ const companyValues = [
           {/* CTA Button */}
           <div className="text-center">
             <Link to="/contact/inquiry">
-              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white text-lg px-10 py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300">
-                {t('home.contact.btn')} <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300">
+                {t('home.contact.btn')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </Link>
           </div>

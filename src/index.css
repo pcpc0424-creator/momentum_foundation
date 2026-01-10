@@ -306,19 +306,63 @@ html {
   .card-3d:hover {
     transform: none; /* Disable 3D effects on mobile */
   }
-  
+
   .animate-float {
     animation: none; /* Reduce animations on mobile for performance */
   }
-  
+
   /* Optimize text sizes for mobile */
   .hero-title {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
     line-height: 1.2;
   }
-  
+
   .hero-subtitle {
-    font-size: 1.1rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+  }
+
+  /* Section padding adjustments */
+  .scroll-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: auto;
+  }
+
+  /* Floating orbs - reduce size on mobile */
+  .floating-orb {
+    width: 150px !important;
+    height: 150px !important;
+    filter: blur(30px);
+  }
+
+  /* Premium title adjustments */
+  .hero-title-premium {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Small mobile optimizations */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.875rem !important;
+  }
+
+  /* Even smaller floating orbs */
+  .floating-orb {
+    width: 100px !important;
+    height: 100px !important;
+    opacity: 0.4;
+  }
+
+  /* Reduce scroll indicator size */
+  .scroll-indicator {
+    transform: scale(0.8);
   }
 }
 
