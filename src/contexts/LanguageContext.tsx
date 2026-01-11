@@ -406,7 +406,22 @@ const translations = {
     'fm.areas.facility.desc': '건축, 기계, 전기, 소방 관리',
     'fm.areas.environment.title': '환경 관리',
     'fm.areas.environment.desc': '청소, 미화, 위생 관리',
-    
+
+    // FM Badge & Stats
+    'fm.badge': '프리미엄 시설 관리',
+    'fm.stats.experience': '년 경력',
+    'fm.stats.projects': '프로젝트',
+    'fm.stats.satisfaction': '만족도',
+    'fm.mission.badge': '우리의 미션',
+    'fm.partner.badge': '파트너 네트워크',
+    'fm.premium.badge': '프리미엄 서비스',
+    'fm.security.badge': '보안 관리',
+    'fm.building.badge': '종합 FM 솔루션',
+    'fm.cta.title': '지금 바로 문의하세요',
+    'fm.cta.desc': '맞춤형 FM 서비스를 제안해 드립니다',
+    'fm.cta.contact': '문의하기',
+    'fm.cta.more': '더 알아보기',
+
     // Franchise Features Translation
     'franchise.feature1.title': '품질 최우선',
     'franchise.feature1.desc': '엄선된 한우와 한돈만을 취급하며 신선함 보장',
@@ -1431,7 +1446,31 @@ const translations = {
     'fm.security.alt': 'Security Service',
     'fm.building.title': 'Building Facility Management (FM) Outsourcing',
 'fm.building.desc': 'Through partnerships with facility management professional companies, we maintain the value of buildings and facilities and provide\\na comfortable environment for tenants and users.',
-    
+
+    // FM Service Areas (English)
+    'fm.areas.title': 'FM/Outsourcing Service Areas',
+    'fm.areas.security.title': 'Security Service',
+    'fm.areas.security.desc': 'Security, Access Control, CCTV Monitoring',
+    'fm.areas.facility.title': 'Facility Management',
+    'fm.areas.facility.desc': 'Architecture, Mechanical, Electrical, Fire Protection',
+    'fm.areas.environment.title': 'Environment Management',
+    'fm.areas.environment.desc': 'Cleaning, Beautification, Hygiene Management',
+
+    // FM Badge & Stats (English)
+    'fm.badge': 'PREMIUM FACILITY MANAGEMENT',
+    'fm.stats.experience': 'Years Experience',
+    'fm.stats.projects': 'Projects',
+    'fm.stats.satisfaction': 'Satisfaction',
+    'fm.mission.badge': 'Our Mission',
+    'fm.partner.badge': 'Partner Network',
+    'fm.premium.badge': 'PREMIUM SERVICE',
+    'fm.security.badge': 'Security Management',
+    'fm.building.badge': 'Total FM Solution',
+    'fm.cta.title': 'Ready to Transform Your Facility Management?',
+    'fm.cta.desc': 'Experience premium FM services tailored to your business needs',
+    'fm.cta.contact': 'Contact Us Today',
+    'fm.cta.more': 'Learn More',
+
     // Careers Page Translation (English)
     'careers.headline': 'We are waiting for you to achieve our vision together',
 'careers.description': 'Momentum Foundation is a company that continuously challenges and innovates under the corporate philosophy of \'growth through sharing\' and the core values of \'customer happiness\', \'sharing and mutual growth\', \'social contribution\', and \'future value\'. We value the joy of growing together with excellent colleagues as our most important value. We are looking for talent who will unleash their potential at Momentum Foundation and create meaningful change.',

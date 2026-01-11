@@ -99,7 +99,7 @@ const FMBusiness = () => {
             {/* Premium Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-8 backdrop-blur-sm">
               <Sparkles className="h-4 w-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wide">PREMIUM FACILITY MANAGEMENT</span>
+              <span className="text-emerald-300 text-sm font-medium tracking-wide">{t('fm.badge')}</span>
               <Sparkles className="h-4 w-4 text-emerald-400" />
             </div>
 
@@ -117,15 +117,15 @@ const FMBusiness = () => {
             <div className={`mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-emerald-400">20+</div>
-                <div className="text-gray-400 text-sm mt-1">Years Experience</div>
+                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.experience')}</div>
               </div>
               <div className="text-center border-x border-gray-700">
                 <div className="text-3xl md:text-4xl font-bold text-emerald-400">500+</div>
-                <div className="text-gray-400 text-sm mt-1">Projects</div>
+                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-emerald-400">99%</div>
-                <div className="text-gray-400 text-sm mt-1">Satisfaction</div>
+                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.satisfaction')}</div>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ const FMBusiness = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
               <Star className="h-4 w-4 text-emerald-400" />
-              <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">Our Mission</span>
+              <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">{t('fm.mission.badge')}</span>
             </div>
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-4xl mx-auto leading-relaxed bg-gradient-to-r from-emerald-300 via-green-400 to-emerald-300 bg-clip-text text-transparent">
               {t('fm.headline')}
@@ -156,7 +156,7 @@ const FMBusiness = () => {
           <div className={`text-center mb-16 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
               <Award className="h-4 w-4 text-emerald-400" />
-              <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">Partner Network</span>
+              <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">{t('fm.partner.badge')}</span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
               {t('fm.partner.title')}
@@ -209,13 +209,13 @@ const FMBusiness = () => {
               />
               {/* Premium Badge on Image */}
               <div className="absolute top-4 left-4 px-3 py-1 bg-emerald-500/90 backdrop-blur-sm rounded-full">
-                <span className="text-white text-xs font-semibold">PREMIUM SERVICE</span>
+                <span className="text-white text-xs font-semibold">{t('fm.premium.badge')}</span>
               </div>
             </div>
             <div className={`transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
                 <Shield className="h-4 w-4 text-emerald-400" />
-                <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">Security Management</span>
+                <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">{t('fm.security.badge')}</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 {t('fm.security.title')}
@@ -261,7 +261,7 @@ const FMBusiness = () => {
             <div className={`text-center mb-12 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-6">
                 <Building2 className="h-4 w-4 text-emerald-400" />
-                <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">Total FM Solution</span>
+                <span className="text-emerald-400 text-xs font-medium uppercase tracking-wider">{t('fm.building.badge')}</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
                 {t('fm.building.title')}
@@ -334,17 +334,17 @@ const FMBusiness = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Facility Management?
+            {t('fm.cta.title')}
           </h2>
           <p className="text-lg text-emerald-200/80 mb-8">
-            Experience premium FM services tailored to your business needs
+            {t('fm.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white font-semibold rounded-xl hover:from-emerald-400 hover:to-green-400 transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40">
-              Contact Us Today
+              {t('fm.cta.contact')}
             </button>
             <button className="px-8 py-4 bg-transparent border-2 border-emerald-500/50 text-emerald-300 font-semibold rounded-xl hover:bg-emerald-500/10 hover:border-emerald-400 transition-all duration-300">
-              Learn More
+              {t('fm.cta.more')}
             </button>
           </div>
         </div>
