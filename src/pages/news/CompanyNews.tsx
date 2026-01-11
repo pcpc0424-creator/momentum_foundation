@@ -20,20 +20,20 @@ interface NewsPost {
   attachmentFileName?: string;
 }
 
-const getDefaultCompanyNews = (): NewsPost[] => [
-  {
-    id: 1,
-    title: "회사소식이 없습니다",
-    content: "관리자 페이지에서 테스트 데이터를 생성해주세요.",
-    category: "언론보도",
-    type: "company",
-    date: new Date().toISOString().split('T')[0],
-    views: 0
-  }
-];
-
 const CompanyNews = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const getDefaultCompanyNews = (): NewsPost[] => [
+    {
+      id: 1,
+      title: t('news.company.empty.title'),
+      content: t('news.company.empty.content'),
+      category: t('news.company.empty.category'),
+      type: "company",
+      date: new Date().toISOString().split('T')[0],
+      views: 0
+    }
+  ];
   const [news, setNews] = useState<NewsPost[]>([]);
   const [selectedNews, setSelectedNews] = useState<NewsPost | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -111,7 +111,7 @@ const CompanyNews = () => {
       window.removeEventListener('storage', handleStorageChange);
       clearInterval(interval);
     };
-  }, []);
+  }, [language]);
 
   const handleNewsClick = (newsItem: NewsPost) => {
     const updatedNews = news.map(n =>
@@ -220,13 +220,13 @@ const CompanyNews = () => {
                     </h3>
                     <a
                       href={selectedNews.attachmentFile}
-                      download={selectedNews.attachmentFileName || '첨부파일'}
+                      download={selectedNews.attachmentFileName || t('news.attachment')}
                       className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-gray-50 to-emerald-50 hover:from-emerald-50 hover:to-emerald-100 rounded-2xl transition-all duration-300 group border border-emerald-200 hover:border-emerald-300"
                     >
                       <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
                         <Paperclip className="h-5 w-5 text-emerald-600" />
                       </div>
-                      <span className="text-gray-700 font-medium">{selectedNews.attachmentFileName || '첨부파일'}</span>
+                      <span className="text-gray-700 font-medium">{selectedNews.attachmentFileName || t('news.attachment')}</span>
                     </a>
                   </div>
                 )}

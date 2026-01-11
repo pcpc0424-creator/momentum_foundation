@@ -99,7 +99,7 @@ const History = () => {
   const years = Object.keys(groupedItems).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-gray-950 overflow-x-hidden">
       <Navigation />
 
       {/* Premium Hero Section */}
@@ -165,7 +165,7 @@ const History = () => {
               <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">Timeline</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white to-emerald-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white via-white to-emerald-200 bg-clip-text text-transparent">
                 {t('history.title')}
               </span>
             </h2>

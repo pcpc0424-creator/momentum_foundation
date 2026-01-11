@@ -826,7 +826,13 @@ const translations = {
     'news.company.title': '회사소식',
     'news.company.desc': '모멘텀파운데이션의 최신 동향과 성과를 확인하세요.',
     'news.btn': '더 보기',
-    
+    'news.notice.empty.title': '공지사항이 없습니다',
+    'news.notice.empty.content': '관리자 페이지에서 테스트 데이터를 생성해주세요.',
+    'news.notice.empty.category': '주요 공지',
+    'news.company.empty.title': '회사소식이 없습니다',
+    'news.company.empty.content': '관리자 페이지에서 테스트 데이터를 생성해주세요.',
+    'news.company.empty.category': '언론보도',
+
     // Contact Section
     'contact.title': '연락처',
     'contact.subtitle': '궁금한 점이 있으시면 언제든지 연락주세요',
@@ -1342,6 +1348,12 @@ const translations = {
     'news.company.title': 'Company News',
     'news.company.desc': 'Check the latest trends and achievements of Momentum Foundation.',
 'news.btn': 'View More',
+    'news.notice.empty.title': 'No notices available',
+    'news.notice.empty.content': 'Please create test data from the admin page.',
+    'news.notice.empty.category': 'Important Notice',
+    'news.company.empty.title': 'No company news available',
+    'news.company.empty.content': 'Please create test data from the admin page.',
+    'news.company.empty.category': 'Press Release',
     'news.table.no': 'No.',
     'news.table.category': 'Category',
     'news.table.title': 'Title',

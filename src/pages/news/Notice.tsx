@@ -20,20 +20,20 @@ interface NoticePost {
   attachmentFileName?: string;
 }
 
-const getDefaultNotices = (): NoticePost[] => [
-  {
-    id: 1,
-    title: "공지사항이 없습니다",
-    content: "관리자 페이지에서 테스트 데이터를 생성해주세요.",
-    category: "주요 공지",
-    type: "notice",
-    date: new Date().toISOString().split('T')[0],
-    views: 0
-  }
-];
-
 const Notice = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const getDefaultNotices = (): NoticePost[] => [
+    {
+      id: 1,
+      title: t('news.notice.empty.title'),
+      content: t('news.notice.empty.content'),
+      category: t('news.notice.empty.category'),
+      type: "notice",
+      date: new Date().toISOString().split('T')[0],
+      views: 0
+    }
+  ];
   const [notices, setNotices] = useState<NoticePost[]>([]);
   const [selectedNotice, setSelectedNotice] = useState<NoticePost | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -111,7 +111,7 @@ const Notice = () => {
       window.removeEventListener('storage', handleStorageChange);
       clearInterval(interval);
     };
-  }, []);
+  }, [language]);
 
   const handleNoticeClick = (notice: NoticePost) => {
     const updatedNotices = notices.map(n =>
@@ -220,13 +220,13 @@ const Notice = () => {
                     </h3>
                     <a
                       href={selectedNotice.attachmentFile}
-                      download={selectedNotice.attachmentFileName || '첨부파일'}
+                      download={selectedNotice.attachmentFileName || t('news.attachment')}
                       className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-gray-50 to-emerald-50 hover:from-emerald-50 hover:to-emerald-100 rounded-2xl transition-all duration-300 group border border-emerald-200 hover:border-emerald-300"
                     >
                       <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
                         <Paperclip className="h-5 w-5 text-emerald-600" />
                       </div>
-                      <span className="text-gray-700 font-medium">{selectedNotice.attachmentFileName || '첨부파일'}</span>
+                      <span className="text-gray-700 font-medium">{selectedNotice.attachmentFileName || t('news.attachment')}</span>
                     </a>
                   </div>
                 )}

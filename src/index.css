@@ -297,8 +297,14 @@ html {
 }
 
 /* Smooth transitions for all interactive elements */
-* {
+*:not(nav):not(nav *) {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure navigation stays fixed on top */
+nav[class*="fixed"] {
+  transform: none !important;
+  -webkit-transform: none !important;
 }
 
 /* Mobile optimizations */
