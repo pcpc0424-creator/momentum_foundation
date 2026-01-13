@@ -1,9 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Building2, Truck, Users, Award, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUp, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -13,827 +11,331 @@ import fmServicesImg from "/images/fm_outsourcing_services_20251223_070231.png";
 import franchiseImg from "/images/franchise_meat_restaurant_1.jpeg";
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showTopButton, setShowTopButton] = useState(false);
+  const { t, language } = useLanguage();
 
-useEffect(() => {
+  // Hero slides data with translations
+  const heroSlides = [
+    {
+      image: meatProductsImg,
+      titleKey: "main.hero.slide1.title",
+      subtitleKey: "main.hero.slide1.subtitle",
+      desc1Key: "main.hero.slide1.desc1",
+      desc2Key: "main.hero.slide1.desc2",
+    },
+    {
+      image: franchiseImg,
+      titleKey: "main.hero.slide2.title",
+      subtitleKey: "main.hero.slide2.subtitle",
+      desc1Key: "main.hero.slide2.desc1",
+      desc2Key: "main.hero.slide2.desc2",
+    },
+    {
+      image: fmServicesImg,
+      titleKey: "main.hero.slide3.title",
+      subtitleKey: "main.hero.slide3.subtitle",
+      desc1Key: "main.hero.slide3.desc1",
+      desc2Key: "main.hero.slide3.desc2",
+    },
+  ];
+
+  // Fallback translations if keys don't exist
+  const getSlideText = (key: string, fallback: string) => {
+    const translated = t(key);
+    return translated === key ? fallback : translated;
+  };
+
+  const slideTexts = {
+    "main.hero.slide1.title": language === 'en' ? "MOMENTUM'S OWN BRAND" : "MOMENTUM'S OWN BRAND",
+    "main.hero.slide1.subtitle": language === 'en' ? "Food & Service Brand that Enhances Customer Value" : "고객의 가치를 높이는 식자재 & 서비스 브랜드",
+    "main.hero.slide1.desc1": language === 'en' ? "Discovering the inherent beauty within customers and challenging new areas of value," : "고객이 본래 지닌 내면의 아름다움을 발견하고 새로운 가치의 영역에 도전하며",
+    "main.hero.slide1.desc2": language === 'en' ? "We aim to be a brand that communicates with customers." : "고객과 소통하는 브랜드를 지향합니다.",
+    "main.hero.slide2.title": language === 'en' ? "FRANCHISE BUSINESS" : "FRANCHISE BUSINESS",
+    "main.hero.slide2.subtitle": language === 'en' ? "Successful Franchise Partnership" : "성공적인 프랜차이즈 파트너십",
+    "main.hero.slide2.desc1": language === 'en' ? "Supporting stable startups with proven brands and systems," : "검증된 브랜드와 시스템으로 안정적인 창업을 지원하며",
+    "main.hero.slide2.desc2": language === 'en' ? "We create sustainable growth together." : "지속 가능한 성장을 함께 만들어갑니다.",
+    "main.hero.slide3.title": language === 'en' ? "FM SERVICE" : "FM SERVICE",
+    "main.hero.slide3.subtitle": language === 'en' ? "Professional Facility Management Service" : "전문 시설관리 서비스",
+    "main.hero.slide3.desc1": language === 'en' ? "Providing professional management services for optimal facility environments," : "최적의 시설 환경을 위한 전문적인 관리 서비스를 제공하며",
+    "main.hero.slide3.desc2": language === 'en' ? "We enhance the value of your business." : "고객의 비즈니스 가치를 높입니다.",
+  };
+
+  const missionTexts = {
+    label: language === 'en' ? "Our Mission" : "우리의 미션",
+    title: language === 'en' ? "Value Creator, MOMENTUM" : "가치 창조자, 모멘텀",
+    desc: language === 'en'
+      ? "Based on platform business strategy, we combine ideas and efforts while communicating with customers to create core value as a Food Platform Manager, generating brand value that leads customers' businesses to success."
+      : "플랫폼 비즈니스 전략을 기반으로, 고객들과 소통하고 아이디어와 노력을 결합하여 핵심 가치를 창조하는 푸드 플랫폼 매니저 (Food Platform Manager)로써 고객의 비즈니스를 성공으로 이끌 브랜드 가치를 창출합니다.",
+  };
+
+  const statsData = [
+    {
+      label: language === 'en' ? "BUSINESS AREAS" : "사업 영역",
+      number: "3+",
+      desc: language === 'en' ? "Food distribution, franchise, FM service" : "식자재 유통, 프랜차이즈, FM 서비스"
+    },
+    {
+      label: language === 'en' ? "PARTNERS" : "거래 업체",
+      number: "100+",
+      desc: language === 'en' ? "Network of over 100 partner companies nationwide" : "전국 100개 이상의 파트너사 네트워크"
+    },
+    {
+      label: language === 'en' ? "SERVICE" : "서비스 운영",
+      number: "24/7",
+      desc: language === 'en' ? "24/7 customer support service" : "24시간 365일 고객지원 서비스"
+    },
+    {
+      label: language === 'en' ? "EXPERIENCE" : "성장 연수",
+      number: "10+",
+      desc: language === 'en' ? "Over 10 years of industry experience and know-how" : "10년 이상의 업계 경험과 노하우"
+    },
+  ];
+
+  const footerTexts = {
+    companyName: language === 'en' ? "MOMENTUM Co., Ltd." : "(주)모멘텀",
+    jobs: language === 'en' ? "Careers" : "채용",
+    directions: language === 'en' ? "Directions" : "오시는 길",
+    familySite: language === 'en' ? "Family site" : "Family site",
+    address: language === 'en' ? "14, Seolleung-ro 90-gil, Gangnam-gu, Seoul (Daechi-dong, Momentum Building)" : "서울 강남구 선릉로90길 14(대치동, 모멘텀빌딩)",
+    phone: language === 'en' ? "Tel: 02-6423-4122" : "대표번호 : 02-6423-4122",
+    fax: language === 'en' ? "Fax: 02-6423-4123" : "팩스번호 : 02-6423-4123",
+    copyright: language === 'en' ? "Copyright 2019 © MOMENTUM Co., Ltd. All rights reserved." : "Copyright 2019 © MOMENTUM Co., Ltd. All rights reserved.",
+    privacy: language === 'en' ? "Privacy Policy" : "개인정보...",
+  };
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     setIsLoaded(true);
-    
-    // Mouse tracking for parallax effects
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100
-      });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+
+    // Auto slide
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    // Scroll listener for TOP button
+    const handleScroll = () => {
+      setShowTopButton(window.scrollY > 300);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in-up');
-          const sectionIndex = parseInt(entry.target.getAttribute('data-section') || '0');
-          setActiveSection(sectionIndex);
-        }
-      });
-    }, observerOptions);
+    window.addEventListener('scroll', handleScroll);
 
-    // Observe all sections
-    const sections = document.querySelectorAll('.scroll-section');
-    sections.forEach((section) => observer.observe(section));
-
-return () => {
-      observer.disconnect();
-      window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      clearInterval(slideInterval);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
-  // Counter animation hook
-  const useCountUp = (end: number, duration: number = 2000) => {
-    const [count, setCount] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    
-    useEffect(() => {
-      if (!isVisible) return;
-      
-      let startTime: number;
-      const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime;
-        const progress = Math.min((currentTime - startTime) / duration, 1);
-        setCount(Math.floor(progress * end));
-        
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-      
-      requestAnimationFrame(animate);
-    }, [isVisible, end, duration]);
-    
-    return { count, setIsVisible };
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
-  // Typing animation hook
-  const useTypewriter = (text: string, speed: number = 100) => {
-    const [displayText, setDisplayText] = useState('');
-    const [isTyping, setIsTyping] = useState(false);
-    
-    const startTyping = () => {
-      setIsTyping(true);
-      let i = 0;
-      const timer = setInterval(() => {
-        if (i < text.length) {
-          setDisplayText(text.slice(0, i + 1));
-          i++;
-        } else {
-          clearInterval(timer);
-          setIsTyping(false);
-        }
-      }, speed);
-    };
-    
-return { displayText, isTyping, startTyping };
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  // Stats Card Component with counter animation
-  const StatsCard = () => {
-    const businessCount = useCountUp(3, 1500);
-    const satisfactionCount = useCountUp(100, 2000);
-    const [isStatsVisible, setIsStatsVisible] = useState(false);
-    
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && !isStatsVisible) {
-            setIsStatsVisible(true);
-            businessCount.setIsVisible(true);
-            satisfactionCount.setIsVisible(true);
-          }
-        },
-        { threshold: 0.5 }
-      );
-      
-      if (statsRef.current) {
-        observer.observe(statsRef.current);
-      }
-      
-      return () => observer.disconnect();
-    }, [isStatsVisible]);
-    
-    return (
-      <div ref={statsRef} className="bg-gradient-to-br from-lawn-green to-green-600 rounded-2xl p-5 sm:p-6 lg:p-8 text-white shadow-2xl transform hover:scale-105 transition-all duration-300">
-<h4 className="text-base sm:text-lg lg:text-2xl font-bold mb-3 sm:mb-4 text-center">{t('home.stats.since')}</h4>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-          <div className="text-center group">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
-              {businessCount.count}+
-            </div>
-<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.business')}</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
-              {satisfactionCount.count}%
-            </div>
-<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.satisfaction')}</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
-              24/7
-            </div>
-<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.service')}</div>
-          </div>
-          <div className="text-center group">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 transform group-hover:scale-110 transition-transform">
-              ∞
-            </div>
-<div className="text-green-100 text-[10px] sm:text-xs lg:text-sm">{t('home.stats.growth')}</div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-const businessAreas = [
-    {
-      title: t('home.business.food.title'),
-      description: t('home.business.food.desc'),
-      image: meatProductsImg,
-      icon: <Building2 className="h-8 w-8" />,
-      link: "/business/food"
-    },
-    {
-      title: t('home.business.franchise.title'),
-      description: t('home.business.franchise.desc'),
-      image: franchiseImg,
-      icon: <Truck className="h-8 w-8" />,
-      link: "/business/franchise"
-    },
-    {
-      title: t('home.business.fm.title'),
-      description: t('home.business.fm.desc'),
-      image: fmServicesImg,
-      icon: <Users className="h-8 w-8" />,
-      link: "/business/fm"
-    }
-  ];
-
-const companyValues = [
-    { title: t('home.values.trust.title'), description: t('home.values.trust.desc'), icon: "🛡️" },
-    { title: t('home.values.expertise.title'), description: t('home.values.expertise.desc'), icon: "🎯" },
-    { title: t('home.values.innovation.title'), description: t('home.values.innovation.desc'), icon: "🚀" },
-    { title: t('home.values.responsibility.title'), description: t('home.values.responsibility.desc'), icon: "🤝" },
-  ];
-
-  const navigationDots = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'business', label: 'Business' },
-    { id: 'values', label: 'Values' },
-    { id: 'news', label: 'News' },
-    { id: 'careers', label: 'Careers' },
-    { id: 'contact', label: 'Contact' }
-  ];
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-white">
       <Navigation />
-      
-      {/* Navigation Dots */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
-        <div className="flex flex-col space-y-3">
-          {navigationDots.map((dot, index) => (
-            <button
-              key={dot.id}
-              onClick={() => scrollToSection(dot.id)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                activeSection === index 
-                  ? 'bg-lawn-green shadow-lg' 
-                  : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-              title={dot.label}
-            />
-          ))}
-        </div>
-      </div>
 
-      {/* Hero Section - Premium Design */}
-      <section
-        id="hero"
-        ref={heroRef}
-        className="scroll-section relative min-h-screen flex items-center justify-center overflow-hidden"
-        data-section="0"
-        style={{
-          background: `linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #134e4a 50%, #14532d 75%, #1a2e05 100%)`,
-          paddingTop: '90px',
-          paddingBottom: '60px'
-        }}
-      >
-        {/* Animated Gradient Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
+      {/* Hero Section - Pastel Style with Slider */}
+      <section className="relative h-screen overflow-hidden">
+        {/* Pastel Background */}
+        <div className="absolute inset-0 bg-[#E8F5E9]"></div>
+
+        {/* Slides */}
+        {heroSlides.map((slide, index) => (
           <div
-            className="floating-orb w-96 h-96 bg-emerald-500/30"
-            style={{
-              top: '10%',
-              left: '10%',
-              animationDelay: '0s'
-            }}
-          />
-          <div
-            className="floating-orb w-80 h-80 bg-teal-400/20"
-            style={{
-              top: '60%',
-              right: '10%',
-              animationDelay: '-5s'
-            }}
-          />
-          <div
-            className="floating-orb w-64 h-64 bg-green-400/25"
-            style={{
-              bottom: '20%',
-              left: '30%',
-              animationDelay: '-10s'
-            }}
-          />
-        </div>
-
-        {/* Subtle Grid Pattern */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}
-        />
-
-        {/* Mouse Follow Light Effect */}
-        <div
-          className="absolute inset-0 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(16, 185, 129, 0.15) 0%, transparent 50%)`
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className={`transform transition-all duration-1000 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            {/* Badge */}
-            <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-900/40 border border-emerald-500/30 backdrop-blur-sm mb-4 sm:mb-6 lg:mb-8 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`} style={{ transitionDelay: '0.2s' }}>
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-              <span className="text-emerald-300 text-[11px] sm:text-sm font-medium tracking-wide">MOMENTUM FOUNDATION</span>
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              currentSlide === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src={slide.image}
+                alt={slideTexts[slide.titleKey as keyof typeof slideTexts]}
+                className="w-full h-full object-cover mix-blend-multiply opacity-80"
+              />
             </div>
 
-            {/* Main Title */}
-            <h1 className="hero-title-premium text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight">
-              <span
-                className={`block text-white mb-2 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: '0.3s' }}
-              >
-                {t('hero.title1')}
-              </span>
-              <span
-                className={`block animate-text-gradient transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: '0.5s' }}
-              >
-                {t('hero.title2')}
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              className={`hero-subtitle text-base sm:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: '0.7s' }}
-            >
-              {t('hero.subtitle')}
-            </p>
-
-            {/* CTA Buttons */}
-            <div
-              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0 mb-16 sm:mb-0 transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: '0.9s' }}
-            >
-              <Button
-                size="lg"
-                className="btn-premium bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-                onClick={() => scrollToSection('about')}
-              >
-                {t('hero.btn1')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="btn-premium border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-full backdrop-blur-sm transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-                onClick={() => scrollToSection('business')}
-              >
-                {t('hero.btn2')}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="flex flex-col items-center gap-1 sm:gap-2 text-white/70">
-            <span className="text-[10px] sm:text-xs tracking-widest uppercase">Scroll</span>
-            <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center pt-1.5 sm:pt-2 bg-white/10 backdrop-blur-sm">
-              <div className="w-1 h-2 sm:w-1.5 sm:h-3 bg-white/80 rounded-full animate-bounce" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section - Premium */}
-      <section id="about" className="scroll-section min-h-screen bg-gradient-to-b from-slate-50 to-white py-24 flex items-center relative overflow-hidden" data-section="1">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-50/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">ABOUT US</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
-              {t('home.about.title')}
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              {t('home.about.desc')}
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            <div className="space-y-6 sm:space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 rounded-full">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-emerald-700 text-xs sm:text-sm font-medium">Our Mission</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">{t('home.mission.title')}</h3>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
-                {t('home.mission.desc')}
-              </p>
-              <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
-                {[t('home.vision.item1'), t('home.vision.item2'), t('home.vision.item3')].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-emerald-500 to-green-600 rounded-lg flex items-center justify-center">
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="text-sm sm:text-base text-gray-700 font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl blur-2xl opacity-20 animate-pulse" />
-              <StatsCard />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Business Areas Section - Premium */}
-      <section id="business" className="scroll-section min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-24 flex items-center relative overflow-hidden" data-section="2">
-        {/* Background Effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-0 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 backdrop-blur-sm border border-emerald-500/30">OUR BUSINESS</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
-              {t('home.business.title')}
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4 sm:px-0">
-              {t('home.business.desc')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {businessAreas.map((area, index) => (
-              <Card
-                key={index}
-                className="group relative bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-emerald-500/50 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/10 transform hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {/* Glow Effect on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/0 via-emerald-500/0 to-emerald-500/0 group-hover:from-emerald-500/5 group-hover:via-emerald-500/10 group-hover:to-emerald-500/5 transition-all duration-500" />
-
-                <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden">
-                  <img
-                    src={area.image}
-                    alt={area.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
-                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 p-2 sm:p-3 bg-emerald-500/20 backdrop-blur-sm rounded-xl border border-emerald-500/30 text-emerald-400">
-                    {area.icon}
-                  </div>
-                </div>
-
-                <CardContent className="p-4 sm:p-5 lg:p-6 relative">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-emerald-400 transition-colors duration-300">
-                    {area.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed line-clamp-2">
-                    {area.description}
-                  </p>
-                  <Link to={area.link}>
-                    <Button
-                      variant="outline"
-                      className="w-full border-gray-600 text-gray-300 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all duration-300 rounded-xl"
-                    >
-                      {t('home.business.btn')} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Values Section - Premium */}
-      <section id="values" className="scroll-section min-h-screen bg-gradient-to-b from-white to-slate-50 py-24 flex items-center relative overflow-hidden" data-section="3">
-        {/* Decorative */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-emerald-300 to-transparent" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-            <span className="inline-block px-3 sm:px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">CORE VALUES</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
-              {t('home.values.title')}
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
-              {t('home.values.desc')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-            {companyValues.map((value, index) => (
-              <div
-                key={index}
-                className="group relative bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Number Badge */}
-                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-6 h-6 sm:w-8 sm:h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-lg">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-
-                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 mb-3 sm:mb-4 lg:mb-6 bg-gradient-to-br from-emerald-100 to-green-100 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl lg:text-3xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                  {value.icon}
-                </div>
-                <h3 className="text-sm sm:text-base lg:text-xl font-bold text-gray-900 mb-1 sm:mb-2 lg:mb-3 group-hover:text-emerald-600 transition-colors leading-tight">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
-                  {value.description}
+            {/* Content */}
+            <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
+              <div className={`text-center max-w-4xl mx-auto transition-all duration-700 ${
+                currentSlide === index && isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                {/* English Title */}
+                <p className="text-[#2D5A45] text-base sm:text-lg lg:text-xl tracking-[0.2em] font-light mb-4">
+                  {slideTexts[slide.titleKey as keyof typeof slideTexts]}
                 </p>
 
-                {/* Bottom Accent Line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-b-xl sm:rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                {/* Korean Main Title */}
+                <h1 className="text-[#1B3D2F] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                  {slideTexts[slide.subtitleKey as keyof typeof slideTexts]}
+                </h1>
 
-      {/* News Section - Premium */}
-      <section id="news" className="scroll-section min-h-screen bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 py-24 flex items-center relative overflow-hidden" data-section="4">
-        {/* Background Effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-[10%] w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-[15%] w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl"></div>
-        </div>
+                {/* Description */}
+                <p className="text-[#3D6B55] text-sm sm:text-base lg:text-lg leading-relaxed mb-2">
+                  {slideTexts[slide.desc1Key as keyof typeof slideTexts]}
+                </p>
+                <p className="text-[#3D6B55] text-sm sm:text-base lg:text-lg leading-relaxed mb-8">
+                  {slideTexts[slide.desc2Key as keyof typeof slideTexts]}
+                </p>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 sm:mb-8">
-              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
-              <span className="text-emerald-300 text-xs sm:text-sm font-medium tracking-wider uppercase">News & Updates</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
-              {t('page.news.title')}
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
-              {t('page.news.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-            <Link to="/news/notice" className="group">
-              <div className="relative h-full">
-                {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
-
-                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                    <Award className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-4 group-hover:text-emerald-400 transition-colors">
-                    {t('home.news.notice.title')}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                    {t('home.news.notice.desc')}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-emerald-400 font-medium text-sm sm:text-base">
-                    <span>{t('home.news.notice.btn')}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-
-                  {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-b-2xl sm:rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/news/company" className="group">
-              <div className="relative h-full">
-                {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
-
-                <div className="relative h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                    <Building2 className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-4 group-hover:text-cyan-400 transition-colors">
-                    {t('home.news.company.title')}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                    {t('home.news.company.desc')}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-cyan-400 font-medium text-sm sm:text-base">
-                    <span>{t('home.news.company.btn')}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-
-                  {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-b-2xl sm:rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Careers Section - Premium */}
-      <section id="careers" className="scroll-section min-h-screen bg-gradient-to-b from-white to-gray-50 py-24 flex items-center relative overflow-hidden" data-section="5">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-emerald-100/30 to-cyan-100/30 rounded-full blur-3xl"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-emerald-100 mb-6 sm:mb-8">
-              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
-              <span className="text-emerald-700 text-xs sm:text-sm font-semibold tracking-wider uppercase">Join Our Team</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6 px-2">
-              <span className="bg-gradient-to-r from-gray-900 via-emerald-800 to-emerald-600 bg-clip-text text-transparent">
-                {t('home.careers.title')}
-              </span>
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-              {t('home.careers.desc')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-12 lg:mb-16">
-            {/* Jobs Card */}
-            <Link to="/careers/jobs" className="group">
-              <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500"></div>
-
-                <div className="relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 shadow-xl border-2 border-gray-100 hover:border-emerald-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
-                  {/* Number Badge */}
-                  <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-lg sm:text-xl lg:text-2xl font-bold">01</span>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                    <Users className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-4 group-hover:text-emerald-600 transition-colors">
-                    {t('home.careers.jobs.title')}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                    {t('home.careers.jobs.desc')}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-emerald-600 font-semibold text-sm sm:text-base">
-                    <span>{t('home.careers.jobs.btn')}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-
-                  {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-emerald-500 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Culture Card */}
-            <Link to="/careers/culture" className="group">
-              <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500"></div>
-
-                <div className="relative h-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-10 shadow-xl border-2 border-gray-100 hover:border-cyan-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden">
-                  {/* Number Badge */}
-                  <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-lg sm:text-xl lg:text-2xl font-bold">02</span>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-cyan-500 to-emerald-600 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 lg:mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                    <Award className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-4 group-hover:text-cyan-600 transition-colors">
-                    {t('home.careers.culture.title')}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                    {t('home.culture.desc')}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-cyan-600 font-semibold text-sm sm:text-base">
-                    <span>{t('home.careers.culture.btn')}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-
-                  {/* Bottom Gradient Line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r from-cyan-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* CTA Banner */}
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500 rounded-2xl sm:rounded-3xl blur opacity-20"></div>
-            <div className="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-cyan-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 text-center text-white overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-              <div className="relative z-10">
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4">{t('home.careers.cta.title')}</h3>
-                <p className="text-white/80 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base">{t('home.careers.cta.desc')}</p>
-                <Link to="/careers">
-                  <Button className="bg-white text-emerald-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">
-                    {t('home.careers.cta.btn')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                {/* CTA Button */}
+                <Link to="/about/intro">
+                  <Button
+                    variant="link"
+                    className="text-[#2D5A45] hover:text-[#1B3D2F] text-sm sm:text-base tracking-wider p-0 h-auto font-normal underline underline-offset-4"
+                  >
+                    Read More
                   </Button>
                 </Link>
               </div>
             </div>
           </div>
+        ))}
+
+        {/* Left Arrow */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 text-[#2D5A45]/60 hover:text-[#2D5A45] transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={1} />
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 text-[#2D5A45]/60 hover:text-[#2D5A45] transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={1} />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                currentSlide === index ? 'bg-[#5BA587] w-6' : 'bg-[#5BA587]/40'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Contact Section - Premium */}
-      <section id="contact" className="scroll-section min-h-screen bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 py-24 flex items-center relative overflow-hidden" data-section="6">
-        {/* Background Effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-[10%] w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 left-[15%] w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+      {/* Our Mission Section */}
+      <section className="py-20 sm:py-28 lg:py-36 bg-[#F5F5F5]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Label */}
+          <p className="text-[#5BA587] text-xs sm:text-sm tracking-[0.2em] uppercase font-medium mb-6">
+            {missionTexts.label}
+          </p>
+
+          {/* Main Headline */}
+          <h2 className="text-gray-900 text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-10">
+            {missionTexts.title}
+          </h2>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm sm:text-base lg:text-lg leading-loose">
+            {missionTexts.desc}
+          </p>
         </div>
+      </section>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 sm:mb-8">
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
-              <span className="text-emerald-300 text-xs sm:text-sm font-medium tracking-wider uppercase">Get In Touch</span>
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 px-2">
-              {t('page.contact.title')}
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
-              {t('page.contact.subtitle')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-12 lg:mb-16">
-            {/* Phone Card */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
-
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-emerald-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-emerald-500/25">
-                  <Phone className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.phone')}</h3>
-                <p className="text-emerald-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">{t('home.contact.phone.number')}</p>
-                <p className="text-gray-500 text-xs sm:text-sm">{t('home.contact.phone.hours')}</p>
-
-                {/* Hover Indicator */}
-                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-emerald-400 text-xs sm:text-sm font-medium">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                    Available Now
-                  </span>
-                </div>
+      {/* Stats Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            {statsData.map((stat, index) => (
+              <div key={index} className="text-center">
+                <p className="text-[#5BA587] text-[10px] sm:text-xs tracking-[0.15em] uppercase font-medium mb-4">
+                  {stat.label}
+                </p>
+                <p className="text-gray-900 text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+                  {stat.number}
+                </p>
+                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                  {stat.desc}
+                </p>
               </div>
-            </div>
-
-            {/* Email Card */}
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
-
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-cyan-500/25">
-                  <Mail className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.email')}</h3>
-                <p className="text-cyan-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 break-all">{t('home.contact.email.address')}</p>
-                <p className="text-gray-500 text-xs sm:text-sm">{t('home.contact.email.hours')}</p>
-
-                {/* Hover Indicator */}
-                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-cyan-400 text-xs sm:text-sm font-medium">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                    Quick Response
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Address Card */}
-            <div className="group relative sm:col-span-2 md:col-span-1">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-500"></div>
-
-              <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-center hover:border-teal-500/50 transition-all duration-500 hover:-translate-y-2">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-teal-500/25">
-                  <MapPin className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" />
-                </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">{t('home.contact.address')}</h3>
-                <p className="text-teal-400 font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2">{t('home.contact.address.detail')}</p>
-
-                {/* Hover Indicator */}
-                <div className="mt-4 sm:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="inline-flex items-center gap-2 text-teal-400 text-xs sm:text-sm font-medium">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-400 rounded-full animate-pulse"></span>
-                    Visit Us
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="text-center">
-            <Link to="/contact/inquiry">
-              <Button size="lg" className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 rounded-full shadow-2xl shadow-emerald-500/25 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300">
-                {t('home.contact.btn')} <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-              </Button>
-            </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* Custom Footer */}
+      <footer className="border-t border-gray-200 py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+            {/* Left: Company Info */}
+            <div>
+              {/* Company Name & Links */}
+              <div className="flex flex-wrap items-center gap-4 mb-4">
+                <span className="text-gray-900 font-bold text-lg">{footerTexts.companyName}</span>
+                <div className="flex items-center gap-3 text-sm text-gray-500">
+                  <Link to="/careers/jobs" className="hover:text-gray-900 transition-colors">{footerTexts.jobs}</Link>
+                  <span className="text-gray-300">|</span>
+                  <Link to="/contact/location" className="hover:text-gray-900 transition-colors">{footerTexts.directions}</Link>
+                  <span className="text-gray-300">|</span>
+                  <span className="text-gray-400">{footerTexts.familySite}</span>
+                  <span className="text-[#5BA587]">+</span>
+                </div>
+              </div>
+
+              {/* Address */}
+              <p className="text-gray-500 text-sm mb-2">
+                {footerTexts.address}
+              </p>
+
+              {/* Phone & Fax */}
+              <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-gray-500 mb-4">
+                <span>{footerTexts.phone}</span>
+                <span>{footerTexts.fax}</span>
+              </div>
+
+              {/* Copyright */}
+              <p className="text-gray-400 text-xs">
+                {footerTexts.copyright}
+              </p>
+            </div>
+
+            {/* Right: Buttons */}
+            <div className="flex items-center gap-4">
+              <Link
+                to="/privacy"
+                className="text-sm text-gray-600 hover:text-gray-900 flex items-center gap-1"
+              >
+                {footerTexts.privacy}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* TOP Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-white border border-gray-300 rounded-full shadow-lg flex flex-col items-center justify-center transition-all duration-300 hover:shadow-xl ${
+          showTopButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-4 h-4 text-gray-600" />
+        <span className="text-[10px] text-gray-600 font-medium">TOP</span>
+      </button>
     </div>
   );
 };

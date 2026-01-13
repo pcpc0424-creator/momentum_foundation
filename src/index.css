@@ -158,6 +158,23 @@ html {
   75% { transform: translate(-10px, -10px) scale(1.02); }
 }
 
+/* HAATZ Style Scroll Line Animation */
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* Video transition duration */
+.duration-800 {
+  transition-duration: 800ms;
+}
+
 .animate-float {
   animation: elegantFloat 6s ease-in-out infinite;
 }
