@@ -58,12 +58,9 @@ const CompanyIntro = () => {
               <span className="w-8 h-px bg-emerald-400"></span>
               <span className="text-sm font-medium tracking-wider uppercase">About Us</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
               {t('about.companyintro.title')}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto sm:mx-0">
-              {t('companyintro.subtitle')}
-            </p>
           </div>
         </div>
       </section>

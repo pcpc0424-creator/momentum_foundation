@@ -104,19 +104,11 @@ const FranchiseBusiness = () => {
               <Star className="h-4 w-4 text-emerald-400" />
             </div>
 
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 tracking-tight transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
                 {t('franchise.title')}
               </span>
             </h1>
-
-            <p className={`text-xl md:text-2xl text-emerald-300/90 font-medium mb-8 transition-all duration-700 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-              {t('franchise.subtitle')}
-            </p>
-
-            <p className={`text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-              {t('franchise.headline')}
-            </p>
 
             {/* Decorative Line */}
             <div className={`mt-12 flex items-center justify-center gap-4 transition-all duration-700 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>

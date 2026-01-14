@@ -99,15 +99,11 @@ const FoodBusiness = () => {
               <Sparkles className="w-4 h-4 text-emerald-400" />
             </div>
 
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
                 {t('food.title')}
               </span>
             </h1>
-
-            <p className={`text-xl md:text-2xl text-emerald-200/80 max-w-3xl mx-auto transition-all duration-700 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              {t('food.subtitle')}
-            </p>
 
             {/* Decorative Line */}
             <div className={`flex items-center justify-center gap-4 mt-10 transition-all duration-700 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>

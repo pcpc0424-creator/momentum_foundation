@@ -70,7 +70,7 @@ const Privacy = () => {
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <ul className="text-gray-700 space-y-2">
                       <li><strong>성명/직함:</strong> 최서연 / 경영관리본부 경영지원팀장</li>
-                      <li><strong>전화번호:</strong> (02)6949-3360</li>
+                      <li><strong>전화번호:</strong> (02)2138-1214</li>
                       <li><strong>E-mail:</strong> privacy@onemomentum.co.kr</li>
                     </ul>
                   </div>

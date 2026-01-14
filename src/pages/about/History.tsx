@@ -125,16 +125,11 @@ const History = () => {
             </div>
 
             {/* Main Title */}
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-8 transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
               <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
                 {t('about.history.title')}
               </span>
             </h1>
-
-            {/* Subtitle */}
-            <p className={`text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 transition-all duration-700 delay-400 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-              {t('history.subtitle')}
-            </p>
 
             {/* Decorative Line */}
             <div className={`flex items-center justify-center gap-4 transition-all duration-700 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>

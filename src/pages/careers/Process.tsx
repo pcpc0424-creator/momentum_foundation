@@ -53,13 +53,9 @@ const requirements = [
                               <section className="bg-cool-grey text-gray-800 pt-24 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
               {t('process.hero.title')}
             </h1>
-            <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
-<span className="text-sm lg:text-base font-medium hidden md:inline" style={{color: '#059669'}}>
-              {t('process.hero.subtitle')}
-            </span>
           </div>
         </div>
       </section>

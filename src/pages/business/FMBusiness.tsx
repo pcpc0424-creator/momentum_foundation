@@ -103,15 +103,11 @@ const FMBusiness = () => {
               <Sparkles className="h-4 w-4 text-emerald-400" />
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight">
               {t('fm.title')}
             </h1>
 
             <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-green-500 mx-auto mb-8 rounded-full" />
-
-            <p className="text-xl md:text-2xl text-emerald-200/90 max-w-3xl mx-auto leading-relaxed font-light">
-              {t('fm.subtitle')}
-            </p>
 
             {/* Stats Bar */}
             <div className={`mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

@@ -48,7 +48,6 @@ const Navigation = () => {
 
   // Regular navigation items (for other pages)
   const navItems = [
-    { path: "/", label: t('nav.home') },
     {
       path: "/about",
       label: t('nav.about'),
@@ -128,18 +127,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0 group gap-2">
-            <div className={`relative p-1.5 sm:p-2 rounded-xl transition-all duration-300 ${
-              isScrolled || !isHomepage
-                ? 'bg-white/10 group-hover:bg-white/20'
-                : 'bg-white/10 group-hover:bg-white/20'
-            }`}>
-              <img
-                src={logoImage}
-                alt="모멘텀파운데이션"
-                className="h-8 sm:h-10 w-auto transition-all duration-300 group-hover:scale-105"
-              />
-            </div>
+          <Link to="/" className="flex items-center flex-shrink-0 group">
+            <img
+              src={logoImage}
+              alt="모멘텀파운데이션"
+              className="h-12 sm:h-14 lg:h-16 w-auto transition-all duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -172,12 +165,8 @@ const Navigation = () => {
                     to={item.path}
                     className={`relative flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                       isActive(item.path)
-                        ? isScrolled || !isHomepage
-                          ? 'text-white bg-white/20'
-                          : 'text-white bg-white/20'
-                        : isScrolled || !isHomepage
-                          ? 'text-white/90 hover:text-white hover:bg-white/10'
-                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                        ? 'text-white'
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.label}

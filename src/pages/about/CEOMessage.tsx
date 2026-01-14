@@ -30,12 +30,9 @@ const CEOMessage = () => {
               <span className="w-8 h-px bg-emerald-400"></span>
               <span className="text-sm font-medium tracking-wider uppercase">CEO Message</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-4xl lg:text-6xl font-bold">
               {t('ceo.title')}
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl">
-              {t('ceo.subtitle')}
-            </p>
           </div>
         </div>
       </section>

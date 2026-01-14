@@ -75,12 +75,9 @@ const Organization = () => {
               <span className="w-8 h-px bg-emerald-400"></span>
               <span className="text-sm font-medium tracking-wider uppercase">Organization</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-4xl lg:text-6xl font-bold">
               {t('about.org.title')}
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl">
-              {t('about.org.subtitle')}
-            </p>
           </div>
         </div>
       </section>

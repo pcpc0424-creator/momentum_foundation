@@ -275,15 +275,11 @@ const Notice = () => {
               <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">Notice Board</span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight">
+            <h1 className="text-5xl lg:text-7xl font-black text-white mb-12 tracking-tight">
               <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
                 {t('news.notice.title')}
               </span>
             </h1>
-
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              {t('news.notice.subtitle')}
-            </p>
 
             {/* Stats */}
             <div className="flex justify-center gap-8 mt-12">

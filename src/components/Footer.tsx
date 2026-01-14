@@ -71,10 +71,18 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-300 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
-          <p className="text-xs sm:text-sm text-gray-500">
-            {t('footer.copyright')}
-          </p>
+        <div className="border-t border-gray-300 mt-6 sm:mt-8 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p className="text-xs sm:text-sm text-gray-500">
+              {t('footer.copyright')}
+            </p>
+            <Link
+              to="/privacy"
+              className="text-xs sm:text-sm text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              {t('footer.privacy')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
