@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Leaf, Award, Shield, Truck, Sparkles, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -72,51 +73,11 @@ const FoodBusiness = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 overflow-hidden">
-        {/* Floating Blur Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-teal-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        </div>
-
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
-          <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Premium Badge */}
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 border border-emerald-500/30 backdrop-blur-sm mb-8 transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wide">Premium Food Distribution</span>
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-            </div>
-
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-10 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
-                {t('food.title')}
-              </span>
-            </h1>
-
-            {/* Decorative Line */}
-            <div className={`flex items-center justify-center gap-4 mt-10 transition-all duration-700 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-emerald-500" />
-              <Star className="w-5 h-5 text-emerald-400 fill-emerald-400" />
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-emerald-500" />
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Gradient Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent" />
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.business.food')}
+        backgroundImage="/momentum_foundation/images/banner_business.png"
+      />
 
       {/* Main Headline Section */}
       <section className={`py-16 bg-gray-50 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -138,9 +99,9 @@ const FoodBusiness = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
-                  src="/momentum_foundation/images/meat_products_20251219_072051.png"
+                  src="/momentum_foundation/images/food_distribution.jpg"
                   alt={t('food.meat.products.alt')}
-                  className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-[400px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>

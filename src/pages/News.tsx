@@ -123,7 +123,7 @@ const News = () => {
   const getDefaultCompanyNews = (): Post[] => [
     {
       id: 1,
-      title: "모멘텀파운데이션 창립 12주년 기념행사",
+      title: "프라임코어 창립 12주년 기념행사",
       content: "창립 12주년을 맞아 임직원 대상 기념행사를 개최합니다.",
       category: "행사소식",
       date: "2024-12-10",

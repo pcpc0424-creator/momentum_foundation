@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Shield, Building2, Users, Award, CheckCircle, Settings, Star, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -81,55 +82,11 @@ const FMBusiness = () => {
     <div className="min-h-screen bg-gray-950">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 overflow-hidden">
-        {/* Floating Blur Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-teal-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }} />
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
-          <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-8 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wide">{t('fm.badge')}</span>
-              <Sparkles className="h-4 w-4 text-emerald-400" />
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight">
-              {t('fm.title')}
-            </h1>
-
-            <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-green-500 mx-auto mb-8 rounded-full" />
-
-            {/* Stats Bar */}
-            <div className={`mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">20+</div>
-                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.experience')}</div>
-              </div>
-              <div className="text-center border-x border-gray-700">
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">500+</div>
-                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.projects')}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-emerald-400">99%</div>
-                <div className="text-gray-400 text-sm mt-1">{t('fm.stats.satisfaction')}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent" />
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.business.fm')}
+        backgroundImage="/momentum_foundation/images/banner_business.png"
+      />
 
       {/* Main Headline Section */}
       <section className={`py-20 bg-gray-950 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -199,9 +156,9 @@ const FMBusiness = () => {
             <div className={`relative group transition-all duration-700 ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
               <img
-                src="/momentum_foundation/images/business_team_20251219_072051.png"
+                src="/momentum_foundation/images/fm_outsourcing_services_20251223_070231.png"
                 alt={t('fm.security.alt')}
-                className="relative rounded-2xl shadow-2xl w-full h-auto border border-gray-700/50 group-hover:border-emerald-500/30 transition-all duration-500"
+                className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover border border-gray-700/50 group-hover:border-emerald-500/30 transition-all duration-500"
               />
               {/* Premium Badge on Image */}
               <div className="absolute top-4 left-4 px-3 py-1 bg-emerald-500/90 backdrop-blur-sm rounded-full">

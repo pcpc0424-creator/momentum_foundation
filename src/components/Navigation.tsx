@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoImage from "/images/logo-new.png";
+import logoImage from "/images/primecore_logo_horizontal_hd.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -96,11 +96,11 @@ const Navigation = () => {
     }
   ];
 
-  const handleMouseEnter = (label: string) => {
+  const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    setActiveDropdown(label);
+    setActiveDropdown('all');
   };
 
   const handleMouseLeave = () => {
@@ -115,12 +115,16 @@ const Navigation = () => {
     return false;
   };
 
+  const isDropdownOpen = activeDropdown === 'all';
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors transition-shadow duration-500 ${
-      isScrolled || !isHomepage
-        ? 'bg-black/50 backdrop-blur-md shadow-lg'
-        : 'bg-gradient-to-b from-black/30 to-transparent backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isDropdownOpen
+        ? 'bg-white shadow-lg'
+        : isScrolled || !isHomepage
+          ? 'bg-black/50 backdrop-blur-md shadow-lg'
+          : 'bg-gradient-to-b from-black/30 to-transparent backdrop-blur-sm'
     }`}
       style={{ transform: 'none', willChange: 'background-color, box-shadow' }}
     >
@@ -130,95 +134,102 @@ const Navigation = () => {
           <Link to="/" className="flex items-center flex-shrink-0 group">
             <img
               src={logoImage}
-              alt="모멘텀파운데이션"
-              className="h-12 sm:h-14 lg:h-16 w-auto transition-all duration-300 group-hover:scale-105"
+              alt="프라임코어"
+              className="h-8 sm:h-9 lg:h-10 w-auto transition-all duration-300 group-hover:scale-105"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center flex-1 justify-center">
             {isHomepage && !showRegularNav ? (
               // Homepage: Scroll navigation
-              homepageNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                    isScrolled || !isHomepage
-                      ? 'text-white/90 hover:text-white hover:bg-white/10'
-                      : 'text-white/90 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))
-            ) : (
-              // Other pages: Regular navigation
-              navItems.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => item.submenu && handleMouseEnter(item.label)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Link
-                    to={item.path}
-                    className={`relative flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                      isActive(item.path)
-                        ? 'text-white'
+              <div className="flex items-center space-x-8">
+                {homepageNavItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                      isScrolled || !isHomepage
+                        ? 'text-white/90 hover:text-white hover:bg-white/10'
                         : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.label}
-                    {item.submenu && (
-                      <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${
-                        activeDropdown === item.label ? 'rotate-180' : ''
-                      }`} />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              // Other pages: Regular navigation - 균등 배치
+              <div
+                className="flex items-center"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                {navItems.map((item) => (
+                  <div
+                    key={item.label}
+                    className="relative"
+                  >
+                    <Link
+                      to={item.path}
+                      className={`relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                        isDropdownOpen
+                          ? isActive(item.path)
+                            ? 'text-emerald-600'
+                            : 'text-gray-700 hover:text-emerald-600'
+                          : isActive(item.path)
+                            ? 'text-white'
+                            : 'text-white/90 hover:text-white'
+                      }`}
+                    >
+                      {item.label}
+                      {item.submenu && (
+                        <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-300 ${
+                          isDropdownOpen ? 'rotate-180' : ''
+                        }`} />
+                      )}
+
+                      {/* Active indicator */}
+                      {isActive(item.path) && (
+                        <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${
+                          isDropdownOpen ? 'bg-emerald-600' : 'bg-white'
+                        }`}></span>
+                      )}
+                    </Link>
+
+                    {/* 각 카테고리 아래 드롭다운 */}
+                    {isDropdownOpen && item.submenu && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-0.5 min-w-[120px]">
+                        <ul className="py-0.5 text-center">
+                          {item.submenu.map((subItem) => (
+                            <li key={subItem.path}>
+                              <Link
+                                to={subItem.path}
+                                className="block px-3 py-0.5 text-xs text-gray-600 hover:text-emerald-600 transition-colors whitespace-nowrap"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {subItem.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-
-                    {/* Active indicator */}
-                    {isActive(item.path) && (
-                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${
-                        isScrolled || !isHomepage ? 'bg-white' : 'bg-white'
-                      }`}></span>
-                    )}
-                  </Link>
-
-                  {/* Dropdown Menu */}
-                  {item.submenu && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-[9999] overflow-hidden">
-                      {/* Top gradient line */}
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-green-500"></div>
-
-                      {item.submenu.map((subItem, index) => (
-                        <Link
-                          key={subItem.path}
-                          to={subItem.path}
-                          className="block px-5 py-3 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-200"
-                          onClick={() => setActiveDropdown(null)}
-                        >
-                          <span className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                            {subItem.label}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))
+                  </div>
+                ))}
+              </div>
             )}
 
             {/* Divider */}
             <div className={`w-px h-6 mx-2 ${
-              isScrolled || !isHomepage ? 'bg-white/20' : 'bg-white/20'
+              isDropdownOpen ? 'bg-gray-300' : 'bg-white/20'
             }`}></div>
 
             {/* Language Toggle */}
             <div className="flex items-center ml-2">
               <div className={`flex items-center rounded-full p-1 transition-all duration-300 ${
-                isScrolled || !isHomepage
-                  ? 'bg-white/10 border border-white/20'
+                isDropdownOpen
+                  ? 'bg-gray-100 border border-gray-200'
                   : 'bg-white/10 border border-white/20'
               }`}>
                 <button
@@ -226,8 +237,8 @@ const Navigation = () => {
                   className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${
                     language === 'ko'
                       ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
-                      : isScrolled || !isHomepage
-                        ? 'text-white/70 hover:text-white'
+                      : isDropdownOpen
+                        ? 'text-gray-500 hover:text-gray-700'
                         : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -238,8 +249,8 @@ const Navigation = () => {
                   className={`px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-300 ${
                     language === 'en'
                       ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-md'
-                      : isScrolled || !isHomepage
-                        ? 'text-white/70 hover:text-white'
+                      : isDropdownOpen
+                        ? 'text-gray-500 hover:text-gray-700'
                         : 'text-white/70 hover:text-white'
                   }`}
                 >
@@ -254,8 +265,8 @@ const Navigation = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2.5 rounded-xl transition-all duration-300 ${
-                isScrolled || !isHomepage
-                  ? 'text-white hover:bg-white/10'
+                isDropdownOpen
+                  ? 'text-gray-700 hover:bg-gray-100'
                   : 'text-white hover:bg-white/10'
               }`}
             >
@@ -263,6 +274,16 @@ const Navigation = () => {
             </button>
           </div>
         </div>
+
+        {/* 드롭다운 흰색 배경 영역 */}
+        {isDropdownOpen && (
+          <div
+            className="hidden lg:block absolute top-full left-0 right-0 bg-white shadow-lg z-[-1]"
+            style={{ height: '100px' }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        )}
 
         {/* Mobile Navigation */}
         {isOpen && (

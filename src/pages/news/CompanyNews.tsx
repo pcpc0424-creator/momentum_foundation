@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, Paperclip, ChevronRight, Building2, Calendar, Eye, Sparkles, ArrowRight, Newspaper, TrendingUp } from "lucide-react";
@@ -245,58 +246,11 @@ const CompanyNews = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Navigation />
 
-      {/* Ultra Premium Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900"></div>
-
-        {/* Mesh Gradient */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(16,185,129,0.3),transparent_50%)]"></div>
-          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.2),transparent_50%)]"></div>
-        </div>
-
-        {/* Floating Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-[10%] w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-40 right-[15%] w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-[30%] w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className={`text-center transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-10">
-              <Newspaper className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">Company News</span>
-            </div>
-
-            <h1 className="text-5xl lg:text-7xl font-black text-white mb-12 tracking-tight">
-              <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
-                {t('news.company.title')}
-              </span>
-            </h1>
-
-            {/* Stats */}
-            <div className="flex justify-center gap-8 mt-12">
-              <div className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-3xl font-bold text-emerald-400">{news.length}</div>
-                <div className="text-gray-400 text-sm">{t('news.totalNews')}</div>
-              </div>
-              <div className="text-center px-6 py-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-3xl font-bold text-cyan-400">
-                  <TrendingUp className="w-8 h-8 mx-auto" />
-                </div>
-                <div className="text-gray-400 text-sm">{t('news.growing')}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.news.company')}
+        backgroundImage="/momentum_foundation/images/banner_news.jpg"
+      />
 
       {/* News Cards Grid */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">

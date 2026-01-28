@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Quote } from "lucide-react";
 
@@ -17,25 +18,11 @@ const CEOMessage = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex items-center gap-2 text-emerald-400 mb-4">
-              <span className="w-8 h-px bg-emerald-400"></span>
-              <span className="text-sm font-medium tracking-wider uppercase">CEO Message</span>
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold">
-              {t('ceo.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.about.ceo')}
+        backgroundImage="/momentum_foundation/images/banner_about.jpg"
+      />
 
       {/* CEO Message Content */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">

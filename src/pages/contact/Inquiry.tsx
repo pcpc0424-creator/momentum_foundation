@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -116,21 +117,26 @@ submissionDate: new Date().toISOString().split('T')[0],
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-<section className="bg-warm-beige text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              {t('inquiry.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.contact.inquiry')}
+        backgroundImage="/momentum_foundation/images/banner_contact.jpg"
+      />
 
       {/* Contact Form Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 title-expand">
+              {t('inquiry.title')}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {t('inquiry.subtitle')}
+            </p>
+          </div>
+
           <div className="bg-white rounded-lg shadow-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

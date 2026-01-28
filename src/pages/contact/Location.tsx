@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -10,16 +11,11 @@ const Location = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-<section className="bg-warm-beige text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-{t('location.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.contact.location')}
+        backgroundImage="/momentum_foundation/images/banner_contact.jpg"
+      />
 
       {/* Location Info */}
       <section className="py-20 bg-white">
@@ -39,7 +35,7 @@ const Location = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="모멘텀파운데이션 본사 위치"
+                  title="프라임코어 본사 위치"
                 ></iframe>
               </div>
               <div className="space-y-4">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -195,16 +196,11 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
     return (
       <div className="min-h-screen flex flex-col">
         <Navigation />
-        
-        <section className="bg-cool-grey text-gray-800 pt-24 pb-4">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center ml-4 md:ml-16">
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-                {t('careers.recruitment.title')}
-              </h1>
-            </div>
-          </div>
-        </section>
+
+        <PageBanner
+          title={t('nav.careers.jobs')}
+          backgroundImage="/momentum_foundation/images/banner_careers.jpg"
+        />
 
         <section className="flex-grow py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,16 +274,11 @@ const currentJobs = filteredJobs.slice(startIndex, endIndex);
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
-      <section className="bg-cool-grey text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              {t('careers.recruitment.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+
+      <PageBanner
+        title={t('nav.careers.jobs')}
+        backgroundImage="/momentum_foundation/images/banner_careers.jpg"
+      />
 
       <section className="flex-grow py-20 bg-white">
 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

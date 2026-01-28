@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Heart, Users, Award, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -28,16 +29,11 @@ title: t('culture.principle3.title'),
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="bg-cool-grey text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              {t('careers.culture.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.careers.culture')}
+        backgroundImage="/momentum_foundation/images/banner_careers.jpg"
+      />
 
       {/* Main Content */}
       <section className="py-16 bg-white">
@@ -46,7 +42,7 @@ title: t('culture.principle3.title'),
 
           {/* Working Principles */}
           <div className="mb-16">
-<h3 className="text-2xl font-bold text-gray-900 mb-4 text-center title-expand">{t('culture.principles.title')}</h3>
+<h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 text-center title-expand">{t('culture.principles.title')}</h2>
             <p className="text-gray-600 text-center mb-8 max-w-3xl mx-auto">
               {t('culture.principles.desc')}
             </p>

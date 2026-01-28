@@ -42,34 +42,34 @@ const translations = {
 'hero.title2': '일상의 가치를 더하다',
     
     // Company Intro Main Title
-'companyintro.main.title': '식자재 유통에서 시설 관리까지 토탈솔루션 제공',
+'companyintro.main.title': '식자재부터 시설관리까지',
     
     // CEO Message Page Translation
 'ceo.title': 'CEO 인사말',
-'ceo.subtitle': '나눔과 동반성장을 추구하는 종합 서비스 기업',
-    'ceo.headline': '나눔과 동반성장을 추구하는 종합 서비스 기업',
-    'ceo.message.para1': '모멘텀파운데이션은 2024년 7월 회사 설립 이래, 끔임없는 도전과 혁신을 통해 오늘날 식자재 유통, 프랜차이즈, 시설 관리까지 사업 영역을 확장하며 종합 서비스 기업으로 성장해왔습니다.',
+'ceo.subtitle': '나눔과 동반성장 추구',
+    'ceo.headline': '나눔과 동반성장 추구',
+    'ceo.message.para1': '프라임코어는 2024년 7월 회사 설립 이래, 끊임없는 도전과 혁신을 통해 오늘날 식자재 유통, 프랜차이즈, 시설 관리까지 사업 영역을 확장하며 종합 서비스 기업으로 성장해왔습니다.',
     'ceo.message.para2': '저희의 성장 과정에는 "나눔을 통한 성장"이라는 확고한 기업 철학이 자리하고 있습니다. 단순히 이익을 추구하는 경영 활동을 넘어, 지역 복지 증진과 이웃사랑을 실천하는 사회공헌 활동을 지속해왔습니다. 기업의 성공은 지역사회와 함께할 때 비로소 완성된다는 믿음으로, 우리가 속한 공동체와 상생하며 지속 가능한 발전을 추구해왔습니다.',
-'ceo.message.para3': '이제 모멘텀파운데이션은 새로운 도약을 준비하고 있습니다. 그동안 쌓아온 식자재 유통의 전문성을 기반으로 외식 문화의 혁신을 이끌고, 나아가 기업 고객들의 운영 효율성까지 책임지는 토털 솔루션 파트너로 자리매김하고자 합니다. 각 사업 분야에서 축적한 노하우와 시너지를 통해 고객 여러분께 더 큰 가치를 전달하겠습니다.',
-    'ceo.message.para4': '모멘텀파운데이션의 모든 구성원은 고객에 대한 진심 어린 마음으로 최선을 다하고 있습니다. 우리의 열정과 전문성이 고객 여러분의 일상에 긍정적인 변화를 만들어낼 수 있도록 항상 노력하겠습니다.',
+'ceo.message.para3': '이제 프라임코어는 새로운 도약을 준비하고 있습니다. 그동안 쌓아온 식자재 유통의 전문성을 기반으로 외식 문화의 혁신을 이끌고, 나아가 기업 고객들의 운영 효율성까지 책임지는 토털 솔루션 파트너로 자리매김하고자 합니다. 각 사업 분야에서 축적한 노하우와 시너지를 통해 고객 여러분께 더 큰 가치를 전달하겠습니다.',
+    'ceo.message.para4': '프라임코어의 모든 구성원은 고객에 대한 진심 어린 마음으로 최선을 다하고 있습니다. 우리의 열정과 전문성이 고객 여러분의 일상에 긍정적인 변화를 만들어낼 수 있도록 항상 노력하겠습니다.',
     'ceo.closing': '감사합니다.',
-    'ceo.company': '모멘텀파운데이션(주)',
-    'ceo.ceo1': '대표이사 소민지',
-'ceo.ceo2': '대표이사 이병준',
+    'ceo.company': '프라임코어 주식회사',
+    'ceo.ceo1': '소민지',
+'ceo.ceo2': '이병준',
     
     // About Page Titles
     'about.companyintro.title': '기업소개',
     'about.philosophy.title': '기업이념',
     'about.history.title': '발자취',
     'about.org.title': '조직도',
-    'about.org.subtitle': '체계적이고 전문적인 조직 구성으로 최상의 서비스를 제공합니다',
+    'about.org.subtitle': '소통과 협력의 네트워크',
     'about.stats.business': '사업 분야',
     'about.stats.satisfaction': '고객 만족',
     'about.stats.service': '서비스',
 
     // History Page Additional
     'history.month.suffix': '월',
-    'history.cta.text': '모멘텀재단과 함께하는 미래를 향한 여정',
+    'history.cta.text': '프라임코어과 함께하는 미래를 향한 여정',
 
     // Organization Page
     'org.board': '이사회',
@@ -78,7 +78,7 @@ const translations = {
     'org.executives': '최고 경영진',
     'org.ceo': '대표이사',
     'org.ceo.desc': '4개의 주요 사업 본부를 총괄',
-    'org.chart.title': '회사 조직도',
+    'org.chart.title': '소통과 협력의 네트워크',
     'org.stats.divisions': '사업본부',
     'org.stats.teams': '전문팀',
     'org.stats.employees': '임직원',
@@ -108,9 +108,9 @@ const translations = {
     // Philosophy Page Translation
     'philosophy.subtitle': '기업 이념 체계',
     'philosophy.title1': '기업 이념 체계',
-    'philosophy.desc1': '모멘텀파운데이션의 경영 철학과 가치 체계를 통해 지속가능한 성장을 추구합니다',
+    'philosophy.desc1': '프라임코어(주)의 경영 철학과 가치 체계를 통해 지속가능한 성장을 추구합니다',
     'philosophy.title2': '핵심가치 상세',
-'philosophy.desc2': '모멘텀파운데이션이 추구하는 네 가지 핵심가치입니다',
+'philosophy.desc2': '프라임코어(주)이 추구하는 네 가지 핵심가치입니다',
     
     // Philosophy Values Content
     'philosophy.mission.title': '미션',
@@ -134,8 +134,8 @@ const translations = {
 'philosophy.core.future.desc': 'ESG 경영 등 미래의 잠재적 가치 도모와 지속 가능한 성장 지향',
     
     // History Page Translation
-    'history.subtitle': '모멘텀파운데이션의 성장 과정',
-    'history.title': '모멘텀파운데이션의 성장 과정',
+    'history.subtitle': '도전과 성장의 기록',
+    'history.title': '도전과 성장의 기록',
 'history.desc': '지속적인 혁신과 성장을 통해 발전해온 우리의 여정입니다',
     
     // History Timeline Items
@@ -160,31 +160,31 @@ const translations = {
     'history.2024.08.title': '육류 유통 사업 개시',
     'history.2024.08.desc': '프리미엄 육류 유통 사업 시작',
     'history.2024.07.title': '회사 설립',
-'history.2024.07.desc': '모멘텀파운데이션(주) 공식 설립',
+'history.2024.07.desc': '프라임코어 주식회사 공식 설립',
     
     // Business Page Translation
     'business.viewMore': '자세히 보기',
-    'business.area1.title': '프리미엄 신선 식자재 가공·유통',
-    'business.area1.desc': '신선하고 안전한 농축수산물의 전문 가공 및 유통',
-    'business.area1.feature1': '한우·한돈 가공/유통_더담우',
+    'business.area1.title': '품질관리와 혁신 시스템',
+    'business.area1.desc': '엄선된 식자재를 첨단 시스템으로 철저히 관리합니다',
+    'business.area1.feature1': '한우·한돈 가공/유통',
     'business.area1.feature2': '과일유통_청년나래',
-'business.area1.feature3': '브랜드쌌 및 곱물류 전문 유통',
+'business.area1.feature3': '브랜드 쌀 및 곡물류 전문 유통',
     'business.area1.feature4': 'HACCP 인증 시설 완비',
-    'business.area2.title': '프랜차이즈의 정석 \'청년축산\'',
-    'business.area2.desc': '고기에 진심인 청년들의 정직한 혁신!',
+    'business.area2.title': '압도적 가성비와 신선육',
+    'business.area2.desc': '자체 유통망으로 가성비 높은 신선육을 공급합니다',
     'business.area2.feature1': '정육 식당 모델 혁신',
     'business.area2.feature2': '압도적 가성비 실현',
     'business.area2.feature3': '체계적인 창업 지원',
     'business.area2.feature4': '전국 네트워크 확장',
-    'business.area3.title': 'FM/아웃소싱 전문 서비스',
-    'business.area3.desc': '빌딩 종합 관리와 전문 아웃소싱 서비스',
+    'business.area3.title': '효율 극대화 비용 절감',
+    'business.area3.desc': '아웃소싱을 통해 효율 향상과 비용 절감을 실현합니다',
 'business.area3.feature1': '경비용역 위탁 관리',
     'business.area3.feature2': '빌딩 종합 관리(FM)',
     'business.area3.feature3': '전문 파트너사 연계',
 'business.area3.feature4': '통합 관리 시스템',
     
     // Business Strengths Section
-    'business.strengths.title': '모멘텀파운데이션의 강점',
+    'business.strengths.title': '프라임코어(주)의 강점',
     'business.strengths.subtitle': '각 사업 분야의 시너지를 통한 토털 솔루션 제공',
     'business.strengths.expertise.title': '전문성',
     'business.strengths.expertise.desc': '각 분야별 축적된 전문 지식과 노하우',
@@ -201,10 +201,10 @@ const translations = {
 
     // Food Business Page Translation
     'food.title': '식자재가공·유통',
-    'food.subtitle': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
+    'food.subtitle': '품질관리와 혁신 시스템',
     'food.cta.title': '최고 품질의 식자재를 약속합니다',
-    'food.cta.desc': '모멘텀 재단은 철저한 품질 관리와 신뢰를 바탕으로 최상의 식자재를 공급합니다.',
-    'food.headline': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축',
+    'food.cta.desc': '프라임코어는 철저한 품질 관리와 신뢰를 바탕으로 최상의 식자재를 공급합니다.',
+    'food.headline': '엄선된 식자재를 첨단 시스템으로 철저히 관리합니다',
     'food.meat.title': '한우·한돈 가공 및 유통',
     'food.meat.desc': '국내 최고급 한우와 한돈을 엄선하여 신선하고 안전한 육류를 공급합니다. HACCP 인증 시설을 갖춘 계열사 \'더담우\'를 통해 안전하고 청결하게 가공되며, 완벽한 콜드체인 시스템으로 최상의 품질을 보장합니다.',
     'food.fruit.title': '과일 유통의 신흥강자_청년나래',
@@ -250,7 +250,7 @@ const translations = {
     'meat.title': '육류유통업',
     'meat.subtitle': '프리미엄 국내산 한우와 한돈의 전문 유통 서비스',
     'meat.headline': '최고 품질의 육류 유통',
-    'meat.desc': '모멘텀파운데이션은 국내 최고급 한우와 한돈을 엄선하여 고객에게 신선하고 안전한 육류를 공급합니다. 철저한 품질 관리와 완벽한 콜드체인 시스템을 통해 최상의 품질을 보장합니다.',
+    'meat.desc': '프라임코어(주)은 국내 최고급 한우와 한돈을 엄선하여 고객에게 신선하고 안전한 육류를 공급합니다. 철저한 품질 관리와 완벽한 콜드체인 시스템을 통해 최상의 품질을 보장합니다.',
     'meat.feature1.title': '프리미엄 국내산 한우와 한돈 취급',
     'meat.feature1.desc': '엄선된 국내 최고급 한우와 한돈만을 공급합니다',
     'meat.feature2.title': '철저한 품질 관리',
@@ -263,7 +263,7 @@ const translations = {
     'fruit.title': '과일유통업',
     'fruit.subtitle': '신선하고 달콤한 계절 과일의 전문 유통 서비스',
     'fruit.headline': '신선함이 살아있는 과일',
-    'fruit.desc': '모멘텀파운데이션은 전국 각지의 우수한 과일 농가와 직접 계약하여 가장 신선하고 맛있는 제철 과일을 고객에게 공급합니다.',
+    'fruit.desc': '프라임코어(주)은 전국 각지의 우수한 과일 농가와 직접 계약하여 가장 신선하고 맛있는 제철 과일을 고객에게 공급합니다.',
     'fruit.feature1.title': '신선한 계절 과일',
     'fruit.feature1.desc': '제철 과일을 엄선하여 최상의 신선도로 공급',
     'fruit.feature2.title': '프리미엄 품질',
@@ -276,7 +276,7 @@ const translations = {
     'rice.title': '미곡유통업',
     'rice.subtitle': '브랜드 쌀과 곡물류의 전문 유통 서비스',
     'rice.headline': '프리미엄 쌀과 곡물',
-    'rice.desc': '모멘텀파운데이션은 전국 최고의 쌀 생산지에서 엄선된 브랜드 쌀과 다양한 곡물류를 RPC 도정 시스템을 통해 신선하게 가공하여 공급합니다.',
+    'rice.desc': '프라임코어(주)은 전국 최고의 쌀 생산지에서 엄선된 브랜드 쌀과 다양한 곡물류를 RPC 도정 시스템을 통해 신선하게 가공하여 공급합니다.',
     'rice.feature1.title': '브랜드 쌀 및 곡물류의 전문 유통 서비스',
     'rice.feature1.desc': '엄선된 브랜드 쌀과 다양한 곡물류를 전문적으로 유통',
     'rice.feature2.title': 'RPC 도정 시스템 활용한 신선한 쌀 제공',
@@ -289,7 +289,7 @@ const translations = {
     'cosmetics.title': '화장품도소매',
     'cosmetics.subtitle': '프리미엄 화장품 및 화장용품의 전문 도소매 서비스',
     'cosmetics.headline': '뷰티 트렌드를 선도하는 화장품',
-    'cosmetics.desc': '모멘텀파운데이션은 국내외 우수한 화장품 브랜드와 파트너십을 구축하여 최신 뷰티 트렌드를 반영한 다양한 화장품을 도매로 공급합니다.',
+    'cosmetics.desc': '프라임코어(주)은 국내외 우수한 화장품 브랜드와 파트너십을 구축하여 최신 뷰티 트렌드를 반영한 다양한 화장품을 도매로 공급합니다.',
     'cosmetics.feature1.title': '프리미엄 화장품 브랜드',
     'cosmetics.feature1.desc': '엄선된 국내외 우수 화장품 브랜드 전문 도매',
     'cosmetics.feature2.title': '다양한 제품군',
@@ -297,13 +297,13 @@ const translations = {
     'cosmetics.feature3.title': '안정적인 공급망',
     'cosmetics.feature3.desc': '체계적인 재고 관리와 신속한 배송 서비스',
     'cosmetics.products.alt': '화장품 제품',
-    'hero.subtitle': '모멘텀파운데이션은 프리미엄 식자재 유통부터 혁신적인 프랜차이즈, 전문적인 FM/아웃소싱 서비스까지 다양한 분야에서 새로운 가치를 창출합니다.',
+    'hero.subtitle': '프라임코어(주)은 프리미엄 식자재 유통부터 혁신적인 프랜차이즈, 전문적인 FM/아웃소싱 서비스까지 다양한 분야에서 새로운 가치를 창출합니다.',
     'hero.btn1': '회사 소개',
     'hero.btn2': '사업 영역 보기',
     
     // About Section
-    'about.title': '모멘텀파운데이션을 소개합니다',
-    'about.subtitle': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'about.title': '프라임코어(주)을 소개합니다',
+    'about.subtitle': '2024년 설립된 프라임코어(주)은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
     'about.vision.title': '우리의 비전',
     'about.vision.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
     'about.vision.item1': '지속 가능한 성장',
@@ -326,23 +326,19 @@ const translations = {
     'franchise.competitive.desc': '본사의 강력한 유통망을 바탕으로 안정적이고 저렴한 원육 공급이 가능하며, 이는 가맹점의 안정적인 마진 확보로 이어집니다. 다수의 직영점 및 가맹점에서 이미 검증된 사업 모델을 제공하며, 정육 경험이 없는 예비 창업자도 본사의 체계적인 교육을 통해 쉽게 창업하고 운영할 수 있습니다.',
     'franchise.process.title': '창업 절차',
     'franchise.step1': '1단계',
-    'franchise.step1.desc': '정보 수집 및\
-가맹 상담',
+    'franchise.step1.desc': '정보 수집 및 가맹 상담',
     'franchise.step2': '2단계',
-    'franchise.step2.desc': '점포 개발 및\
-상권 분석',
+    'franchise.step2.desc': '점포 개발 및 상권 분석',
     'franchise.step3': '3단계',
     'franchise.step3.desc': '가맹 계약\
 체결',
     'franchise.step4': '4단계',
-    'franchise.step4.desc': '인테리어 시공\
-및 오픈 준비',
+    'franchise.step4.desc': '인테리어 및 오픈 준비',
     'franchise.step5': '5단계',
     'franchise.step5.desc': '본사 교육\
 이수',
     'franchise.step6': '6단계',
-    'franchise.step6.desc': '매장 오픈 및\
-사후 관리',
+    'franchise.step6.desc': '매장 오픈 및 사후 관리',
     'franchise.closing.desc': '청년축산은 단순한 가맹 사업이 아닌, 파트너와 함께 성장하는 동반자 관계를 추구합니다. 본사의 지속적인 지원과 가맹점주의\
 열정이 만나 상호 발전하는 건강한 프랜차이즈 생태계를 구축하고 있습니다.',
     'franchise.closing.title': '가맹점과 동반 성장',
@@ -360,10 +356,10 @@ const translations = {
     
     // FM/Outsourcing Business Translation
     'fm.title': 'FM/아웃소싱',
-    'fm.subtitle': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감',
-    'fm.headline': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감',
+    'fm.subtitle': '효율 극대화 비용 절감',
+    'fm.headline': '아웃소싱을 통해 효율 향상과 비용 절감을 실현합니다',
     'fm.partner.title': '전문 파트너사 연계 서비스',
-    'fm.partner.desc': '각 분야별 검증된 전문 업체를 선별하고 관리하여, 고객사의 요구에 맞는 최적의 아웃소싱 솔루션을 제공합니다. 모멘텀파운데이션은 파트너사 선정부터 품질 관리까지 전 과정을 책임지며 안정적인 서비스를 보장합니다.',
+    'fm.partner.desc': '각 분야별 검증된 전문 업체를 선별하고 관리하여, 고객사의 요구에 맞는 최적의 아웃소싱 솔루션을 제공합니다. 프라임코어(주)은 파트너사 선정부터 품질 관리까지 전 과정을 책임지며 안정적인 서비스를 보장합니다.',
     'fm.security.title': '경비용역 위탁 관리',
     'fm.security.desc': '전문 경비 업체와의 협력을 통해 고객 자산 보호와 시설 안전을 확보합니다. 검증된 경비 업체를 선정하고 관리하여 빈틈없는 보안 서비스를 제공합니다.',
     'fm.security.alt': '경비용역 서비스',
@@ -439,16 +435,16 @@ const translations = {
 'franchise.restaurant.feature3.desc': '‘큰돼지한판’, ‘큰소한판’ 등\n가성비와 구성이 뛰어난 세트 메뉴',
     
     // Careers Page Translation
-    'careers.headline': '우리의 비전을 함께 이뤄갈 당신을 기다립니다',
-'careers.description': '모멘텀파운데이션은 ‘나눔을 통한 동반 성장’이라는 기업 이념과 ‘고객 행복’ ‘나눔 상생’ ‘사회 기여’ ‘미래 가치’라는 핵심 가치 아래 끝임없이 도전하고 혁신하는 기업입니다. 우리는 뛰어난 동료들과 함께 성장하는 즐거움을 가장 중요한 가치로 여깁니다. 모멘텀파운데이션에서 당신의 잠재력을 마음껏 펼치고, 의미 있는 변화를 만들어갈 인재를 모십니다.',
-    'careers.culture.title': '우리의 기업문화',
-    'careers.culture.desc': '모멘텀파운데이션이 추구하는 기업문화입니다',
+    'careers.headline': '프라임코어는 \'나눔을 통한 동반 성장\'이라는 기업 이념과 \'고객 행복\' \'나눔 상생\' \'사회 기여\' \'미래 가치\'라는 핵심 가치 아래 끊임없이 도전하고 혁신하는 기업입니다. 프라임코어에서 당신의 잠재력을 마음껏 펼치고, 의미 있는 변화를 만들어갈 인재를 모십니다.',
+'careers.description': '프라임코어는 \'나눔을 통한 동반 성장\'이라는 기업 이념과 \'고객 행복\' \'나눔 상생\' \'사회 기여\' \'미래 가치\'라는 핵심 가치 아래 끊임없이 도전하고 혁신하는 기업입니다. 프라임코어에서 당신의 잠재력을 마음껏 펼치고, 의미 있는 변화를 만들어갈 인재를 모십니다.',
+    'careers.culture.title': '소통과 협력',
+    'careers.culture.desc': '열린 소통을 바탕으로 한 수평적 조직문화에서 모든 구성원이 자유롭게 의견을 나누고 협력합니다',
     'careers.jobs.title': '채용 정보',
-    'careers.jobs.desc': '모멘텀파운데이션의 채용 관련 정보를 확인하세요',
+    'careers.jobs.desc': '프라임코어(주)의 채용 관련 정보를 확인하세요',
     
     // Company Values
     'careers.values.communication.title': '소통과 협력',
-    'careers.values.communication.desc': '열린 소통을 바탕으로 한 수평적 조직문화에서\n모든 구성원이 자유롭게 의견을 나누고 협력합니다.',
+    'careers.values.communication.desc': '열린 소통을 바탕으로 한 수평적 조직문화에서\n상호 간 자유롭게 의견을 나누고 협력합니다.',
     'careers.values.growth.title': '성장과 도전',
     'careers.values.growth.desc': '개인의 성장을 지원하고 새로운 도전을\n장려하는 환경에서 함께 발전해 나갑니다.',
     'careers.values.balance.title': '워크라이프 밸런스',
@@ -457,10 +453,10 @@ const translations = {
     // Recruitment Cards
     'careers.recruitment.title': '채용공고',
     'careers.recruitment.desc': '현재 모집 중인 포지션을 확인하고 지원하세요',
-    'careers.recruitment.subtitle': '모멘텀파운데이션과 함께 성장할 인재를 찾습니다',
+    'careers.recruitment.subtitle': '프라임코어(주)과 함께 성장할 인재를 찾습니다',
     'careers.culture.card.title': '기업문화',
     'careers.culture.card.desc': '우리가 일하며 실천하는 원칙을 알아보세요',
-    'careers.culture.subtitle': '함께 성장하고 발전하는 모멘텀파운데이션의 기업문화를 소개합니다',
+    'careers.culture.subtitle': '함께 성장하고 발전하는 프라임코어(주)의 기업문화를 소개합니다',
     'careers.process.title': '채용절차',
 'careers.process.desc': '채용 프로세스와 절차를 확인하세요',
 
@@ -486,12 +482,12 @@ const translations = {
 
     // Home Careers CTA
     'home.careers.cta.title': 'Ready to Start Your Journey?',
-    'home.careers.cta.desc': '모멘텀파운데이션과 함께 성장하세요',
+    'home.careers.cta.desc': '프라임코어(주)과 함께 성장하세요',
     'home.careers.cta.btn': '모든 채용 공고 보기',
 
     // Careers Hero
-    'careers.hero.title1': '함께 성장할',
-    'careers.hero.title2': '인재를 찾습니다',
+    'careers.hero.title1': '참신하고 유능한',
+    'careers.hero.title2': '인재',
 
     // Careers Stats
     'careers.stats.employees': '임직원',
@@ -528,19 +524,19 @@ const translations = {
 
     // Careers Final CTA
     'careers.final.title': 'Ready to Start?',
-    'careers.final.desc': '모멘텀파운데이션과 함께 새로운 도전을 시작하세요. 여러분의 성장을 응원합니다.',
+    'careers.final.desc': '프라임코어(주)과 함께 새로운 도전을 시작하세요. 여러분의 성장을 응원합니다.',
     'careers.final.btn.jobs': '채용 공고 보기',
     'careers.final.btn.culture': '회사 문화 알아보기',
     
     // Culture Page Translation
     'culture.principles.title': '일하는 원칙',
-    'culture.principles.desc': '모멘텀파운데이션이 일을 대하는 기본적인 기준과 태도입니다.',
+    'culture.principles.desc': '프라임코어가 일을 대하는 기본적인 기준과 태도입니다',
     'culture.environment.title': '업무 환경',
-'culture.environment.desc': '모멘텀파운데이션은 소통이 원활한 수평적 조직문화를 지향합니다. 조직 규모의 특성을 살린 빠른 의사결정과\n유연한 업무 방식을 통해 구성원 각자가 회사의 일에 주체적으로 참여할 수 있는 환경을 만들어가고 있습니다.',
+'culture.environment.desc': '프라임코어(주)은 소통이 원활한 수평적 조직문화를 지향합니다. 조직 규모의 특성을 살린 빠른 의사결정과\n유연한 업무 방식을 통해 구성원 각자가 회사의 일에 주체적으로 참여할 수 있는 환경을 만들어가고 있습니다.',
     'culture.growth.title': '성장과 배움',
 'culture.growth.desc': '우리는 개인의 성장이 곳 조직의 성장으로 이어진다고 믿습니다. 업무 수행과 프로젝트 경험을 통해\n실질적인 역량을 쌓고 서로의 성장을 존중하며 함께 발전하는 문화를 지향합니다.',
     'culture.trust.title': '참여와 신뢰',
-'culture.trust.desc': '모멘텀파운데이션의 조직문화는 일방적으로 정해지기보다 구성원 간의 신뢰와 참여를 통해 만들어집니다.\n의견을 나누고 함께 고민하는 과정 속에서 더 나은 일하는 방식을 만들어갑니다.',
+'culture.trust.desc': '프라임코어(주)의 조직문화는 일방적으로 정해지기보다 구성원 간의 신뢰와 참여를 통해 만들어집니다.\n의견을 나누고 함께 고민하는 과정 속에서 더 나은 일하는 방식을 만들어갑니다.',
     
     // Working Principles
     'culture.principle1.title': '상호 존중과 배려',
@@ -554,7 +550,7 @@ const translations = {
     'process.title': '채용 프로세스',
     'process.subtitle': '투명하고 공정한 채용 절차를 통해 최적의 인재를 선발합니다',
     'process.requirements.title': '지원 자격',
-'process.requirements.subtitle': '모멘텀파운데이션이 찾는 인재상입니다',
+'process.requirements.subtitle': '프라임코어(주)이 찾는 인재상입니다',
     
     // Process Hero
     'process.hero.title': '채용절차',
@@ -592,7 +588,7 @@ const translations = {
     // Job Application Page
     'application.default.position': '채용 포지션',
     'application.hero.title': '입사지원',
-    'application.hero.subtitle': '모멘텀파운데이션과 함께 성장할 우수한 인재를 찾습니다',
+    'application.hero.subtitle': '프라임코어(주)과 함께 성장할 우수한 인재를 찾습니다',
     'application.form.title': '입사지원서 작성',
     'application.form.position': '지원 포지션',
     'application.form.positionNote': '포지션 확인 후 작성해 주세요',
@@ -665,9 +661,9 @@ const translations = {
     'application.button.cancel': '취소',
 
     // Contact Page Translation
-    'contact.headline': '전문 상담 서비스',
+    'contact.headline': '프라임코어의 전문 상담원이 고객님의 문의사항을 친절하고 정확하게 안내해 드립니다',
     'contact.service.title': '전문 상담 서비스',
-    'contact.service.desc': '모멘텀파운데이션의 전문 상담원이 고객님의 문의사항을 친절하고 정확하게 안내해 드립니다',
+    'contact.service.desc': '프라임코어의 전문 상담원이 고객님의 문의사항을 친절하고 정확하게 안내해 드립니다',
     'contact.info.title': '연락처 정보',
 'contact.info.desc': '전화나 이메일로도 언제든지 문의하실 수 있습니다',
     
@@ -683,8 +679,8 @@ const translations = {
     'contact.visit.note': '사전 예약 필수',
 
     // Contact Page Hero and Form
-    'contact.hero.title1': '언제든',
-    'contact.hero.title2': '연락주세요',
+    'contact.hero.title1': '전문 상담',
+    'contact.hero.title2': '서비스',
     'contact.form.title': '문의하기',
     'contact.form.desc': '문의사항을 남겨주시면 24시간 이내에 답변드리겠습니다',
     'contact.form.name': '이름',
@@ -705,8 +701,8 @@ const translations = {
 
     // Inquiry Page Translation
     'inquiry.submit': '문의하기',
-    'inquiry.title': '온라인 문의',
-    'inquiry.subtitle': '문의사항을 작성해 주시면 빠른 시일 내에 답변드립니다',
+    'inquiry.title': '고객 소통 공간',
+    'inquiry.subtitle': '소중한 고객의 목소리를 담습니다',
     'inquiry.form.name': '성명',
     'inquiry.form.email': '이메일',
     'inquiry.form.phone': '연락처',
@@ -741,7 +737,7 @@ const translations = {
 
     // Location Page Translation
     'location.title': '오시는길',
-    'location.subtitle': '모멘텀파운데이션 본사 위치 및 교통편 안내',
+    'location.subtitle': '프라임코어(주) 본사 위치 및 교통편 안내',
     'location.office.title': '본사 위치',
     'location.address.title': '주소',
     'location.address.detail': '서울시 송파구 정의로8길 4',
@@ -791,7 +787,7 @@ const translations = {
     
     // News Page Translation
     'news.title': '알림마당',
-    'news.subtitle': '모멘텀파운데이션의 최신 소식과 공지사항을 확인하세요',
+    'news.subtitle': '프라임코어(주)의 최신 소식과 공지사항을 확인하세요',
     'news.notice.tab': '공지사항',
     'news.company.tab': '회사소식',
     'news.jobs.tab': '채용공고',
@@ -809,9 +805,9 @@ const translations = {
     'news.importantNotice': '중요 공지',
     'news.latestNews': '최신 소식',
     'news.latestNotices': '최신 공지',
-    'news.company.subtitle': '모멘텀파운데이션의 최신 소식을 전해드립니다',
-    'news.company.hero.desc': '모멘텀파운데이션의 성장과 발전을 함께 하세요',
-    'news.notice.subtitle': '모멘텀파운데이션의 중요한 안내사항을 확인하세요',
+    'news.company.subtitle': '모멘텀 NEWS',
+    'news.company.hero.desc': '프라임코어(주)의 성장과 발전을 함께 하세요',
+    'news.notice.subtitle': '주요 공지사항을 확인하세요',
     'news.table.no': '번호',
     'news.table.category': '카테고리',
     'news.table.title': '제목',
@@ -825,7 +821,7 @@ const translations = {
     
     // Values Section
     'values.title': '핵심 가치',
-    'values.subtitle': '모멘텀파운데이션이 추구하는 가치와 원칙입니다',
+    'values.subtitle': '프라임코어(주)이 추구하는 가치와 원칙입니다',
     'values.reliability': '신뢰성',
     'values.reliability.desc': '엄격한 품질 관리와 안전성 보장',
     'values.expertise': '전문성',
@@ -839,7 +835,7 @@ const translations = {
     'news.notice.title': '공지사항',
     'news.notice.desc': '회사의 중요한 공지사항과 정책 변경 사항을 확인하세요.',
     'news.company.title': '회사소식',
-    'news.company.desc': '모멘텀파운데이션의 최신 동향과 성과를 확인하세요.',
+    'news.company.desc': '프라임코어(주)의 최신 동향과 성과를 확인하세요.',
     'news.btn': '더 보기',
     'news.notice.empty.title': '공지사항이 없습니다',
     'news.notice.empty.content': '관리자 페이지에서 테스트 데이터를 생성해주세요.',
@@ -860,30 +856,30 @@ const translations = {
     'contact.btn': '온라인 문의하기',
     
     // About Page Content
-    'about.intro.title': '모멘텀파운데이션을 소개합니다',
-    'about.intro.desc': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'about.intro.title': '프라임코어(주)을 소개합니다',
+    'about.intro.desc': '2024년 설립된 프라임코어(주)은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
     'about.mission.title': '우리의 미션',
     'about.mission.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
     'about.ceo.title': 'CEO 인사말',
-    'about.ceo.message': '모멘텀파운데이션은 단순한 사업을 넘어 고객과 파트너의 성공을 함께 만들어가는 동반자가 되고자 합니다. 건강한 먹거리와 편리한 서비스를 통해 더 나은 미래를 창조하겠습니다.',
+    'about.ceo.message': '프라임코어(주)은 단순한 사업을 넘어 고객과 파트너의 성공을 함께 만들어가는 동반자가 되고자 합니다. 건강한 먹거리와 편리한 서비스를 통해 더 나은 미래를 창조하겠습니다.',
     'about.ceo.name': '대표이사 김영진',
     
     // HOME Page Sections
-    'home.about.title': '모멘텀파운데이션을 소개합니다',
-    'home.about.desc': '2024년 설립된 모멘텀파운데이션은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
+    'home.about.title': '프라임코어(주)을 소개합니다',
+    'home.about.desc': '2024년 설립된 프라임코어(주)은 건강한 먹거리와 편리한 서비스를 통해 고객의 삶에 새로운 가치를 더하는 혁신적인 기업입니다.',
     'home.mission.title': '우리의 비전',
     'home.mission.desc': '프리미엄 식자재 유통, 혁신적인 프랜차이즈 모델, 전문적인 FM/아웃소싱 서비스를 통해 고객과 파트너의 성공을 함께 만들어갑니다.',
     'home.business.title': '주요 사업 영역',
     'home.business.desc': '다양한 분야에서 혁신적인 서비스를 제공하며 고객의 성공을 함께 만들어갑니다',
     'home.values.title': '핵심 가치',
-    'home.values.desc': '모멘텀파운데이션이 추구하는 가치와 원칙입니다',
+    'home.values.desc': '프라임코어(주)이 추구하는 가치와 원칙입니다',
     
     // Company Introduction Page
     'company.intro.title': '기업소개',
     'company.intro.subtitle': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
-    'company.intro.desc1': '모멘텀파운데이션은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다.',
-    'company.intro.desc2': '설립 이래 모멘텀파운데이션은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다.',
-    'company.values.title': '모멘텀파운데이션의 핵심 가치',
+    'company.intro.desc1': '프라임코어(주)은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다.',
+    'company.intro.desc2': '설립 이래 프라임코어(주)은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다.',
+    'company.values.title': '프라임코어(주)의 핵심 가치',
     'company.values.subtitle': '고객과 사회에 대한 책임을 다하는 기업 철학',
     
     // HOME Page Additional Content
@@ -911,12 +907,12 @@ const translations = {
     'home.news.notice.desc': '중요한 공지사항을 확인하세요',
     'home.news.notice.btn': '더보기',
     'home.news.company.title': '회사소식',
-    'home.news.company.desc': '모멘텀파운데이션의 새로운 소식을 전해드립니다',
+    'home.news.company.desc': '프라임코어(주)의 새로운 소식을 전해드립니다',
     'home.news.company.btn': '더보기',
     
     // Careers Section
     'home.careers.title': '함께 성장할 인재를 찾습니다',
-    'home.careers.desc': '모멘텀파운데이션과 함께 성장하고 발전할 수 있는 기회를 제공합니다',
+    'home.careers.desc': '프라임코어(주)과 함께 성장하고 발전할 수 있는 기회를 제공합니다',
     'home.careers.jobs.title': '채용정보',
     'home.careers.jobs.desc': '다양한 분야의 채용 기회를 확인하세요',
     'home.careers.jobs.btn': '채용공고 보기',
@@ -945,22 +941,22 @@ const translations = {
     
     // Page Content Translations
     'page.about.title': '회사소개',
-    'page.about.subtitle': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
+    'page.about.subtitle': '건강한 먹거리와 편리한 서비스로 고객 가치 창출',
     'page.business.title': '사업영역',
     'page.business.subtitle': '다양한 분야에서 혁신적인 서비스를 제공합니다',
     'page.news.title': '알림마당',
-    'page.news.subtitle': '모멘텀파운데이션의 소식과 정보를 확인하세요',
+    'page.news.subtitle': '프라임코어(주)의 소식과 정보를 확인하세요',
     'page.careers.title': '인재영입',
     'page.careers.subtitle': '함께 성장할 인재를 찾습니다',
     'page.contact.title': '고객센터',
     'page.contact.subtitle': '언제든지 문의해 주세요',
     
     // Company Page Complete Translation
-    'company.headline': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
-    'company.desc1': '모멘텀파운데이션은 설립 이래 식자재 유통, 프랜차이즈, 시설 관리 분야에서 전문성을 인정받으며 성장해온 종합 서비스 기업입니다.',
+    'company.headline': '건강한 먹거리와 편리한 서비스로 고객 가치 창출',
+    'company.desc1': '프라임코어(주)은 설립 이래 식자재 유통, 프랜차이즈, 시설 관리 분야에서 전문성을 인정받으며 성장해온 종합 서비스 기업입니다.',
     'company.desc2': '계열사 및 전문 협력업체와의 파트너십을 통한 안전한 육류 가공, 전국 우수 농가와의 직거래를 통한 신선한 과일 공급, RPC 도정 시스템 기반의 고품질 미곡 유통으로 차별화된 가치를 제공합니다.',
     'company.desc3': '\'청년축산\' 정육식당 브랜드 운영과 전문 파트너사 연계 FM 서비스를 통해 고객의 다양한 니즈를 충족시키며, 지역사회와 상생하는 책임 경영을 실천하고 있습니다.',
-    'company.office.alt': '모멘텀파운데이션 본사',
+    'company.office.alt': '프라임코어(주) 본사',
     'company.values.trust.title': '신뢰성',
     'company.values.trust.desc': '투명하고 정직한 거래를 통해 고객과의 신뢰를 구축합니다',
     'company.values.expertise.title': '전문성',
@@ -970,7 +966,7 @@ const translations = {
     'company.values.responsibility.title': '책임감',
     'company.values.responsibility.desc': '고객과 사회에 대한 책임있는 경영을 실천합니다',
     'company.promise.title': '우리의 약속',
-    'company.promise.desc': '모멘텀파운데이션은 식자재 유통의 전문성을 바탕으로 프랜차이즈와 시설 관리 분야까지 사업을 확장하며, 한국을 대표하는 종합 서비스 기업으로 거듭나기 위해 끔임없이 역량을 강화해 나가고 있습니다.',
+    'company.promise.desc': '프라임코어는 식자재 유통의 전문성을 바탕으로 프랜차이즈와 시설 관리 분야까지 사업을 확장하며, 한국을 대표하는 종합 서비스 기업으로 거듭나기 위해 끊임없이 역량을 강화해 나가고 있습니다.',
     'company.promise.customer.title': '고객 중심',
     'company.promise.customer.desc': '투명하고 정직한 거래를 통한 고객 신뢰 구축',
     'company.promise.quality.title': '품질·안전 관리',
@@ -979,18 +975,18 @@ const translations = {
     'company.promise.value.desc': '지속적인 혁신을 통한 고객 가치 창출',
     
     // About Page Complete Translation
-    'about.headline': '건강한 먹거리와 편리한 서비스로 고객 가치 창조',
+    'about.headline': '맞춤형 고객 가치 창출',
     
     // Company Intro Page Translation
     'companyintro.subtitle': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
     'companyintro.core.title': '3대 핵심 사업',
-    'companyintro.desc1': '모멘텀파운데이션은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다. 우리 땅에서 난 건강한 식자재를 통해 고객 삶의 질 향상에 기여하는 것을 궁극적인 목표로 삼고 있습니다.',
-    'companyintro.desc2': '설립 이래 모멘텀파운데이션은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다. 각 사업 분야에서 축적된 전문성과 노하우를 바탕으로 고객 만족을 실현하며, 지역사회와 함께 성장하는 기업으로 자리매김하고 있습니다.',
+    'companyintro.desc1': '프라임코어(주)은 고객의 식탁에 신선함과 건강함을 책임지는 식품 유통 전문 기업입니다. 저희는 믿을 수 있는 품질과 안전성을 최우선 가치로 삼아, 엄격하게 선별된 제품만을 고객 여러분께 공급하고 있습니다. 우리 땅에서 난 건강한 식자재를 통해 고객 삶의 질 향상에 기여하는 것을 궁극적인 목표로 삼고 있습니다.',
+    'companyintro.desc2': '설립 이래 프라임코어(주)은 단순한 유통 업체를 넘어 고객의 일상 곳곳에 가치를 더하는 종합 서비스 기업으로 성장해왔습니다. 식자재 가공·유통이라는 핵심 역량을 바탕으로 프랜차이즈 사업과 시설 관리 서비스까지 사업 영역을 확장하여, 고객에게 더욱 풍성하고 편리한 경험을 제공하고 있습니다. 각 사업 분야에서 축적된 전문성과 노하우를 바탕으로 고객 만족을 실현하며, 지역사회와 함께 성장하는 기업으로 자리매김하고 있습니다.',
     
     // Business Areas Translation
     'business.food.title': '식자재 가공·유통',
     'business.food.desc': '육류, 과일, 미곡에 이르기까지 전반적인 식자재를 아우르는 가공·유통 전문 기업입니다.',
-    'business.meat.title': '한우·한돼 가공/유통_더담우',
+    'business.meat.title': '한우·한돈 가공/유통_더담우',
     'business.meat.desc': 'HACCP 인증 시설을 갖춘 계열사 \'더담우\'를 통해 프리미엄 국내산 육류를 완벽한 콜드체인 시스템으로 공급합니다.',
     'business.fruit.title': '과일유통_청년나래',
     'business.fruit.desc': '전국 우수 농가와 직접 계약하여 가장 신선한 제철 과일을 수확 후 최단 시간 내 전달합니다.',
@@ -1003,7 +999,7 @@ const translations = {
     'business.fm.desc': '검증된 전문 파트너사와의 협력을 통해 경비, 청소, 시설 관리 등 고객사의 비핵심 업무를 전문적으로 위탁 관리합니다. 맞춤형 솔루션 제공과 통합 관리 시스템으로 고객사의 운영 효율을 극대화하고 비용을 절감합니다.',
     
     // Footer Translation
-    'footer.company.name': '모멘텀파운데이션',
+    'footer.company.name': '프라임코어 주식회사',
     'footer.company.desc': '건강한 먹거리와 편리한 서비스로 고객 가치를 창조하는 기업',
     'footer.contact.title': '연락처',
     'footer.contact.phone': '전화: 02-2138-1214',
@@ -1015,7 +1011,7 @@ const translations = {
     'footer.links.business': '사업영역',
     'footer.links.careers': '인재영입',
     'footer.links.contact': '고객센터',
-    'footer.copyright': '© 2024 모멘텀파운데이션. All rights reserved.',
+    'footer.copyright': '© 2024 프라임코어 주식회사. All rights reserved.',
     'footer.privacy': '개인정보 처리방침',
     'footer.ceo.label': '대표이사',
     'footer.ceo.names': '소민지/이병준',
@@ -1026,7 +1022,7 @@ const translations = {
     'page.about.responsive': '식자재 유통에서 시설 관리까지 토탈 솔루션 전문 기업',
     'page.ceo.responsive': '나눔과 동반성장을 추구하는 종합 서비스 기업',
     'page.philosophy.responsive': '기업 이념 체계 / 핵심가치 상세',
-    'page.history.responsive': '모멘텀파운데이션의 성장 과정',
+    'page.history.responsive': '프라임코어(주)의 성장 과정',
 'page.food.responsive': '고품질 식자재 엄선 및 철저한 품질 관리와 최첨단 시스템 구축 / 한우·한돼 가공 및 유통 / 과일 유통의 신흥강자_청년나래 / 고품질 브랜드쌌 및 곡물 전문유통',
     'page.franchise.responsive': '본사 식자재 유통망을 통한 압도적 가성비와 신선한 고기 제공 / 정육 식당 모델 혁신 / 창업 안내 - 성공을 꿈꾸는 당신의 든든한 파트너',
     'page.fm.responsive': '비핵심 업무 위탁 통한 고객사 운영 효율 극대화 및 비용 절감 / 경비용역 위탁 관리 / 빌딩 종합 관리(FM) 위탁',
@@ -1074,12 +1070,12 @@ const translations = {
 'hero.title2': 'Adding Value to Daily Life',
     
     // Company Intro Main Title
-'companyintro.main.title': 'Providing Total Solutions from Food Ingredients Distribution to Facility Management',
+'companyintro.main.title': 'From Food to Facility Management',
     
     // CEO Message Page Translation
 'ceo.title': 'CEO Message',
-'ceo.subtitle': 'A comprehensive service company pursuing sharing and mutual growth',
-    'ceo.headline': 'A comprehensive service company pursuing sharing and mutual growth',
+'ceo.subtitle': 'Pursuing Sharing and Mutual Growth',
+    'ceo.headline': 'Pursuing Sharing and Mutual Growth',
     'ceo.message.para1': 'Since the establishment of Momentum Foundation in July 2024, we have grown into a comprehensive service company by expanding our business areas to food ingredient distribution, franchises, and facility management through continuous challenges and innovation.',
     'ceo.message.para2': 'Our growth process is based on the firm corporate philosophy of "growth through sharing." Beyond simply pursuing profit-oriented business activities, we have continued social contribution activities that promote regional welfare and practice neighborly love. With the belief that corporate success is only complete when it is with the local community, we have pursued sustainable development in mutual prosperity with the community we belong to.',
 'ceo.message.para3': 'Now Momentum Foundation is preparing for a new leap forward. Based on the expertise in food ingredient distribution that we have built up, we aim to lead innovation in dining culture and further establish ourselves as a total solution partner responsible for the operational efficiency of corporate customers. We will deliver greater value to our customers through the know-how and synergy accumulated in each business field.',
@@ -1094,7 +1090,7 @@ const translations = {
     'about.philosophy.title': 'Corporate Philosophy',
     'about.history.title': 'History',
     'about.org.title': 'Organization',
-    'about.org.subtitle': 'Providing the best service with a systematic and professional organizational structure',
+    'about.org.subtitle': 'Network of Communication and Collaboration',
     'about.stats.business': 'Business Areas',
     'about.stats.satisfaction': 'Satisfaction',
     'about.stats.service': 'Service',
@@ -1166,8 +1162,8 @@ const translations = {
 'philosophy.core.future.desc': 'Pursuing potential future values such as ESG management and sustainable growth orientation',
     
     // History Page Translation
-    'history.subtitle': 'Momentum Foundation\'s Growth Process',
-    'history.title': 'Momentum Foundation\'s Growth Process',
+    'history.subtitle': 'Record of Challenge and Growth',
+    'history.title': 'Record of Challenge and Growth',
 'history.desc': 'Our journey of development through continuous innovation and growth',
     
     // History Timeline Items
@@ -1196,20 +1192,20 @@ const translations = {
     
     // Business Page Translation
     'business.viewMore': 'View More',
-    'business.area1.title': 'Premium Fresh Food Processing & Distribution',
-    'business.area1.desc': 'Professional processing and distribution of fresh and safe agricultural, livestock and marine products',
+    'business.area1.title': 'Quality Control & Innovation System',
+    'business.area1.desc': 'Carefully selected ingredients managed with advanced systems',
     'business.area1.feature1': 'Korean Beef & Pork Processing/Distribution_Deodam-u',
     'business.area1.feature2': 'Fruit Distribution_Cheongnyeon Narae',
     'business.area1.feature3': 'Brand Rice and Grain Specialized Distribution',
     'business.area1.feature4': 'HACCP Certified Facilities Complete',
-    'business.area2.title': 'The Standard of Franchise Cheongnyeon Livestock',
-    'business.area2.desc': 'Honest innovation of young people who are serious about meat!',
+    'business.area2.title': 'Unbeatable Value & Fresh Meat',
+    'business.area2.desc': 'Supplying high value fresh meat through our own distribution network',
     'business.area2.feature1': 'Butcher Restaurant Model Innovation',
     'business.area2.feature2': 'Overwhelming Cost-effectiveness Realization',
     'business.area2.feature3': 'Systematic Startup Support',
     'business.area2.feature4': 'National Network Expansion',
-    'business.area3.title': 'FM/Outsourcing Professional Services',
-    'business.area3.desc': 'Building comprehensive management and professional outsourcing services',
+    'business.area3.title': 'Maximize Efficiency, Reduce Costs',
+    'business.area3.desc': 'Achieving efficiency improvement and cost reduction through outsourcing',
 'business.area3.feature1': 'Security Service Consignment Management',
     'business.area3.feature2': 'Building Comprehensive Management (FM)',
     'business.area3.feature3': 'Professional Partner Company Connection',
@@ -1654,8 +1650,8 @@ const translations = {
     'home.careers.cta.btn': 'View All Job Postings',
 
     // Careers Hero (English)
-    'careers.hero.title1': 'Looking for',
-    'careers.hero.title2': 'Talent to Grow With',
+    'careers.hero.title1': 'Fresh and',
+    'careers.hero.title2': 'Talented People',
 
     // Careers Stats (English)
     'careers.stats.employees': 'Employees',
@@ -1714,7 +1710,7 @@ const translations = {
     // Contact Page Translation (English)
     'contact.headline': 'Professional Consultation Service',
     'contact.service.title': 'Professional Consultation Service',
-    'contact.service.desc': 'Momentum Foundation\'s professional consultants provide kind and accurate guidance for your inquiries',
+    'contact.service.desc': 'We kindly and accurately guide your questions',
     'contact.info.title': 'Contact Information',
 'contact.info.desc': 'You can contact us anytime by phone or email',
     
@@ -1752,8 +1748,8 @@ const translations = {
 
     // Inquiry Page Translation (English)
     'inquiry.submit': 'Submit Inquiry',
-    'inquiry.title': 'Online Inquiry',
-    'inquiry.subtitle': 'Please write your inquiry and we will respond within a quick time',
+    'inquiry.title': 'Customer Communication Space',
+    'inquiry.subtitle': 'We capture the voice of our valued customers',
     'inquiry.form.name': 'Name',
     'inquiry.form.email': 'Email',
     'inquiry.form.phone': 'Phone',
@@ -1854,9 +1850,9 @@ const translations = {
     'news.importantNotice': 'Important',
     'news.latestNews': 'Latest News',
     'news.latestNotices': 'Latest Notices',
-    'news.company.subtitle': 'Latest news from Momentum Foundation',
+    'news.company.subtitle': 'MOMENTUM NEWS',
     'news.company.hero.desc': 'Join our growth and development journey',
-    'news.notice.subtitle': 'Check important announcements from Momentum Foundation',
+    'news.notice.subtitle': 'Check Key Announcements',
 
     // About Page Content
     'about.intro.title': 'Introducing Momentum Foundation',

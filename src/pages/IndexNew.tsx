@@ -69,8 +69,8 @@ const IndexNew = () => {
     {
       video: "/momentum_foundation/videos/food.mp4",
       title: language === 'ko'
-        ? "오랜 노하우와 전문 서비스로\n모멘텀은 식탁을 넘어\n비즈니스의 가치를 디자인합니다."
-        : "With expertise and professional service,\nMOMENTUM designs business value\nbeyond the table.",
+        ? "오랜 노하우와 전문 서비스로\n프라임코어는 식탁을 넘어\n비즈니스의 가치를 디자인합니다."
+        : "With expertise and professional service,\nPRIMECORE designs business value\nbeyond the table.",
       subtitle: ""
     },
     {
@@ -151,7 +151,7 @@ const IndexNew = () => {
   // 뉴스 데이터
   const newsItems = [
     {
-      title: language === 'ko' ? '모멘텀, 2025년 신규 사업 확장 계획 발표' : 'MOMENTUM announces 2025 expansion plan',
+      title: language === 'ko' ? '프라임코어, 2025년 신규 사업 확장 계획 발표' : 'PRIMECORE announces 2025 expansion plan',
       desc: language === 'ko' ? '식자재 유통을 넘어 프랜차이즈, FM 서비스까지 사업 영역 확대' : 'Expanding business from food distribution to franchise and FM services',
       date: '2025.01.10',
       image: '/momentum_foundation/images/momentum-building.png'
@@ -182,7 +182,7 @@ const IndexNew = () => {
             {language === 'ko' ? '가치를 창출하는,' : 'Creating Value,'}
             <br />
             <span className="text-3xl md:text-5xl lg:text-6xl mt-2 block">
-              {language === 'ko' ? '모멘텀' : 'MOMENTUM'}
+              {language === 'ko' ? '프라임코어' : 'PRIMECORE'}
             </span>
           </h2>
         </div>
@@ -215,7 +215,7 @@ const IndexNew = () => {
                 <img src="/momentum_foundation/images/food-distribution.png" alt="" className="w-full h-full object-cover" />
               </div>
               <span className={`text-white text-3xl md:text-6xl lg:text-8xl font-black tracking-wider transition-all duration-700 ${introStep >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'}`} style={{transitionDelay: '0.45s'}}>
-                MOMENTUM
+                PRIMECORE
               </span>
             </div>
           </div>
@@ -317,7 +317,7 @@ const IndexNew = () => {
             <p className="text-green-600 text-sm font-medium tracking-wider mb-3">What We Do</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
               <span className="text-gray-400 block text-lg md:text-xl font-normal mb-2">
-                {language === 'ko' ? '모멘텀이 제안하는' : 'MOMENTUM presents'}
+                {language === 'ko' ? '프라임코어이 제안하는' : 'PRIMECORE presents'}
               </span>
               {language === 'ko' ? '새로운 비즈니스 가치' : 'New Business Value'}
             </h2>
@@ -369,7 +369,7 @@ const IndexNew = () => {
                 <span className="text-gray-400 block text-lg md:text-xl font-normal mb-2">
                   {language === 'ko' ? '고객의 성공을 위한' : 'For your success'}
                 </span>
-                {language === 'ko' ? '모멘텀의 서비스' : "MOMENTUM's Service"}
+                {language === 'ko' ? '프라임코어의 서비스' : "PRIMECORE's Service"}
               </h2>
             </div>
 
@@ -382,10 +382,10 @@ const IndexNew = () => {
                   <p className="text-white text-2xl md:text-3xl font-bold mb-2">
                     {language === 'ko' ? '나에게 꼭 맞는' : 'Find the right'}
                     <br />
-                    {language === 'ko' ? '모멘텀 서비스는?' : 'MOMENTUM service'}
+                    {language === 'ko' ? '프라임코어 서비스는?' : 'PRIMECORE service'}
                   </p>
                   <p className="text-white/70 text-sm mb-4">
-                    {language === 'ko' ? '비즈니스에 맞춘 최적의 모멘텀 솔루션!' : 'Optimal MOMENTUM solution for your business!'}
+                    {language === 'ko' ? '비즈니스에 맞춘 최적의 프라임코어 솔루션!' : 'Optimal PRIMECORE solution for your business!'}
                   </p>
                   <Link to="/about/intro" className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 text-sm font-medium hover:bg-green-700 transition-colors">
                     {language === 'ko' ? '서비스 찾아보기' : 'Find Service'}
@@ -424,13 +424,13 @@ const IndexNew = () => {
           </div>
         </section>
 
-        {/* Section 4: The Best of MOMENTUM */}
+        {/* Section 4: The Best of PRIMECORE */}
         <section className="py-20 md:py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
-            <p className="text-green-600 text-sm font-medium tracking-wider mb-3">The Best of MOMENTUM</p>
+            <p className="text-green-600 text-sm font-medium tracking-wider mb-3">The Best of PRIMECORE</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               <span className="text-gray-400 block text-lg md:text-xl font-normal mb-2">
-                {language === 'ko' ? '모멘텀의 대표 서비스' : "MOMENTUM's Best Services"}
+                {language === 'ko' ? '프라임코어의 대표 서비스' : "PRIMECORE's Best Services"}
               </span>
             </h2>
           </div>
@@ -464,11 +464,11 @@ const IndexNew = () => {
             <p className="text-green-400 text-sm font-medium tracking-wider mb-3">PR Center</p>
             <h2 className="text-3xl md:text-4xl font-bold text-white">
               <span className="text-gray-500 block text-lg md:text-xl font-normal mb-2">
-                {language === 'ko' ? '한눈에 보는 모멘텀 소식' : 'MOMENTUM News at a Glance'}
+                {language === 'ko' ? '한눈에 보는 프라임코어 소식' : 'PRIMECORE News at a Glance'}
               </span>
             </h2>
             <p className="text-gray-400 mt-4">
-              {language === 'ko' ? '모멘텀의 최신 소식과 정보를 확인하세요.' : 'Check out the latest news and information.'}
+              {language === 'ko' ? '프라임코어의 최신 소식과 정보를 확인하세요.' : 'Check out the latest news and information.'}
             </p>
           </div>
 
@@ -495,10 +495,10 @@ const IndexNew = () => {
         {/* Section 6: SNS */}
         <section className="py-20 md:py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12 text-center">
-            <p className="text-green-600 text-sm font-medium tracking-wider mb-3">MOMENTUM SNS</p>
+            <p className="text-green-600 text-sm font-medium tracking-wider mb-3">PRIMECORE SNS</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               <span className="text-gray-400 block text-lg md:text-xl font-normal mb-2">
-                {language === 'ko' ? '모멘텀과 함께하는 이야기' : 'Stories with MOMENTUM'}
+                {language === 'ko' ? '프라임코어과 함께하는 이야기' : 'Stories with PRIMECORE'}
               </span>
             </h2>
           </div>
@@ -532,12 +532,12 @@ const IndexNew = () => {
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50">
           <div className="bg-white w-[90%] max-w-md shadow-2xl">
             <div className="bg-green-600 text-white py-4 px-6 font-bold">
-              {language === 'ko' ? '모멘텀에 오신 것을 환영합니다' : 'Welcome to MOMENTUM'}
+              {language === 'ko' ? '프라임코어에 오신 것을 환영합니다' : 'Welcome to PRIMECORE'}
             </div>
             <div className="p-6">
               <img src="/momentum_foundation/images/momentum-building.png" alt="" className="w-full aspect-video object-cover mb-4" />
               <p className="text-gray-600 text-sm">
-                {language === 'ko' ? '고객의 가치를 높이는 식자재 & 서비스 브랜드, 모멘텀입니다.' : 'MOMENTUM - Food & Service brand that enhances customer value.'}
+                {language === 'ko' ? '고객의 가치를 높이는 식자재 & 서비스 브랜드, 프라임코어입니다.' : 'PRIMECORE - Food & Service brand that enhances customer value.'}
               </p>
             </div>
             <div className="flex border-t">

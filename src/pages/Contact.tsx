@@ -73,16 +73,25 @@ const Contact = () => {
               <HeadphonesIcon className="w-5 h-5 text-emerald-400" />
             </div>
 
-            <h1 className="text-6xl lg:text-8xl font-black text-white mb-8 tracking-tight leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-8 tracking-tight leading-tight">
               <span className="block">{t('contact.hero.title1')}</span>
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                 {t('contact.hero.title2')}
               </span>
             </h1>
 
-            <p className="text-xl lg:text-2xl text-gray-300 font-light max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg lg:text-xl text-gray-300 font-light max-w-3xl mx-auto mb-12 leading-relaxed">
               {t('contact.headline')}
             </p>
+
+            {/* Customer Service Image */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <img
+                src="/momentum_foundation/images/customer_service.jpg"
+                alt="상담 서비스"
+                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+              />
+            </div>
 
             {/* Stats Row */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-12 max-w-2xl mx-auto">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Calendar, Building2, TrendingUp, Award, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -99,72 +100,34 @@ const History = () => {
   const years = Object.keys(groupedItems).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
-    <div className="min-h-screen bg-gray-950 overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 overflow-hidden">
-        {/* Floating Blur Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-green-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
-          <div className={`text-center transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            {/* Badge */}
-            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-8 backdrop-blur-sm transition-all duration-700 delay-200 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">History</span>
-            </div>
-
-            {/* Main Title */}
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-8 transition-all duration-700 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-              <span className="bg-gradient-to-r from-white via-emerald-100 to-emerald-300 bg-clip-text text-transparent">
-                {t('about.history.title')}
-              </span>
-            </h1>
-
-            {/* Decorative Line */}
-            <div className={`flex items-center justify-center gap-4 transition-all duration-700 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-emerald-500"></div>
-              <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-emerald-500"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Gradient Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent"></div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.about.history')}
+        backgroundImage="/momentum_foundation/images/banner_about.jpg"
+      />
 
       {/* History Timeline Section */}
-      <section className="relative py-24 bg-gray-950">
+      <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 right-0 w-96 h-96 bg-emerald-900/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-teal-900/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 right-0 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-teal-100/50 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className={`text-center mb-20 transition-all duration-700 delay-600 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6 backdrop-blur-sm">
-              <Calendar className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wider uppercase">Timeline</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 border border-emerald-200 rounded-full mb-6">
+              <Calendar className="w-4 h-4 text-emerald-600" />
+              <span className="text-emerald-700 text-sm font-medium tracking-wider uppercase">Timeline</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white via-white to-emerald-200 bg-clip-text text-transparent">
-                {t('history.title')}
-              </span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
+              {t('history.title')}
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               {t('history.desc')}
             </p>
           </div>
@@ -195,7 +158,7 @@ const History = () => {
                       </div>
                     </div>
                     <div className="ml-8 md:ml-10">
-                      <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                      <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
                         {year === '2025' ? t('history.2025.title') : t('history.2024.title')}
                       </h3>
                     </div>
@@ -220,25 +183,25 @@ const History = () => {
                       </div>
 
                       {/* Content Card */}
-                      <div className="ml-20 md:ml-24 flex-1 bg-gradient-to-br from-gray-800/80 via-gray-800/60 to-gray-900/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-emerald-900/20 group-hover:-translate-y-1">
+                      <div className="ml-20 md:ml-24 flex-1 bg-white rounded-2xl p-6 md:p-8 border border-gray-200 hover:border-emerald-300 transition-all duration-500 group-hover:shadow-xl group-hover:-translate-y-1">
                         {/* Month Badge */}
                         <div className="flex items-center mb-4">
                           <span className={`inline-flex items-center px-4 py-1.5 rounded-full text-lg font-bold ${
                             year === '2025'
-                              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                              : 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+                              ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                              : 'bg-teal-100 text-teal-700 border border-teal-200'
                           }`}>
                             {item.month}{t('history.month.suffix')}
                           </span>
                         </div>
 
                         {/* Title */}
-                        <h4 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-emerald-100 transition-colors duration-300">
+                        <h4 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
                           {item.title}
                         </h4>
 
                         {/* Description */}
-                        <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                        <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                           {item.description}
                         </p>
 
@@ -261,17 +224,17 @@ const History = () => {
       </section>
 
       {/* Bottom CTA Section */}
-      <section className="relative py-20 bg-gradient-to-t from-gray-900 to-gray-950">
+      <section className="relative py-20 bg-gradient-to-t from-emerald-50 to-white">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-100/50 rounded-full blur-3xl"></div>
         </div>
         <div className={`relative z-10 max-w-4xl mx-auto px-4 text-center transition-all duration-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-emerald-500"></div>
-            <Sparkles className="w-6 h-6 text-emerald-400" />
+            <Sparkles className="w-6 h-6 text-emerald-500" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-emerald-500"></div>
           </div>
-          <p className="text-2xl md:text-3xl font-light text-gray-300">
+          <p className="text-2xl md:text-3xl font-light text-gray-700">
             {t('history.cta.text')}
           </p>
         </div>

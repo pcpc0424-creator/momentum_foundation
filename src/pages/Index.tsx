@@ -82,8 +82,14 @@ const Index = () => {
           trigger: sectionRef.current,
           start: 'top top',
           end: '+=300%',
-          scrub: 1,
+          scrub: 0.5,
           pin: true,
+          snap: {
+            snapTo: [0, 0.6, 1], // 시작, 비디오 전체화면, 배너 상태
+            duration: { min: 0.4, max: 1 },
+            delay: 0.1,
+            ease: 'power2.inOut',
+          },
           onUpdate: (self) => {
             // 60% 이상 스크롤 시 헤더 표시
             setHeaderVisible(self.progress > 0.6);
@@ -132,11 +138,11 @@ const Index = () => {
     line2: { text: 'INSPIRED BY' },
     line3: { text: 'MOMENTUM' },
     videoOverlay: {
-      title: language === 'ko' ? '오랜 노하우와 앞선 기술로\n모멘텀은 유통을 넘어\n새로운 가치를 창출합니다.' : 'With expertise and advanced technology\nMOMENTUM creates new value\nbeyond distribution.',
+      title: language === 'ko' ? '오랜 노하우와 앞선 기술로\n프라임코어는 유통을 넘어\n새로운 가치를 창출합니다.' : 'With expertise and advanced technology\nPRIMECORE creates new value\nbeyond distribution.',
     },
     whatwedo: {
       subtitle: 'What We Do',
-      title: language === 'ko' ? '유통 파트너 모멘텀이 제안하는\n새로운 라이프스타일' : 'Distribution Partner MOMENTUM presents\nA New Lifestyle',
+      title: language === 'ko' ? '유통 파트너 프라임코어가 제안하는\n새로운 라이프스타일' : 'Distribution Partner PRIMECORE presents\nA New Lifestyle',
     },
     categories: [
       { title: language === 'ko' ? '식자재 유통' : 'Food Distribution', en: 'Food Business', link: '/business/food', image: '/momentum_foundation/images/meat_products_20251219_072051.png' },
@@ -428,7 +434,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-blue-600 text-sm mb-2">Our Service</p>
           <h2 className="text-2xl md:text-3xl font-bold mb-10">
-            {language === 'ko' ? '모멘텀의 파트너십' : 'MOMENTUM Partnership'}
+            {language === 'ko' ? '프라임코어의 파트너십' : 'PRIMECORE Partnership'}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -436,7 +442,7 @@ const Index = () => {
               <img src="/momentum_foundation/images/company_building_20251219_072052.png" alt="" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <p className="text-white text-xl font-bold mb-3">{language === 'ko' ? '나에게 맞는 모멘텀 서비스는?' : 'Find your service'}</p>
+                <p className="text-white text-xl font-bold mb-3">{language === 'ko' ? '나에게 맞는 프라임코어 서비스는?' : 'Find your service'}</p>
                 <Link to="/business/food" className="inline-block bg-blue-600 text-white px-5 py-2 text-sm hover:bg-blue-700">
                   {language === 'ko' ? '서비스 찾기' : 'Find Service'}
                 </Link>
@@ -472,11 +478,11 @@ const Index = () => {
             <Link to="/privacy" className="text-gray-900 font-bold">{language === 'ko' ? '개인정보처리방침' : 'Privacy'}</Link>
           </div>
           <div className="text-xs text-gray-500">
-            <p>{language === 'ko' ? '(주)모멘텀파운데이션' : 'MOMENTUM Foundation Co., Ltd.'}</p>
+            <p>{language === 'ko' ? '프라임코어(주)' : 'PRIMECORE Co., Ltd.'}</p>
             <p>{language === 'ko' ? '서울 송파구 송파대로 201 테라타워2 B동 1407호' : 'Terra Tower 2 B-1407, Seoul'}</p>
             <p>TEL: 02-6423-4122</p>
           </div>
-          <p className="mt-6 text-xs text-gray-400">© 2025 MOMENTUM Foundation.</p>
+          <p className="mt-6 text-xs text-gray-400">© 2025 PRIMECORE Co., Ltd.</p>
         </div>
       </footer>
 

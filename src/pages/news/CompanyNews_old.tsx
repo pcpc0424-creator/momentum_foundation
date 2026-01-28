@@ -178,7 +178,7 @@ const Notice = () => {
               </h1>
               <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
               <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-                모멘텀파운데이션의 중요한 회사소식을 확인하세요
+                프라임코어의 중요한 회사소식을 확인하세요
               </span>
             </div>
           </div>
@@ -254,7 +254,7 @@ const Notice = () => {
             </h1>
             <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
             <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              모멘텀파운데이션의 중요한 회사소식을 확인하세요
+              프라임코어의 중요한 회사소식을 확인하세요
             </span>
           </div>
         </div>

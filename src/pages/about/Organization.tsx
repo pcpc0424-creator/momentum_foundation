@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Users, Building2, Truck, Briefcase, ShoppingCart, Shield, Crown, UserCircle, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -62,25 +63,11 @@ const Organization = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className={`transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex items-center gap-2 text-emerald-400 mb-4">
-              <span className="w-8 h-px bg-emerald-400"></span>
-              <span className="text-sm font-medium tracking-wider uppercase">Organization</span>
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold">
-              {t('about.org.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.about.organization')}
+        backgroundImage="/momentum_foundation/images/banner_about.jpg"
+      />
 
       {/* Organization Chart Section */}
       <section className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
@@ -98,53 +85,16 @@ const Organization = () => {
             </h2>
           </div>
 
-          {/* Executive Level - 최고 경영진 */}
-          <div className={`mb-12 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-2 px-6 py-2 bg-gray-800 text-white rounded-full shadow-lg">
-                <Shield className="w-5 h-5 text-emerald-400" />
-                <span className="font-semibold">{t('org.executives')}</span>
-              </div>
-            </div>
-
-            {/* Executive Cards */}
-            <div className="flex justify-center gap-4 lg:gap-8 flex-wrap">
-              {executives.map((exec, index) => (
-                <div
-                  key={index}
-                  className={`group flex items-center gap-3 px-6 py-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-2 ${
-                    exec.highlight ? 'border-emerald-400 bg-gradient-to-br from-emerald-50 to-green-50' : 'border-gray-200 hover:border-emerald-300'
-                  }`}
-                >
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                    exec.highlight ? 'bg-gradient-to-br from-emerald-500 to-green-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-emerald-100 group-hover:text-emerald-600'
-                  } transition-all duration-300`}>
-                    {exec.icon}
-                  </div>
-                  <span className={`font-bold ${exec.highlight ? 'text-emerald-700' : 'text-gray-700'}`}>
-                    {exec.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Connector Line */}
-          <div className="flex justify-center mb-6">
-            <div className="w-1 h-12 bg-gradient-to-b from-gray-300 to-emerald-400 rounded-full" />
-          </div>
-
           {/* CEO Level - 대표이사 */}
           <div className={`flex justify-center mb-8 transition-all duration-700 delay-400 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-              <div className="relative flex items-center gap-4 px-8 py-5 bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl shadow-2xl">
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-green-500 rounded-xl flex items-center justify-center">
+              <div className="relative flex items-center gap-4 px-8 py-5 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-2xl">
+                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
                   <UserCircle className="w-8 h-8" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{t('org.ceo')}</p>
-                  <p className="text-emerald-400 text-sm">{t('org.ceo.desc')}</p>
+                  <p className="text-emerald-200 text-sm">{t('org.ceo.desc')}</p>
                 </div>
               </div>
             </div>

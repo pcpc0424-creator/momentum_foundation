@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Wheat, Award, Factory, Shield } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -28,19 +29,11 @@ const RiceBusiness = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="bg-dusty-blue text-gray-800 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-              {t('rice.title')}
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto">
-              {t('rice.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('rice.title')}
+        backgroundImage="/momentum_foundation/images/banner_business.png"
+      />
 
       {/* Main Content */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white">

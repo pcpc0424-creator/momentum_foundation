@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Award, Users, Truck, MapPin, Star, Sparkles, Crown, TrendingUp, Shield, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -77,51 +78,11 @@ const FranchiseBusiness = () => {
     <div className="min-h-screen bg-gray-950">
       <Navigation />
 
-      {/* Premium Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-emerald-900 overflow-hidden">
-        {/* Floating Blur Orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute -bottom-10 right-1/4 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
-          <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Premium Badge */}
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm mb-8 transition-all duration-700 delay-200 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-              <Star className="h-4 w-4 text-emerald-400" />
-              <span className="text-emerald-300 text-sm font-medium tracking-wide">PREMIUM FRANCHISE</span>
-              <Star className="h-4 w-4 text-emerald-400" />
-            </div>
-
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-12 tracking-tight transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-              <span className="bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text text-transparent">
-                {t('franchise.title')}
-              </span>
-            </h1>
-
-            {/* Decorative Line */}
-            <div className={`mt-12 flex items-center justify-center gap-4 transition-all duration-700 delay-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-emerald-500"></div>
-              <Crown className="h-6 w-6 text-emerald-400" />
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-emerald-500"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Gradient Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-950 to-transparent"></div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.business.franchise')}
+        backgroundImage="/momentum_foundation/images/banner_business.png"
+      />
 
       {/* Brand Introduction Section */}
       <section className="relative py-24 bg-gray-950">

@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Sparkles, Award, Truck, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -28,20 +29,11 @@ const CosmeticsBusiness = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-                              <section className="bg-dusty-blue text-gray-800 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mr-2 sm:mr-4">
-              {t('cosmetics.title')}
-            </h1>
-            <span className="text-gray-400 mx-3 text-2xl hidden md:inline">|</span>
-            <span className="text-sm lg:text-base text-gray-700 font-medium hidden md:inline">
-              {t('cosmetics.subtitle')}
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('cosmetics.title')}
+        backgroundImage="/momentum_foundation/images/banner_business.png"
+      />
 
       {/* Main Content */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white">

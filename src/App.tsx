@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
+import IndexHaatz2 from "./pages/IndexHaatz2";
 import HaatzClone from "./pages/HaatzClone";
 import About from "./pages/About";
 import Business from "./pages/Business";
@@ -69,7 +70,8 @@ const App = () => (
       <HashRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<IndexHaatz2 />} />
+          <Route path="/old" element={<Index />} />
           <Route path="/haatz" element={<HaatzClone />} />
           <Route path="/about" element={<About />} />
           <Route path="/business" element={<Business />} />

@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { FileText, Users, CheckCircle, Award } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -49,16 +50,11 @@ const requirements = [
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-                              <section className="bg-cool-grey text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              {t('process.hero.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.careers.process')}
+        backgroundImage="/momentum_foundation/images/banner_careers.jpg"
+      />
 
       {/* Process Steps */}
       <section className="py-20 bg-white">

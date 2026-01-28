@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
 import { Phone, Mail, Building2, Printer } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -46,16 +47,11 @@ email: t('departments.fm.email')
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-<section className="bg-warm-beige text-gray-800 pt-24 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center ml-4 md:ml-16">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">
-              {t('departments.hero.title')}
-            </h1>
-          </div>
-        </div>
-      </section>
+      {/* Page Banner */}
+      <PageBanner
+        title={t('nav.contact.departments')}
+        backgroundImage="/momentum_foundation/images/banner_contact.jpg"
+      />
 
       {/* Departments */}
       <section className="py-20 bg-white">

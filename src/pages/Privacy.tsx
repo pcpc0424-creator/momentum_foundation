@@ -29,7 +29,7 @@ const Privacy = () => {
           <div className="bg-white rounded-lg shadow-lg p-8">
             <div className="prose max-w-none">
               <p className="text-lg text-gray-700 mb-8">
-                모멘텀파운데이션 주식회사(이하 '회사')는 이용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.
+                프라임코어 주식회사(이하 '회사')는 이용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다.
               </p>
 
               <div className="space-y-8">
